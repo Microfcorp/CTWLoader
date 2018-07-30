@@ -1,0 +1,33 @@
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Release\CTW loader.exe.config
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Release\CTW loader.exe
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Release\CTW loader.pdb
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Release\Ionic.Zip.dll
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Release\SoundFingerprinting.Audio.dll
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Release\SoundFingerprinting.Audio.NAudio.dll
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Release\SoundFingerprinting.Infrastructure.dll
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW_loader.Form1.resources
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW_loader.Properties.Resources.resources
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW loader.csproj.GenerateResource.Cache
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW loader.exe
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW loader.pdb
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW loader.csprojResolveAssemblyReference.cache
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\CTW loader.exe.config
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW loader.exe
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW loader.pdb
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\CTW loader.exe
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\CTW loader.pdb
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\Ionic.Zip.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\SoundFingerprinting.Audio.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\SoundFingerprinting.Audio.NAudio.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\SoundFingerprinting.Infrastructure.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW loader.csprojResolveAssemblyReference.cache
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW_loader.AboutBox1.resources
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW_loader.Form1.resources
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW_loader.Properties.Resources.resources
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW loader.csproj.GenerateResource.Cache
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\en\CTW loader.resources.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\ru-RU\CTW loader.resources.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW_loader.Form1.en.resources
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW_loader.Form1.ru-RU.resources
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\en\CTW loader.resources.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\ru-RU\CTW loader.resources.dll
