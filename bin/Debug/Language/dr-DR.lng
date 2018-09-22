@@ -1,0 +1,192 @@
+FormName=CTWLoader;
+SoftLogo=CTW Loader-Craft the World game file Editor;
+GameNotFound=das Spiel wurde nicht gefunden;
+GameNotFoundDesc=Überprüfen Sie, ob der spielpfad richtig geschrieben ist;
+Error=Fehler;
+ErrorRecipes=Dieses Rezept wurde bereits Hinzugefügt. Fehler;
+NullParam=Nicht alle Parameter eingegeben;
+OpenMusicGameplay=öffnen Sie die Gameplay-Musikdatei;
+OpenMusicSlept=öffnen Sie die Musikdatei der Ruhe;
+OpenMusicEnem=öffnen Sie die Alarm-Datei;
+OpenMusicMenu=öffnen Sie die Musik-Menü-Datei;
+OpenLogo=öffnen Sie die Datei Logo Download;
+SaveCTWSaves= Speicherdatei Speichern;
+OpenCTWSaves= Datei speichern Öffnen;
+Rutracker =Speziell für Rutracker.org;
+Desc = ctwloader-Craft the World game file Editor;
+label88 = Bearbeiten von Bestiarien;
+label87 = Beschreibung;
+label86 = Name;
+label85 = Name;
+label84 = Name;
+label83=Умение1();
+label82 = Fertigkeit();
+label81=Skil;
+label80 = zum Beispiel, skil 50%, kochgeschwindigkeit-1/10 Gerichte / sec = 10 sec pro Gericht, 
+also am Ende halb: 0.1+(0.1*50/100)=0,15 Gerichte / sec ~ 6 sec pro Gericht;
+label79 = Achtung!!! Beim laden des Speichers werden die Daten in diesem Slot überschrieben;
+label78=Slot für spielladen;
+label77 = speichern Auswählen;
+label76 = Achtung! Dies ist eine Testfunktion und schreibgeschützt;
+label62 = Name;
+label61 = Zweig;
+label60 = Kraft;
+label59 = Bearbeiten eines technologiebaums;
+label73 = Anzahl der Monster;
+label72 = Entfernung vom Hauptlager zum Portal;
+label71 = das Niveau, In dem die Wellen beginnen;
+label70 = Zeit zwischen den Wellen (Tage);
+label69=Anzahl Friedhöfe;
+label68=Grabsteine im Friedhof;
+label67 = Temperatur;
+label66=Druckerei;
+label65 = Abmessungen;
+label64 = Komplexität;
+label63 = Ebene auswählen;
+label28 = seine Menge, wenn 
+eine Sache zu überspringen;
+label27=In-game-Titel 
+Gegenstand des erhaltenen Gegenstandes;
+label26=Name des Gegenstandes 
+- (durch -)
+Zellennummer aus der Tabelle.
+Nach jedem 
+Zutaten, außer 
+letzteres ist notwendig 
+ein Komma setzen,
+sonst wird der Fehler;
+label25 = name des Rezepts;
+label24=Bewegungsgeschwindigkeit Zwerge auf der Y-Achse;
+label23 = Wie viele Sekunden dauert es, einen Zwerg zu ertrinken;
+label22=Angriffskraft Zwerge ohne Waffen;
+label21 = Anzahl der Gegenstände, die GNOME tragen können;
+label20=aus welcher Höhe wird der Zwerg ohne Schaden fallen;
+label19=Bewegungsgeschwindigkeit Zwerge auf der x-Achse;
+label18=Hunger;
+label17 = Gesundheit der Zwerge;
+label1 = Wahrscheinlichkeit, von der Wand zu brechen;
+label16 = maximale Anzahl in Folge 
+Essen Gnom monotone Mahlzeit;
+label3 = übergangszeit zwischen Tag und Nacht;
+label15=Automatisches speichern;
+label4=Radius des Hauses vom Totem;
+label14 = Wahrscheinlichkeit des Auftretens eines neuen 
+ Baum neben vorhandenen;
+label5 = coef. Beschleunigung des Mannes mit 
+direktbetrieb;
+label13 = Mana-Wiederherstellungszeit;
+label6 = Wiederherstellungszeit der Einheit 
+Gesundheit mit Sättigung über 7;
+label12 = minimale Fläche des Hauses;
+label7=Zeit, über Die der Auftrag nicht erreichbar ist, wird gelöscht;
+label11=Häufigkeit neuer Zwerge 
+im Gegenzug der Toten;
+label8 = maximale Anzahl von aktiven 
+Quests im Tagebuch gezeigt;
+label10 = Nachtzeit;
+label9=Tageszeit;
+label39=Erforderliche Erfahrung;
+label38=Erforderliche Erfahrung;
+label37=Aktuelle Ebene;
+label36 = 999000;
+label35 = 25;
+label34=wenn die Musik nicht geändert werden muss, lassen Sie das Feld leer.;
+label33 = Musik im Menü (OGG);
+label32 = "Alarm" im Spielprozess (OGG);
+label31 = "Ruhe" im Spiel (OGG);
+label30 = Musik im Spiel (OGG);
+label29 = Musik im Spiel (MP3);
+label56 = Weibliche Namen (falls "Sister in Arms" installiert ist");
+label57 = Neuer name;
+label58=Alter name;
+label55 = Männliche Namen;
+label54 = Neuer name;
+label53=Alter name;
+label42 = Achtung!!! 
+Alle Aktionen werden ausgeführt 
+nur einmal;
+label41 = Wassermenge in Stalaktiten;
+label52 = Verlangsamung;
+label51 = Erweiterte Optionen;
+label50 = Schutz;
+label49 = füllt die Sättigung Auf;
+label48 = Gesundheit Wiederherstellen;
+label47 = Schaden;
+label46 = Geschwindigkeit;
+label45=Kaufmenge;
+label44 = Preis im Shop;
+label43=Bezeichnung des Gegenstandes;
+button14 = Redigieren von Ebenen;
+button5 = neue Ebene Hinzufügen;
+button4 = Musik Ändern;
+button10 = Ändern;
+button8 = Logos Ändern;
+button7 = Anwenden;
+button9 = Ändern;
+button21 = Z
+Ampere
+G
+Röntgen
+Bei
+Z
+Und
+T
+B
+
+F
+Ampere
+Th
+Liter;
+Bestyary = Mit
+über
+x
+Röntgen
+und
+Wasserstoff
+und
+T
+B
+ 
+zu
+ 
+f
+und
+.
+Liter;
+button20 = Speichern;
+button19 = Speichern;
+button18 = speichern speichern;
+button17 = speichern Laden;
+button11 = Ändern;
+button3 = Rezept Hinzufügen;
+button2 = Speichern;
+button6 = Monolog Speichern;
+checkBox5=Stalaktiten werden tropft;
+checkBox4 = Zucht von Wildschweinen auf einem Bauernhof;
+checkBox3 = zum Technologiebaum Hinzufügen;
+checkBox2 = Gegenstände 4 Welten in alle Welten Freischalten;
+checkBox6=ist im laden Vorhanden;
+checkBox7 = Entzerrung Zulassen;
+checkBox1 = zum Tech-Baum in Zweig #Hinzufügen;
+worldToolStripMenuItem=Welt;
+gnomsToolStripMenuItem=Zwerge;
+createcraftsToolStripMenuItem=basteln;
+levelgnomToolStripMenuItem=Zwerge;
+musicToolStripMenuItem = Musik;
+smartToolStripMenuItem=Schnelle Aktionen;
+monologToolStripMenuItem=Monologe " Goblinschamane";
+namegnomToolStripMenuItem=Namen der Zwerge;
+logoToolStripMenuItem=Logo herunterladen;
+itemToolStripMenuItem = Gegenstände;
+technoToolStripMenuItem=Technologie-Baum;
+levelToolStripMenuItem = Ebenen;
+saveToolStripMenuItem=Speichern;
+skilToolStripMenuItem=Skils;
+nameenemToolStripMenuItem=Namen der Kreaturen;
+EditParam = Bearbeiten;
+Sett = Einstellungen;
+PutToGame=Weg zum Spiel;
+Exit = Ausgabe;
+LoadGame = Spiel Starten;
+About = über das Programm;
+Lang = Programmsprache;

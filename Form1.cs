@@ -13,6 +13,7 @@ using System.IO.Compression;
 using Ionic.Zip;
 using Microsoft.Win32;
 using System.Diagnostics;
+using MicLocalizationSystem;
 
 namespace CTW_loader
 {
@@ -23,17 +24,317 @@ namespace CTW_loader
         string puttogame = "";
         Panel[] pn = null;
 
+        LangParam lng = LocalizationSettings.LoadLangParamFromFile(LocalizationSettings.GetLangSystem(), Environment.CurrentDirectory + "\\Language\\");
+
 
         public Form1()
         {
             InitializeComponent();
-            pn = new Panel[] { panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10, panel11, panel12, panel15, panel16, panel17 };
+            pn = new Panel[] { panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10, panel11, panel12, panel15, panel16, panel17 };           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             closopen(false, pn, panel1);
             open();
+            
+
+            #region Код Локализации
+            this.Name = lng.GetLangText("FormName");
+
+            this.label2.Text = lng.GetLangText("SoftLogo");
+
+            this.label88.Text = lng.GetLangText("label88");
+            this.label87.Text = lng.GetLangText("label87");
+            this.label86.Text = lng.GetLangText("label86");
+            this.label85.Text = lng.GetLangText("label85");
+            this.label84.Text = lng.GetLangText("label84");
+            this.label83.Text = lng.GetLangText("label83");
+            this.label82.Text = lng.GetLangText("label82");
+            this.label81.Text = lng.GetLangText("label81");
+            this.label80.Text = lng.GetLangText("label80");
+            this.label79.Text = lng.GetLangText("label79");
+            this.label78.Text = lng.GetLangText("label78");
+            this.label77.Text = lng.GetLangText("label77");
+            this.label76.Text = lng.GetLangText("label76");
+            this.label62.Text = lng.GetLangText("label62");
+            this.label61.Text = lng.GetLangText("label61");
+            this.label60.Text = lng.GetLangText("label60");
+            this.label59.Text = lng.GetLangText("label59");
+            this.label73.Text = lng.GetLangText("label73");
+            this.label72.Text = lng.GetLangText("label72");
+            this.label71.Text = lng.GetLangText("label71");
+            this.label70.Text = lng.GetLangText("label70");
+            this.label69.Text = lng.GetLangText("label69");
+            this.label68.Text = lng.GetLangText("label68");
+            this.label67.Text = lng.GetLangText("label67");
+            this.label66.Text = lng.GetLangText("label66");
+            this.label65.Text = lng.GetLangText("label65");
+            this.label64.Text = lng.GetLangText("label64");
+            this.label63.Text = lng.GetLangText("label63");
+            this.label28.Text = lng.GetLangText("label28");
+            this.label27.Text = lng.GetLangText("label27");
+            this.label26.Text = lng.GetLangText("label26");
+            this.label25.Text = lng.GetLangText("label25");
+            this.label24.Text = lng.GetLangText("label24");
+            this.label23.Text = lng.GetLangText("label23");
+            this.label22.Text = lng.GetLangText("label22");
+            this.label21.Text = lng.GetLangText("label21");
+            this.label20.Text = lng.GetLangText("label20");
+            this.label19.Text = lng.GetLangText("label19");
+            this.label18.Text = lng.GetLangText("label18");
+            this.label17.Text = lng.GetLangText("label17");
+            this.label1.Text = lng.GetLangText("label1");
+            this.label16.Text = lng.GetLangText("label16");
+            this.label3.Text = lng.GetLangText("label3");
+            this.label15.Text = lng.GetLangText("label15");
+            this.label4.Text = lng.GetLangText("label4");
+            this.label14.Text = lng.GetLangText("label14");
+            this.label5.Text = lng.GetLangText("label5");
+            this.label13.Text = lng.GetLangText("label13");
+            this.label6.Text = lng.GetLangText("label6");
+            this.label12.Text = lng.GetLangText("label12");
+            this.label7.Text = lng.GetLangText("label7");
+            this.label11.Text = lng.GetLangText("label11");
+            this.label8.Text = lng.GetLangText("label8");
+            this.label10.Text = lng.GetLangText("label10");
+            this.label9.Text = lng.GetLangText("label9");
+            this.label39.Text = lng.GetLangText("label39");
+            this.label38.Text = lng.GetLangText("label38");
+            this.label37.Text = lng.GetLangText("label37");
+            this.label36.Text = lng.GetLangText("label36");
+            this.label35.Text = lng.GetLangText("label35");
+            this.label34.Text = lng.GetLangText("label34");
+            this.label33.Text = lng.GetLangText("label33");
+            this.label32.Text = lng.GetLangText("label32");
+            this.label31.Text = lng.GetLangText("label31");
+            this.label30.Text = lng.GetLangText("label30");
+            this.label29.Text = lng.GetLangText("label29");
+            this.label56.Text = lng.GetLangText("label56");
+            this.label57.Text = lng.GetLangText("label57");
+            this.label58.Text = lng.GetLangText("label58");
+            this.label55.Text = lng.GetLangText("label55");
+            this.label54.Text = lng.GetLangText("label54");
+            this.label53.Text = lng.GetLangText("label53");
+            this.label42.Text = lng.GetLangText("label42");
+            this.label41.Text = lng.GetLangText("label41");
+            this.label52.Text = lng.GetLangText("label52");
+            this.label51.Text = lng.GetLangText("label51");
+            this.label50.Text = lng.GetLangText("label50");
+            this.label49.Text = lng.GetLangText("label49");
+            this.label48.Text = lng.GetLangText("label48");
+            this.label47.Text = lng.GetLangText("label47");
+            this.label46.Text = lng.GetLangText("label46");
+            this.label45.Text = lng.GetLangText("label45");
+            this.label44.Text = lng.GetLangText("label44");
+            this.label43.Text = lng.GetLangText("label43");
+
+            this.button14.Text = lng.GetLangText("button14");
+            this.button5.Text = lng.GetLangText("button5");
+            this.button4.Text = lng.GetLangText("button4");
+            this.button10.Text = lng.GetLangText("button10");
+            this.button8.Text = lng.GetLangText("button8");
+            this.button7.Text = lng.GetLangText("button7");
+            this.button9.Text = lng.GetLangText("button9");
+            this.button21.Text = lng.GetLangText("button21");
+            this.Bestyary.Text = lng.GetLangText("Bestyary");
+            this.button20.Text = lng.GetLangText("button20");
+            this.button19.Text = lng.GetLangText("button19");
+            this.button18.Text = lng.GetLangText("button18");
+            this.button17.Text = lng.GetLangText("button17");
+            this.button11.Text = lng.GetLangText("button11");
+            this.button3.Text = lng.GetLangText("button3");
+            this.button2.Text = lng.GetLangText("button2");
+            this.button6.Text = lng.GetLangText("button6");
+
+            this.checkBox5.Text = lng.GetLangText("checkBox5");
+            this.checkBox4.Text = lng.GetLangText("checkBox4");
+            this.checkBox3.Text = lng.GetLangText("checkBox3");
+            this.checkBox2.Text = lng.GetLangText("checkBox2");
+            this.checkBox6.Text = lng.GetLangText("checkBox6");
+            this.checkBox7.Text = lng.GetLangText("checkBox7");
+            this.checkBox1.Text = lng.GetLangText("checkBox1");
+
+            this.мираToolStripMenuItem.Text = lng.GetLangText("worldToolStripMenuItem");
+            this.гномовToolStripMenuItem.Text = lng.GetLangText("gnomsToolStripMenuItem");
+            this.созданиеКрафтаToolStripMenuItem.Text = lng.GetLangText("createcraftsToolStripMenuItem");
+            this.уровниГномовToolStripMenuItem.Text = lng.GetLangText("levelgnomToolStripMenuItem");
+            this.музыкиToolStripMenuItem.Text = lng.GetLangText("musicToolStripMenuItem");
+            this.быстрыеДействияToolStripMenuItem.Text = lng.GetLangText("smartToolStripMenuItem");
+            this.монологаШаманаГоблиновToolStripMenuItem.Text = lng.GetLangText("monologToolStripMenuItem");
+            this.имёнГномовToolStripMenuItem.Text = lng.GetLangText("namegnomToolStripMenuItem");
+            this.логотипаЗагрузкиToolStripMenuItem.Text = lng.GetLangText("logoToolStripMenuItem");
+            this.предметовToolStripMenuItem.Text = lng.GetLangText("itemToolStripMenuItem");
+            this.дераваТехнологийToolStripMenuItem.Text = lng.GetLangText("technoToolStripMenuItem");
+            this.уровнейToolStripMenuItem.Text = lng.GetLangText("levelToolStripMenuItem");
+            this.сохраненийToolStripMenuItem.Text = lng.GetLangText("saveToolStripMenuItem");
+            this.скиловToolStripMenuItem.Text = lng.GetLangText("skilToolStripMenuItem");
+            this.названияСуществToolStripMenuItem.Text = lng.GetLangText("nameenemToolStripMenuItem");
+
+            this.редактированиеToolStripMenuItem.Text = lng.GetLangText("EditParam");
+            this.настройкиToolStripMenuItem.Text = lng.GetLangText("Sett");
+            this.путьКИгреToolStripMenuItem.Text = lng.GetLangText("PutToGame");
+            this.выходToolStripMenuItem.Text = lng.GetLangText("Exit");
+            this.запуститьИгруToolStripMenuItem.Text = lng.GetLangText("LoadGame");
+            this.оПрограммеToolStripMenuItem.Text = lng.GetLangText("About");
+            this.языкПрограммыToolStripMenuItem.Text = lng.GetLangText("Lang");
+            #endregion
+
+            Language[] lngs = LocalizationSettings.GetFromFolder(Environment.CurrentDirectory + "\\Language\\");//Get an array of all localization files
+            foreach (var item in lngs)
+            {
+                ToolStripMenuItem tmp = new ToolStripMenuItem();
+                tmp.Text = item.GetName();
+                tmp.Click += SmenaLang;
+                языкПрограммыToolStripMenuItem.DropDownItems.Add(tmp);
+            }
+        }
+
+        public void SmenaLang(object sender, EventArgs e)
+        {
+            string lang = ((ToolStripMenuItem)sender).Text;
+            Language lg = LocalizationSettings.GetLangName(lang, Environment.CurrentDirectory + "\\Language\\");//Get a localized file name
+            LangParam lng = LocalizationSettings.LoadLangParamFromFile(lg, Environment.CurrentDirectory + "\\Language\\");
+            #region Код Локализации
+            this.Name = lng.GetLangText("FormName");
+
+            this.label2.Text = lng.GetLangText("SoftLogo");
+
+            this.label88.Text = lng.GetLangText("label88");
+            this.label87.Text = lng.GetLangText("label87");
+            this.label86.Text = lng.GetLangText("label86");
+            this.label85.Text = lng.GetLangText("label85");
+            this.label84.Text = lng.GetLangText("label84");
+            this.label83.Text = lng.GetLangText("label83");
+            this.label82.Text = lng.GetLangText("label82");
+            this.label81.Text = lng.GetLangText("label81");
+            this.label80.Text = lng.GetLangText("label80");
+            this.label79.Text = lng.GetLangText("label79");
+            this.label78.Text = lng.GetLangText("label78");
+            this.label77.Text = lng.GetLangText("label77");
+            this.label76.Text = lng.GetLangText("label76");
+            this.label62.Text = lng.GetLangText("label62");
+            this.label61.Text = lng.GetLangText("label61");
+            this.label60.Text = lng.GetLangText("label60");
+            this.label59.Text = lng.GetLangText("label59");
+            this.label73.Text = lng.GetLangText("label73");
+            this.label72.Text = lng.GetLangText("label72");
+            this.label71.Text = lng.GetLangText("label71");
+            this.label70.Text = lng.GetLangText("label70");
+            this.label69.Text = lng.GetLangText("label69");
+            this.label68.Text = lng.GetLangText("label68");
+            this.label67.Text = lng.GetLangText("label67");
+            this.label66.Text = lng.GetLangText("label66");
+            this.label65.Text = lng.GetLangText("label65");
+            this.label64.Text = lng.GetLangText("label64");
+            this.label63.Text = lng.GetLangText("label63");
+            this.label28.Text = lng.GetLangText("label28");
+            this.label27.Text = lng.GetLangText("label27");
+            this.label26.Text = lng.GetLangText("label26");
+            this.label25.Text = lng.GetLangText("label25");
+            this.label24.Text = lng.GetLangText("label24");
+            this.label23.Text = lng.GetLangText("label23");
+            this.label22.Text = lng.GetLangText("label22");
+            this.label21.Text = lng.GetLangText("label21");
+            this.label20.Text = lng.GetLangText("label20");
+            this.label19.Text = lng.GetLangText("label19");
+            this.label18.Text = lng.GetLangText("label18");
+            this.label17.Text = lng.GetLangText("label17");
+            this.label1.Text = lng.GetLangText("label1");
+            this.label16.Text = lng.GetLangText("label16");
+            this.label3.Text = lng.GetLangText("label3");
+            this.label15.Text = lng.GetLangText("label15");
+            this.label4.Text = lng.GetLangText("label4");
+            this.label14.Text = lng.GetLangText("label14");
+            this.label5.Text = lng.GetLangText("label5");
+            this.label13.Text = lng.GetLangText("label13");
+            this.label6.Text = lng.GetLangText("label6");
+            this.label12.Text = lng.GetLangText("label12");
+            this.label7.Text = lng.GetLangText("label7");
+            this.label11.Text = lng.GetLangText("label11");
+            this.label8.Text = lng.GetLangText("label8");
+            this.label10.Text = lng.GetLangText("label10");
+            this.label9.Text = lng.GetLangText("label9");
+            this.label39.Text = lng.GetLangText("label39");
+            this.label38.Text = lng.GetLangText("label38");
+            this.label37.Text = lng.GetLangText("label37");
+            this.label36.Text = lng.GetLangText("label36");
+            this.label35.Text = lng.GetLangText("label35");
+            this.label34.Text = lng.GetLangText("label34");
+            this.label33.Text = lng.GetLangText("label33");
+            this.label32.Text = lng.GetLangText("label32");
+            this.label31.Text = lng.GetLangText("label31");
+            this.label30.Text = lng.GetLangText("label30");
+            this.label29.Text = lng.GetLangText("label29");
+            this.label56.Text = lng.GetLangText("label56");
+            this.label57.Text = lng.GetLangText("label57");
+            this.label58.Text = lng.GetLangText("label58");
+            this.label55.Text = lng.GetLangText("label55");
+            this.label54.Text = lng.GetLangText("label54");
+            this.label53.Text = lng.GetLangText("label53");
+            this.label42.Text = lng.GetLangText("label42");
+            this.label41.Text = lng.GetLangText("label41");
+            this.label52.Text = lng.GetLangText("label52");
+            this.label51.Text = lng.GetLangText("label51");
+            this.label50.Text = lng.GetLangText("label50");
+            this.label49.Text = lng.GetLangText("label49");
+            this.label48.Text = lng.GetLangText("label48");
+            this.label47.Text = lng.GetLangText("label47");
+            this.label46.Text = lng.GetLangText("label46");
+            this.label45.Text = lng.GetLangText("label45");
+            this.label44.Text = lng.GetLangText("label44");
+            this.label43.Text = lng.GetLangText("label43");
+
+            this.button14.Text = lng.GetLangText("button14");
+            this.button5.Text = lng.GetLangText("button5");
+            this.button4.Text = lng.GetLangText("button4");
+            this.button10.Text = lng.GetLangText("button10");
+            this.button8.Text = lng.GetLangText("button8");
+            this.button7.Text = lng.GetLangText("button7");
+            this.button9.Text = lng.GetLangText("button9");
+            this.button21.Text = lng.GetLangText("button21");
+            this.Bestyary.Text = lng.GetLangText("Bestyary");
+            this.button20.Text = lng.GetLangText("button20");
+            this.button19.Text = lng.GetLangText("button19");
+            this.button18.Text = lng.GetLangText("button18");
+            this.button17.Text = lng.GetLangText("button17");
+            this.button11.Text = lng.GetLangText("button11");
+            this.button3.Text = lng.GetLangText("button3");
+            this.button2.Text = lng.GetLangText("button2");
+            this.button6.Text = lng.GetLangText("button6");
+
+            this.checkBox5.Text = lng.GetLangText("checkBox5");
+            this.checkBox4.Text = lng.GetLangText("checkBox4");
+            this.checkBox3.Text = lng.GetLangText("checkBox3");
+            this.checkBox2.Text = lng.GetLangText("checkBox2");
+            this.checkBox6.Text = lng.GetLangText("checkBox6");
+            this.checkBox7.Text = lng.GetLangText("checkBox7");
+            this.checkBox1.Text = lng.GetLangText("checkBox1");
+
+            this.мираToolStripMenuItem.Text = lng.GetLangText("worldToolStripMenuItem");
+            this.гномовToolStripMenuItem.Text = lng.GetLangText("gnomsToolStripMenuItem");
+            this.созданиеКрафтаToolStripMenuItem.Text = lng.GetLangText("createcraftsToolStripMenuItem");
+            this.уровниГномовToolStripMenuItem.Text = lng.GetLangText("levelgnomToolStripMenuItem");
+            this.музыкиToolStripMenuItem.Text = lng.GetLangText("musicToolStripMenuItem");
+            this.быстрыеДействияToolStripMenuItem.Text = lng.GetLangText("smartToolStripMenuItem");
+            this.монологаШаманаГоблиновToolStripMenuItem.Text = lng.GetLangText("monologToolStripMenuItem");
+            this.имёнГномовToolStripMenuItem.Text = lng.GetLangText("namegnomToolStripMenuItem");
+            this.логотипаЗагрузкиToolStripMenuItem.Text = lng.GetLangText("logoToolStripMenuItem");
+            this.предметовToolStripMenuItem.Text = lng.GetLangText("itemToolStripMenuItem");
+            this.дераваТехнологийToolStripMenuItem.Text = lng.GetLangText("technoToolStripMenuItem");
+            this.уровнейToolStripMenuItem.Text = lng.GetLangText("levelToolStripMenuItem");
+            this.сохраненийToolStripMenuItem.Text = lng.GetLangText("saveToolStripMenuItem");
+            this.скиловToolStripMenuItem.Text = lng.GetLangText("skilToolStripMenuItem");
+            this.названияСуществToolStripMenuItem.Text = lng.GetLangText("nameenemToolStripMenuItem");
+
+            this.редактированиеToolStripMenuItem.Text = lng.GetLangText("EditParam");
+            this.настройкиToolStripMenuItem.Text = lng.GetLangText("Sett");
+            this.путьКИгреToolStripMenuItem.Text = lng.GetLangText("PutToGame");
+            this.выходToolStripMenuItem.Text = lng.GetLangText("Exit");
+            this.запуститьИгруToolStripMenuItem.Text = lng.GetLangText("LoadGame");
+            this.оПрограммеToolStripMenuItem.Text = lng.GetLangText("About");
+            this.языкПрограммыToolStripMenuItem.Text = lng.GetLangText("Lang");
+            #endregion
         }
 
         private void open()
@@ -156,7 +457,6 @@ namespace CTW_loader
 
                         using (StreamReader read1 = new StreamReader(readmeEntry1.Open(), Encoding.UTF8))
                         {
-                            string tmpa = "";
                             string rrr = read1.ReadToEnd().Replace("<", "");
                             numericUpDown1.Maximum = Convert.ToDecimal(rrr.Split(';').Length - 2);
                             for (int i = 0; i < rrr.Split(';').Length; i++)
@@ -616,7 +916,7 @@ line1 = read1.ReadLine();
                 }
                 else
                 {
-                    MessageBox.Show("Убедитесь что путь к игре указан верно", "Игра не найдена");
+                    MessageBox.Show(lng.GetLangText("GameNotFoundDesc"), lng.GetLangText("GameNotFound"));
                 }
             }
         }
@@ -725,7 +1025,7 @@ line1 = read1.ReadLine();
                     {
                         if (node12.ChildNodes.Item(i).Attributes["name"].Value == namerec)
                         {
-                            MessageBox.Show("Данный рецепт уже существует","Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(lng.GetLangText("FormName"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                             goto got;
                         }
                     }
@@ -735,7 +1035,6 @@ line1 = read1.ReadLine();
                 {
                     coliz = Convert.ToInt32(maskedTextBox33.Text);
                 }
-                string recipec = "";
 
                 foreach(string tmp in pola)
                 {
@@ -755,7 +1054,6 @@ line1 = read1.ReadLine();
                 /////////////////////////////////////////////////////////////////////////////////
                 //7
                 
-                string temp = "";
                 if (File.Exists(puttogame))
                 {
 
@@ -914,7 +1212,7 @@ line1 = read1.ReadLine();
             }
             else
             {
-                MessageBox.Show("Не все параметры введены!");
+                MessageBox.Show(lng.GetLangText("NullParam"));
             }
 
             got:;
@@ -943,7 +1241,7 @@ line1 = read1.ReadLine();
             //if (opg.SafeFileName != "CraftTheWorld_gameplay.mp3") { MessageBox.Show("Убедитесь в правильном названии файла, он должен называться CraftTheWorld_gameplay"); return; }
             opg.SupportMultiDottedExtensions = false;
             opg.Multiselect = false;
-            opg.Title = "Открыть файл музыки геймплея";
+            opg.Title = lng.GetLangText("OpenMusicGameplay");
             //MessageBox.Show( opg.FileName);
             opg_FileName = Environment.CurrentDirectory + "/tempaudio/CraftTheWorld_gameplay.mp3";
             textBox2.Text = opg.FileName;
@@ -972,7 +1270,7 @@ line1 = read1.ReadLine();
             //if (opg2.SafeFileName != "CraftTheWorld_noKalimba.ogg") { MessageBox.Show("Убедитесь в правильном названии файла, он должен называться CraftTheWorld_noKalimba"); return; }
             opg2.SupportMultiDottedExtensions = false;
             opg2.Multiselect = false;
-            opg2.Title = "Открыть файл музыки спокойствия";
+            opg2.Title = lng.GetLangText("OpenMusicSlept");
             //MessageBox.Show(opg2.FileName);
             opg2_FileName = Environment.CurrentDirectory + "/tempaudio/CraftTheWorld_noKalimba.ogg";
             textBox4.Text = opg2.FileName;
@@ -990,7 +1288,7 @@ line1 = read1.ReadLine();
             //if (opg3.SafeFileName != "CTW_Gameplay_F2.ogg") { MessageBox.Show("Убедитесь в правильном названии файла, он должен называться CTW_Gameplay_F2"); return; }
             opg3.SupportMultiDottedExtensions = false;
             opg3.Multiselect = false;
-            opg3.Title = "Открыть файл музыки тревого";
+            opg3.Title = lng.GetLangText("OpenMusicEnem");
             //MessageBox.Show(opg3.FileName);
             opg3_FileName = Environment.CurrentDirectory + "/tempaudio/CTW_Gameplay_F2.ogg";
             textBox5.Text = opg3.FileName;
@@ -1009,7 +1307,7 @@ line1 = read1.ReadLine();
             //if(opg4.SafeFileName != "Menu_title_CTW_f_ogg.ogg") { MessageBox.Show("Убедитесь в правильном названии файла, он должен называться Menu_title_CTW_f_ogg"); return; }
             opg4.SupportMultiDottedExtensions = false;
             opg4.Multiselect = false;
-            opg4.Title = "Открыть файл музыки меню";
+            opg4.Title = lng.GetLangText("OpenMusicMenu");
             opg4_FileName = Environment.CurrentDirectory + "/tempaudio/Menu_title_CTW_f_ogg.ogg";
             textBox6.Text = opg4.FileName;
             File.Delete(Environment.CurrentDirectory + "/tempaudio/Menu_title_CTW_f_ogg.tmp");
@@ -1102,7 +1400,7 @@ line1 = read1.ReadLine();
                 }
                 else
                 {
-                    MessageBox.Show("Не все параметры введены!");
+                    MessageBox.Show(lng.GetLangText("NullParam"));
                 }
             }
         }
@@ -1268,7 +1566,7 @@ line1 = read1.ReadLine();
                         }
                         if (temper.Contains("guns_expert,heavy_rifle,sulfur,gunpowder,trunk,trigger_mechanism,pistol,rifle,ammo,ammo_steel,ammo_fire"))
                         {
-                            MessageBox.Show("Рецепт уже добавлен!!!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(lng.GetLangText("ErrorResipes"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                          goto stop;
                         
                         }  
@@ -1475,7 +1773,7 @@ line1 = read1.ReadLine();
             //if (opg4.SafeFileName != "Loading_screen_01.jpg") { MessageBox.Show("Убедитесь в правильном названии файла, он должен называться Loading_screen_01"); return; }
             opg4.SupportMultiDottedExtensions = false;
             opg4.Multiselect = false;
-            opg4.Title = "Открыть файл лого загрузки";
+            opg4.Title = lng.GetLangText("OpenLogo");
             setimg1 = opg4.FileName;
             textBox9.Text = opg4.FileName;
             pictureBox2.ImageLocation = Environment.CurrentDirectory + "/tempaudio/Loading_screen_01.jpg";
@@ -2193,7 +2491,6 @@ line1 = read1.ReadLine();
 
                         using (StreamReader read1 = new StreamReader(readmeEntry1.Open(), Encoding.UTF8))
                         {
-                            string tmpa = "";
                             string rrr = read1.ReadToEnd().Replace("<", "");
                             for (int i = 0; i < rrr.Split(';').Length; i++)
                             {
@@ -2424,7 +2721,6 @@ line1 = read1.ReadLine();
 
         private void comboBox20_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string tmp = "";
             using (FileStream zipToOpen3 = new FileStream(@puttogame, FileMode.Open))
             {
                 using (ZipArchive archive3 = new ZipArchive(zipToOpen3, ZipArchiveMode.Read))
@@ -2456,7 +2752,6 @@ line1 = read1.ReadLine();
 
         private void button15_Click(object sender, EventArgs e)
         {
-            string tmp = "";
             string text = "";
             if (File.Exists(puttogame))
             {
@@ -2511,14 +2806,13 @@ line1 = read1.ReadLine();
                 }
                 else
                 {
-                    MessageBox.Show("Не все параметры введены!");
+                    MessageBox.Show(lng.GetLangText("NullParam"));
                 }
             }
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            string tmp = "";
             string text = "";
             if (File.Exists(puttogame))
             {
@@ -2571,7 +2865,7 @@ line1 = read1.ReadLine();
                 }
                 else
                 {
-                    MessageBox.Show("Не все параметры введены!");
+                    MessageBox.Show(lng.GetLangText("NullParam"));
                 }
         }
 
@@ -2600,8 +2894,8 @@ line1 = read1.ReadLine();
             var fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DateLinks.xml");
 
             SaveFileDialog ops = new SaveFileDialog();
-            ops.Filter = "Файл сохранения CTW (*.CTWsave)|*.CTWsave;";
-            ops.Title = "Сохранить файл CTW сохранения";
+            ops.Filter = "File Saves CTW (*.CTWsave)|*.CTWsave;";
+            ops.Title = lng.GetLangText("SaveCTWSaves");
             ops.FileName = "saves_" + DateTime.Now.Second + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Day + ".CTWsave";
             if (ops.ShowDialog() != DialogResult.OK) { return; };
 
@@ -2616,7 +2910,7 @@ line1 = read1.ReadLine();
         private void button17_Click(object sender, EventArgs e)
         {
             OpenFileDialog opg = new OpenFileDialog();
-            opg.Filter = "Файл сохранения CTW (*.CTWsave)|*.CTWsave;";
+            opg.Filter = "File Saves CTW (*.CTWsave)|*.CTWsave;";
             if (opg.ShowDialog() != DialogResult.OK) { return; };
             if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\dekovir\\crafttheworld\\saves\\" + comboBox22.Text))
             {
@@ -2634,7 +2928,7 @@ line1 = read1.ReadLine();
             
             opg.SupportMultiDottedExtensions = false;
             opg.Multiselect = false;
-            opg.Title = "Открыть файл CTW сохранения";
+            opg.Title = lng.GetLangText("OpenCTWSaves");
             
         }
 
@@ -2849,8 +3143,25 @@ line1 = read1.ReadLine();
         {
             if((sender as Button).Name == "Bestyary")
             {
-               
+                //CTWLoader_Formating.CTWLoader_ArrayParam.ComboboxParsing(comboBox24);
+                SortedList<string, string> Par = new SortedList<string, string>();
+                Par.Add("Name", comboBox24.Text);
+                Par.Add("Name1", textBox17.Text);
+                Par.Add("Desc", richTextBox2.Text);
+                CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.Bestyary, Par);
             }
         }
-   }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+
+            if (CTWLoader_Formating.GetType(ttt["Type"]) == CTWLoader_Formating.TypeData.Bestyary)
+            {
+                comboBox24.Text = ttt["Name"];
+                textBox17.Text = ttt["Name1"];
+                richTextBox2.Text = ttt["Desc"];
+            }
+        }
+    }
 }

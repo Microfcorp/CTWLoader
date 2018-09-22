@@ -39,17 +39,27 @@ namespace CTW_loader
             return opg.FileName;
         }
 
-        public static string Read(string path)
+        public static SortedList<string,string> Read(string path)
         {
-            return File.ReadAllText(path).Replace("/n","").Replace("/r", "");
+            string ty = File.ReadAllText(path).Replace("\r", "");
+            SortedList<string, string> tmp = new SortedList<string, string>();
+            tmp.Add("Type", ty.Split(';')[0]);
+            foreach (var item in ty.Split(';')[1].Split('\n'))
+            {
+                if(item.Split('=')[0] != "")
+                 tmp.Add(item.Split('=')[0], item.Split('=')[1]);
+            }
+            
+            return tmp;
         }
         public static void Save(string path, TypeData typedata, SortedList<string,string> data)
         {
-            string tmp = typedata.ToString() + ";" + Environment.NewLine;
+            string tmp = typedata.ToString() + ";";
             foreach (var item in data)
             {
-                tmp += item.Key + "=" + item.Value;
+                tmp += item.Key + "=" + item.Value + "\n";
             }
+            File.WriteAllText(path, tmp);
         }
         public static TypeData GetType(string ReadData)
         {
@@ -77,6 +87,30 @@ namespace CTW_loader
                 }
             }
             return tmp;
+        }
+        public class CTWLoader_ArrayParam
+        {
+            public SortedList<string, string> Param
+            {
+                get;
+                internal set;
+            }
+            public CTWLoader_ArrayParam()
+            {
+                Param = new SortedList<string, string>();
+            }
+
+            public static CTWLoader_ArrayParam ComboboxParsing(ComboBox ComboBox)
+            {
+                CTWLoader_ArrayParam tmp = new CTWLoader_ArrayParam();               
+
+                for (int i = 0; i < ComboBox.Items.Count; i++)
+                {
+                    tmp.Param.Add("Param" + i.ToString(), ComboBox.Items[i].ToString());
+                }
+
+                return tmp;
+            }
         }
     }
 }

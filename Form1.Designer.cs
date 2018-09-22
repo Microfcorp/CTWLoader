@@ -1,4 +1,7 @@
-﻿namespace CTW_loader
+﻿using MicLocalizationSystem;
+using System;
+
+namespace CTW_loader
 {
     partial class Form1
     {
@@ -77,8 +80,10 @@
             this.скиловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.названияСуществToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.языкПрограммыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.путьКИгреToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cTWLoaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.запуститьИгруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -265,6 +270,8 @@
             this.label81 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.button21 = new System.Windows.Forms.Button();
+            this.Bestyary = new System.Windows.Forms.Button();
             this.label88 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.button20 = new System.Windows.Forms.Button();
@@ -273,8 +280,6 @@
             this.label86 = new System.Windows.Forms.Label();
             this.comboBox24 = new System.Windows.Forms.ComboBox();
             this.label85 = new System.Windows.Forms.Label();
-            this.запуститьИгруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Bestyary = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -572,9 +577,15 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.языкПрограммыToolStripMenuItem,
             this.путьКИгреToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             resources.ApplyResources(this.настройкиToolStripMenuItem, "настройкиToolStripMenuItem");
+            // 
+            // языкПрограммыToolStripMenuItem
+            // 
+            this.языкПрограммыToolStripMenuItem.Name = "языкПрограммыToolStripMenuItem";
+            resources.ApplyResources(this.языкПрограммыToolStripMenuItem, "языкПрограммыToolStripMenuItem");
             // 
             // путьКИгреToolStripMenuItem
             // 
@@ -591,6 +602,12 @@
             this.выходToolStripMenuItem});
             this.cTWLoaderToolStripMenuItem.Name = "cTWLoaderToolStripMenuItem";
             resources.ApplyResources(this.cTWLoaderToolStripMenuItem, "cTWLoaderToolStripMenuItem");
+            // 
+            // запуститьИгруToolStripMenuItem
+            // 
+            this.запуститьИгруToolStripMenuItem.Name = "запуститьИгруToolStripMenuItem";
+            resources.ApplyResources(this.запуститьИгруToolStripMenuItem, "запуститьИгруToolStripMenuItem");
+            this.запуститьИгруToolStripMenuItem.Click += new System.EventHandler(this.запуститьИгруToolStripMenuItem_Click);
             // 
             // оПрограммеToolStripMenuItem
             // 
@@ -1884,6 +1901,7 @@
             this.panel16.Controls.Add(this.button19);
             this.panel16.Controls.Add(this.textBox16);
             this.panel16.Controls.Add(this.textBox15);
+            this.panel16.Controls.Add(this.panel12);
             this.panel16.Controls.Add(this.textBox1);
             this.panel16.Controls.Add(this.label84);
             this.panel16.Controls.Add(this.label83);
@@ -1950,6 +1968,7 @@
             // 
             // panel17
             // 
+            this.panel17.Controls.Add(this.button21);
             this.panel17.Controls.Add(this.Bestyary);
             this.panel17.Controls.Add(this.label88);
             this.panel17.Controls.Add(this.richTextBox2);
@@ -1961,6 +1980,20 @@
             this.panel17.Controls.Add(this.label85);
             resources.ApplyResources(this.panel17, "panel17");
             this.panel17.Name = "panel17";
+            // 
+            // button21
+            // 
+            resources.ApplyResources(this.button21, "button21");
+            this.button21.Name = "button21";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
+            // Bestyary
+            // 
+            resources.ApplyResources(this.Bestyary, "Bestyary");
+            this.Bestyary.Name = "Bestyary";
+            this.Bestyary.UseVisualStyleBackColor = true;
+            this.Bestyary.Click += new System.EventHandler(this.SaveParam);
             // 
             // label88
             // 
@@ -2006,33 +2039,13 @@
             resources.ApplyResources(this.label85, "label85");
             this.label85.Name = "label85";
             // 
-            // запуститьИгруToolStripMenuItem
-            // 
-            this.запуститьИгруToolStripMenuItem.Name = "запуститьИгруToolStripMenuItem";
-            resources.ApplyResources(this.запуститьИгруToolStripMenuItem, "запуститьИгруToolStripMenuItem");
-            this.запуститьИгруToolStripMenuItem.Click += new System.EventHandler(this.запуститьИгруToolStripMenuItem_Click);
-            // 
-            // Bestyary
-            // 
-            resources.ApplyResources(this.Bestyary, "Bestyary");
-            this.Bestyary.Name = "Bestyary";
-            this.Bestyary.UseVisualStyleBackColor = true;
-            this.Bestyary.Click += new System.EventHandler(this.SaveParam);
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel17);
-            this.Controls.Add(this.panel16);
-            this.Controls.Add(this.panel15);
             this.Controls.Add(this.label40);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel11);
-            this.Controls.Add(this.panel12);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -2041,6 +2054,12 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel9);
+            this.Controls.Add(this.panel17);
+            this.Controls.Add(this.panel16);
+            this.Controls.Add(this.panel15);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2086,7 +2105,7 @@
 
         }
 
-        #endregion
+        #endregion     
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -2334,6 +2353,8 @@
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.ToolStripMenuItem запуститьИгруToolStripMenuItem;
         private System.Windows.Forms.Button Bestyary;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.ToolStripMenuItem языкПрограммыToolStripMenuItem;
     }
 }
 
