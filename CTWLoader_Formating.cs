@@ -15,6 +15,7 @@ namespace CTW_loader
         {
             Null=0,
             Bestyary=1,
+            Craft=2,
         }
         public static string DialogOpenPath()
         {
@@ -68,6 +69,9 @@ namespace CTW_loader
             {
                 case "Bestyary":
                     tmp = TypeData.Bestyary;
+                break;
+                case "Craft":
+                    tmp = TypeData.Craft;
                 break;
                 default:
                     tmp = TypeData.Null;

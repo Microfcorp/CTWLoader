@@ -1901,7 +1901,6 @@ namespace CTW_loader
             this.panel16.Controls.Add(this.button19);
             this.panel16.Controls.Add(this.textBox16);
             this.panel16.Controls.Add(this.textBox15);
-            this.panel16.Controls.Add(this.panel12);
             this.panel16.Controls.Add(this.textBox1);
             this.panel16.Controls.Add(this.label84);
             this.panel16.Controls.Add(this.label83);
@@ -2046,6 +2045,13 @@ namespace CTW_loader
             this.Controls.Add(this.label40);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel17);
+            this.Controls.Add(this.panel12);
+            this.Controls.Add(this.panel16);
+            this.Controls.Add(this.panel15);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -2054,12 +2060,6 @@ namespace CTW_loader
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel9);
-            this.Controls.Add(this.panel17);
-            this.Controls.Add(this.panel16);
-            this.Controls.Add(this.panel15);
-            this.Controls.Add(this.panel11);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -31,3 +31,5 @@ C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\CTW_loader.Form1.ru-RU.resources
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\en\CTW loader.resources.dll
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Release\ru-RU\CTW loader.resources.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\MicLocalizationSystem.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Release\MicLocalizationSystem.pdb

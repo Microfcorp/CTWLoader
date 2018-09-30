@@ -571,6 +571,7 @@ namespace CTW_loader
                             comboBox2.Items.Add(node15.ChildNodes.Item(i).Name.ToString().Substring(0, node15.ChildNodes.Item(i).Name.Length - 1));
                             /////////////////\\\\\\\\\\\\\\\\                           
                             comboBox1.Items.Add(xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']").Attributes["name"].Value);
+                            comboBox5.Items.Add(xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']").Attributes["name"].Value);
                         }
                     }
                     //MessageBox.Show(node1.ChildNodes.Item(i).Name.ToString().Substring(node1.ChildNodes.Item(i).Name.Length - 1));
