@@ -30,7 +30,7 @@ namespace CTW_loader
         public Form1()
         {
             InitializeComponent();
-            pn = new Panel[] { panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10, panel11, panel12, panel15, panel16, panel17 };           
+            pn = new Panel[] { panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10, panel11, panel12, panel15, panel16, panel17, panel18};           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -997,6 +997,7 @@ line1 = read1.ReadLine();
 
 
                 XmlDocument xml6 = new XmlDocument();
+                xml6.PreserveWhitespace = true;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
 
                 using (FileStream zipToOpen1 = new FileStream(@puttogame, FileMode.Open))
@@ -1020,13 +1021,141 @@ line1 = read1.ReadLine();
 
                 var node12 = xml6.SelectSingleNode("root");
 
-                for (int i = 0; i < node12.ChildNodes.Count; i++)
+                for (int iq = 0; iq < node12.ChildNodes.Count; iq++)
                 {
-                    if (node12.ChildNodes.Item(i).Name == "recipe")
+                    if (node12.ChildNodes.Item(iq).Name == "recipe")
                     {
-                        if (node12.ChildNodes.Item(i).Attributes["name"].Value == namerec)
+                        if (node12.ChildNodes.Item(iq).Attributes["name"].Value == namerec)
                         {
-                            MessageBox.Show(lng.GetLangText("FormName"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            var node1 = xml6.SelectSingleNode("/root/recipe[@name='" + namerec + "']");
+
+                            if (maskedTextBox33.Text != "")
+                            {
+                                coliz = Convert.ToInt32(maskedTextBox33.Text);
+                            }
+
+                            foreach (string tmp in pola)
+                            {
+                                if (tmp != "")
+                                {
+                                    rasprec += tmp + ",";
+                                }
+                            }
+                            rasprec = rasprec.Substring(0, rasprec.Length - 1);
+
+                            if (coliz != 0)
+                            {
+                                namepol += "=" + coliz;
+                            }
+
+                            node1.Attributes["produce"].Value = namepol;
+                            node1.Attributes["name"].Value = namerec;
+                            node1.Attributes["ingredients"].Value = rasprec;
+                            xml6.SelectSingleNode("root").AppendChild(xml6.CreateWhitespace(Environment.NewLine));
+
+                            using (FileStream zipToOpen = new FileStream(@puttogame, FileMode.Open))
+                            {
+                                using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
+                                {
+                                    ZipArchiveEntry readmeEntry = archive.GetEntry("data/recipes.xml");
+                                    using (StreamWriter writer = new StreamWriter(readmeEntry.Open()))
+                                    {
+                                        //throw new Exception("AAAA");
+                                        writer.WriteLine(xml6.OuterXml);
+                                    }
+                                }
+                                zipToOpen.Close();
+                            }
+
+                            if (checkBox7.Checked)
+                            {
+                                if (File.Exists(puttogame))
+                                {
+
+                                    XmlDocument xml1 = new XmlDocument();
+                                    xml1.PreserveWhitespace = true;
+                                    using (FileStream zipToOpen = new FileStream(@puttogame, FileMode.Open))
+                                    {
+                                        using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Read))
+                                        {
+                                            ZipArchiveEntry readmeEntry = archive.GetEntry("data/blocks.xml");
+
+                                            using (StreamReader read = new StreamReader(readmeEntry.Open()))
+                                            {
+                                                xml1.LoadXml(read.ReadToEnd().ToString());
+                                                //Console.Write(read.ReadToEnd().ToString());
+                                            }
+                                        }
+                                        zipToOpen.Close();
+                                    }
+
+                                    var node8 = xml1.SelectSingleNode("root/block[@name='" + namepol.Split('=')[0] + "']");
+                                    //MessageBox.Show(namepol.Split('=')[0]);
+                                    if (node8 != null)
+                                    {
+                                       node8.Attributes["backcraft"].Value = "true";
+                                    }
+
+                                }
+                            }
+
+                            string temper = "";
+
+                            if (checkBox1.Checked)
+                            {
+                                using (FileStream zipToOpen2 = new FileStream(@puttogame, FileMode.Open))
+                                {
+                                    using (ZipArchive archive2 = new ZipArchive(zipToOpen2, ZipArchiveMode.Read))
+                                    {
+                                        ZipArchiveEntry readmeEntry2 = archive2.GetEntry("data/default_techtree.csv");
+
+                                        using (StreamReader read2 = new StreamReader(readmeEntry2.Open()))
+                                        {
+                                            temper = read2.ReadToEnd();
+                                            //Console.Write(read.ReadToEnd().ToString());
+                                        }
+                                    }
+                                    zipToOpen2.Close();
+                                }
+                                string gtw = "";
+                                // var pars1 = temper.Split(';')[3].Split(',')[temper.Split(';')[3].Split(',').Length - 1] + "," + comboBox1.Text;
+                                var itog = temper.Split(';')[Convert.ToInt32(numericUpDown1.Value)].Split(',')[0];
+
+                                for (int i = 1; i < temper.Split(';')[Convert.ToInt32(numericUpDown1.Value)].Split(',').Length; i++)
+                                {
+                                    itog += "," + temper.Split(';')[Convert.ToInt32(numericUpDown1.Value)].Split(',')[i];
+                                }
+                                itog += "," + comboBox1.Text;
+                                //MessageBox.Show(itog);
+
+                                for (int i = 0; i < temper.Split(';').Length; i++)
+                                {
+                                    if (i != Convert.ToInt32(numericUpDown1.Value))
+                                    {
+                                        gtw += temper.Split(';')[i] + ";";
+                                    }
+                                    else
+                                    {
+                                        gtw += itog + ";";
+                                    }
+                                }
+
+                                using (FileStream zipToOpen = new FileStream(@puttogame, FileMode.Open))
+                                {
+                                    using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
+                                    {
+                                        ZipArchiveEntry readmeEntry = archive.GetEntry("data/default_techtree.csv");
+                                        using (StreamWriter writer = new StreamWriter(readmeEntry.Open()))
+                                        {
+                                            writer.WriteLine(gtw.Remove(gtw.Length - 1, 1));
+
+                                        }
+                                    }
+                                    zipToOpen.Close();
+                                }
+
+                            }
+
                             goto got;
                         }
                     }
@@ -1041,11 +1170,12 @@ line1 = read1.ReadLine();
                 {
                     if (tmp != "")
                     {
-                        rasprec += tmp/* + ","*/;
+                        rasprec += tmp + ",";
                     }
                 }
+                rasprec = rasprec.Substring(0, rasprec.Length - 1);
 
-                if(coliz != 0)
+                if (coliz != 0)
                 {
                     namepol += "=" + coliz;
                 }
@@ -1216,7 +1346,7 @@ line1 = read1.ReadLine();
                 MessageBox.Show(lng.GetLangText("NullParam"));
             }
 
-            got:;
+        got:;
         }
 
         private void созданиеКрафтаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2448,7 +2578,102 @@ line1 = read1.ReadLine();
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
+            maskedTextBox24.Text = "";
+            maskedTextBox25.Text = "";
+            maskedTextBox26.Text = "";
+            maskedTextBox27.Text = "";
+            maskedTextBox28.Text = "";
+            maskedTextBox29.Text = "";
+            maskedTextBox30.Text = "";
+            maskedTextBox31.Text = "";
+            maskedTextBox32.Text = "";
 
+            XmlDocument xml6 = new XmlDocument();
+            string namerec = (sender as ComboBox).Text;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
+
+            using (FileStream zipToOpen1 = new FileStream(@puttogame, FileMode.Open))
+            {
+                using (ZipArchive archive1 = new ZipArchive(zipToOpen1, ZipArchiveMode.Read))
+                {
+                    ZipArchiveEntry readmeEntry1 = archive1.GetEntry("data/recipes.xml");
+
+                    using (StreamReader read1 = new StreamReader(readmeEntry1.Open()))
+                    {
+                        //string dat = read.ReadToEnd().ToString();                      
+                        //Console.Write(dat);
+                        //System.Threading.Thread.Sleep(5000);
+
+                        xml6.LoadXml(read1.ReadToEnd().ToString());
+                        // xml.Load(@"C:\world.xml");
+                    }
+                }
+                zipToOpen1.Close();
+            }
+
+            var node12 = xml6.SelectSingleNode("root");
+
+            for (int i = 0; i < node12.ChildNodes.Count; i++)
+            {
+                if (node12.ChildNodes.Item(i).Name == "recipe")
+                {
+                    if (node12.ChildNodes.Item(i).Attributes["name"].Value == namerec)
+                    {
+                        var node1 = xml6.SelectSingleNode("/root/recipe[@name='" + namerec + "']");
+
+                        comboBox1.Text = node1.Attributes["produce"].Value.Split('=')[0];
+                        if (node1.Attributes["produce"].Value.Split('=').Length > 1)
+                            maskedTextBox33.Text = node1.Attributes["produce"].Value.Split('=')[1];
+
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 0)
+                            maskedTextBox24.Text = node1.Attributes["ingredients"].Value.Split(',')[0];
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 1)
+                            maskedTextBox25.Text = node1.Attributes["ingredients"].Value.Split(',')[1];
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 2)
+                            maskedTextBox26.Text = node1.Attributes["ingredients"].Value.Split(',')[2];
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 3)
+                            maskedTextBox27.Text = node1.Attributes["ingredients"].Value.Split(',')[3];
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 4)
+                            maskedTextBox28.Text = node1.Attributes["ingredients"].Value.Split(',')[4];
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 5)
+                            maskedTextBox29.Text = node1.Attributes["ingredients"].Value.Split(',')[5];
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 6)
+                            maskedTextBox30.Text = node1.Attributes["ingredients"].Value.Split(',')[6];
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 7)
+                            maskedTextBox31.Text = node1.Attributes["ingredients"].Value.Split(',')[7];
+                        if (node1.Attributes["ingredients"].Value.Split(',').Length > 8)
+                            maskedTextBox32.Text = node1.Attributes["ingredients"].Value.Split(',')[8];
+
+                        XmlDocument xml1 = new XmlDocument();
+                        xml1.PreserveWhitespace = true;
+                        using (FileStream zipToOpen = new FileStream(@puttogame, FileMode.Open))
+                        {
+                            using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Read))
+                            {
+                                ZipArchiveEntry readmeEntry = archive.GetEntry("data/blocks.xml");
+
+                                using (StreamReader read = new StreamReader(readmeEntry.Open()))
+                                {
+                                    xml1.LoadXml(read.ReadToEnd().ToString());
+                                    //Console.Write(read.ReadToEnd().ToString());
+                                }
+                            }
+                            zipToOpen.Close();
+                        }
+
+                        var node8 = xml1.SelectSingleNode("root/block[@name='" + namerec + "']");
+                        //MessageBox.Show(namepol.Split('=')[0]);
+                        if (node8 != null)
+                        {
+                            if(node8.Attributes["backcraft"].Value != null)
+                                checkBox7.Checked = Convert.ToBoolean(node8.Attributes["backcraft"].Value);
+                        }
+
+                        goto got;
+                    }
+                }               
+            }
+        got:;
         }
 
         private void дераваТехнологийToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3151,6 +3376,23 @@ line1 = read1.ReadLine();
                 Par.Add("Desc", richTextBox2.Text);
                 CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.Bestyary, Par);
             }
+            if ((sender as Button).Name == "Craft")
+            {
+                //CTWLoader_Formating.CTWLoader_ArrayParam.ComboboxParsing(comboBox24);
+                SortedList<string, string> Par = new SortedList<string, string>();
+                Par.Add("Name", comboBox5.Text);
+                SortedList<string, string> Rec = new SortedList<string, string>();//24-32
+                Rec.Add("0", maskedTextBox24.Text); Rec.Add("1", maskedTextBox25.Text); Rec.Add("2", maskedTextBox26.Text); Rec.Add("3", maskedTextBox27.Text); Rec.Add("4", maskedTextBox28.Text); Rec.Add("5", maskedTextBox29.Text); Rec.Add("6", maskedTextBox30.Text); Rec.Add("7", maskedTextBox31.Text); Rec.Add("8", maskedTextBox32.Text);
+                CTWLoader_Array array = new CTWLoader_Array("Recipec", Rec);
+                Par.Add("Recipec", array.ToString(',', ':'));
+                Par.Add("VnutrName", comboBox1.Text);
+                Par.Add("Col", maskedTextBox33.Text);
+                Par.Add("Rascraft", checkBox7.Checked.ToString());
+                Par.Add("Techno", checkBox1.Checked.ToString());
+                Par.Add("TechnoID", numericUpDown1.Text);
+
+                CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.Craft, Par);
+            }
         }
 
         private void button21_Click(object sender, EventArgs e)
@@ -3162,6 +3404,72 @@ line1 = read1.ReadLine();
                 comboBox24.Text = ttt["Name"];
                 textBox17.Text = ttt["Name1"];
                 richTextBox2.Text = ttt["Desc"];
+            }
+        }
+
+        private void упаковкаФайловToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closopen(false, pn, panel18);
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            using (ZipFile zip = new ZipFile()) // Создаем объект для работы с архивом
+            {
+                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression; // MAX степень сжатия
+                FolderBrowserDialog frb = new FolderBrowserDialog();
+                if (frb.ShowDialog() == DialogResult.OK)
+                {
+                    string p = frb.SelectedPath;
+
+                    foreach (var item in Directory.GetDirectories(p))
+                    {
+                        zip.AddDirectory(item); // Кладем в архив папку вместе с содежимым
+                    }
+                }                           
+                zip.Save(Environment.CurrentDirectory + "\\" + "main.pak");  // Создаем архив  
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown1.Visible = checkBox1.Checked;
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+
+            if (CTWLoader_Formating.GetType(ttt["Type"]) == CTWLoader_Formating.TypeData.Craft)
+            {
+                /*
+                Par.Add("Name", comboBox5.Text);
+                SortedList<string, string> Rec = new SortedList<string, string>();//24-32
+                Rec.Add("0", maskedTextBox24.Text); Rec.Add("1", maskedTextBox25.Text); Rec.Add("2", maskedTextBox26.Text); Rec.Add("3", maskedTextBox27.Text); Rec.Add("4", maskedTextBox28.Text); Rec.Add("5", maskedTextBox29.Text); Rec.Add("6", maskedTextBox30.Text); Rec.Add("7", maskedTextBox31.Text); Rec.Add("8", maskedTextBox32.Text);
+                CTWLoader_Array array = new CTWLoader_Array("Recipec", Rec);
+                Par.Add("Recipec", array.ToString(',', ':'));
+                Par.Add("VnutrName", comboBox1.Text);
+                Par.Add("Col", maskedTextBox33.Text);
+                Par.Add("Rascraft", checkBox7.Checked.ToString());
+                Par.Add("Techno", checkBox1.Checked.ToString());
+                Par.Add("TechnoID", numericUpDown1.Text);
+                */
+                comboBox5.Text = ttt["Name"];
+                comboBox1.Text = ttt["VnutrName"];
+                maskedTextBox33.Text = ttt["Col"];
+                checkBox7.Checked = Convert.ToBoolean(ttt["Rascraft"]);
+                checkBox1.Checked = Convert.ToBoolean(ttt["Techno"]);
+                numericUpDown1.Text = ttt["TechnoID"];
+                CTWLoader_Array array = new CTWLoader_Array("Recipec", ttt["Recipec"], ',', ':');
+                maskedTextBox24.Text = array.GetParams("0");
+                maskedTextBox25.Text = array.GetParams("1");
+                maskedTextBox26.Text = array.GetParams("2");
+                maskedTextBox27.Text = array.GetParams("3");
+                maskedTextBox28.Text = array.GetParams("4");
+                maskedTextBox29.Text = array.GetParams("5");
+                maskedTextBox30.Text = array.GetParams("6");
+                maskedTextBox31.Text = array.GetParams("7");
+                maskedTextBox32.Text = array.GetParams("8");
             }
         }
     }

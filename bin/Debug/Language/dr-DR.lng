@@ -49,12 +49,7 @@ label27=In-game-Titel
 Gegenstand des erhaltenen Gegenstandes;
 label26=Name des Gegenstandes 
 - (durch -)
-Zellennummer aus der Tabelle.
-Nach jedem 
-Zutaten, außer 
-letzteres ist notwendig 
-ein Komma setzen,
-sonst wird der Fehler;
+Zellennummer aus der Tabelle.;
 label25 = name des Rezepts;
 label24=Bewegungsgeschwindigkeit Zwerge auf der Y-Achse;
 label23 = Wie viele Sekunden dauert es, einen Zwerg zu ertrinken;

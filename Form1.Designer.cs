@@ -280,6 +280,12 @@ namespace CTW_loader
             this.label86 = new System.Windows.Forms.Label();
             this.comboBox24 = new System.Windows.Forms.ComboBox();
             this.label85 = new System.Windows.Forms.Label();
+            this.упаковкаФайловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.label89 = new System.Windows.Forms.Label();
+            this.button22 = new System.Windows.Forms.Button();
+            this.Craft = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -301,6 +307,7 @@ namespace CTW_loader
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -479,7 +486,8 @@ namespace CTW_loader
             this.уровнейToolStripMenuItem,
             this.сохраненийToolStripMenuItem,
             this.скиловToolStripMenuItem,
-            this.названияСуществToolStripMenuItem});
+            this.названияСуществToolStripMenuItem,
+            this.упаковкаФайловToolStripMenuItem});
             this.редактированиеToolStripMenuItem.Name = "редактированиеToolStripMenuItem";
             resources.ApplyResources(this.редактированиеToolStripMenuItem, "редактированиеToolStripMenuItem");
             this.редактированиеToolStripMenuItem.Click += new System.EventHandler(this.редактированиеToolStripMenuItem_Click);
@@ -785,6 +793,8 @@ namespace CTW_loader
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button24);
+            this.panel3.Controls.Add(this.Craft);
             this.panel3.Controls.Add(this.numericUpDown1);
             this.panel3.Controls.Add(this.comboBox5);
             this.panel3.Controls.Add(this.checkBox7);
@@ -832,6 +842,7 @@ namespace CTW_loader
             resources.ApplyResources(this.checkBox1, "checkBox1");
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label28
             // 
@@ -2038,6 +2049,45 @@ namespace CTW_loader
             resources.ApplyResources(this.label85, "label85");
             this.label85.Name = "label85";
             // 
+            // упаковкаФайловToolStripMenuItem
+            // 
+            this.упаковкаФайловToolStripMenuItem.Name = "упаковкаФайловToolStripMenuItem";
+            resources.ApplyResources(this.упаковкаФайловToolStripMenuItem, "упаковкаФайловToolStripMenuItem");
+            this.упаковкаФайловToolStripMenuItem.Click += new System.EventHandler(this.упаковкаФайловToolStripMenuItem_Click);
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.button22);
+            this.panel18.Controls.Add(this.label89);
+            resources.ApplyResources(this.panel18, "panel18");
+            this.panel18.Name = "panel18";
+            // 
+            // label89
+            // 
+            resources.ApplyResources(this.label89, "label89");
+            this.label89.Name = "label89";
+            // 
+            // button22
+            // 
+            resources.ApplyResources(this.button22, "button22");
+            this.button22.Name = "button22";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
+            // Craft
+            // 
+            resources.ApplyResources(this.Craft, "Craft");
+            this.Craft.Name = "Craft";
+            this.Craft.UseVisualStyleBackColor = true;
+            this.Craft.Click += new System.EventHandler(this.SaveParam);
+            // 
+            // button24
+            // 
+            resources.ApplyResources(this.button24, "button24");
+            this.button24.Name = "button24";
+            this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -2045,11 +2095,6 @@ namespace CTW_loader
             this.Controls.Add(this.label40);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel17);
-            this.Controls.Add(this.panel12);
-            this.Controls.Add(this.panel16);
-            this.Controls.Add(this.panel15);
-            this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -2060,6 +2105,12 @@ namespace CTW_loader
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel9);
+            this.Controls.Add(this.panel18);
+            this.Controls.Add(this.panel17);
+            this.Controls.Add(this.panel12);
+            this.Controls.Add(this.panel16);
+            this.Controls.Add(this.panel15);
+            this.Controls.Add(this.panel11);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2100,6 +2151,8 @@ namespace CTW_loader
             this.panel16.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2355,6 +2408,12 @@ namespace CTW_loader
         private System.Windows.Forms.Button Bestyary;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.ToolStripMenuItem языкПрограммыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem упаковкаФайловToolStripMenuItem;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button Craft;
     }
 }
 

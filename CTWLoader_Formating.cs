@@ -115,6 +115,68 @@ namespace CTW_loader
 
                 return tmp;
             }
+        }       
+    }
+    public class CTWLoader_Array
+    {
+        private string Name = "";
+        private SortedList<string, string> sr = new SortedList<string, string>();
+
+        public string GetName
+        {
+            get { return Name; }
+        }
+
+        public string SetParams(string name, string value)
+        {
+            sr.Add(name, value);
+            return sr[name];
+        }
+
+        public string GetParams(string name)
+        {
+            return sr[name];
+        }
+
+        public CTWLoader_Array(string Name)
+        {
+            this.Name = Name;
+        }
+        public CTWLoader_Array(string Name, string[] array)
+        {
+            this.Name = Name;
+            for (int i = 0; i < array.Length; i++)
+            {
+                sr.Add(i.ToString(), array[i]);
+            }
+        }
+        public CTWLoader_Array(string Name, SortedList<string, string> array)
+        {
+            this.Name = Name;
+            for (int i = 0; i < array.Count; i++)
+            {
+                sr.Add(array.Keys[i], array.Values[i]);
+            }
+        }
+
+        public CTWLoader_Array(string Name, string text, char separator, char separator1)
+        {
+            this.Name = Name;
+            foreach (var item in text.Split(separator))
+            {
+                if(item.Split(separator1).Length > 1)
+                    sr.Add(item.Split(separator1)[0], item.Split(separator1)[1]);
+            }
+        }
+
+        public string ToString(char separator, char separator1)
+        {
+            string tmp = "";
+            foreach (var item in sr)
+            {
+                tmp += item.Key + separator1.ToString() + item.Value + separator.ToString();
+            }
+            return tmp;
         }
     }
 }

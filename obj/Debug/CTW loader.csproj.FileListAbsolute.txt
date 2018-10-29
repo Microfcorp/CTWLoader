@@ -7,13 +7,6 @@ c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\
 c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.csproj.GenerateResource.Cache
 c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.exe
 c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.pdb
-C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\NAudio.dll
-C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\Ninject.dll
-C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\SoundFingerprinting.Audio.dll
-C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\SoundFingerprinting.Audio.NAudio.dll
-C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\SoundFingerprinting.Infrastructure.dll
-C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\NAudio.xml
-C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\Ninject.xml
 C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\Ionic.Zip.dll
 C:\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.exe.config
 C:\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.exe
@@ -34,3 +27,5 @@ C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.csprojResolveAssemblyReference.cache
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.dll
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.pdb
+C:\Users\10 измерение\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.pdb
+C:\Users\10 измерение\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.AboutBox1.resources

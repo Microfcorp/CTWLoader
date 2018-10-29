@@ -49,12 +49,7 @@ label27=in-Game name
 the resulting object;
 label26=the name of the object 
 - (through -)
-the cell number from the table.
-After each 
-ingredient in addition to 
-the latter is necessary 
-to put a comma,
-otherwise there will be an error;
+the cell number from the table.;
 label25=the name of the recipe;
 label24=movement Speed of gnomes on the y-axis;
 label23=how many seconds does it take a dwarf to drown;
