@@ -116,7 +116,6 @@ namespace CTW_loader
             this.label55.Text = lng.GetLangText("label55");
             this.label54.Text = lng.GetLangText("label54");
             this.label53.Text = lng.GetLangText("label53");
-            this.label42.Text = lng.GetLangText("label42");
             this.label41.Text = lng.GetLangText("label41");
             this.label52.Text = lng.GetLangText("label52");
             this.label51.Text = lng.GetLangText("label51");
@@ -128,6 +127,10 @@ namespace CTW_loader
             this.label45.Text = lng.GetLangText("label45");
             this.label44.Text = lng.GetLangText("label44");
             this.label43.Text = lng.GetLangText("label43");
+            this.label42.Text = lng.GetLangText("Value");
+            this.label90.Text = lng.GetLangText("Value");
+            this.label74.Text = lng.GetLangText("Value");
+            this.label75.Text = lng.GetLangText("Value");
 
             this.button14.Text = lng.GetLangText("button14");
             this.button5.Text = lng.GetLangText("button5");
@@ -146,6 +149,13 @@ namespace CTW_loader
             this.button3.Text = lng.GetLangText("button3");
             this.button2.Text = lng.GetLangText("button2");
             this.button6.Text = lng.GetLangText("button6");
+            this.Craft.Text = lng.GetLangText("SaveCraft");
+            this.button24.Text = lng.GetLangText("button24");
+            this.button15.Text = lng.GetLangText("button15");
+            this.button16.Text = lng.GetLangText("button16");
+            this.button12.Text = lng.GetLangText("button12");
+            this.button23.Text = lng.GetLangText("button23");
+            this.button25.Text = lng.GetLangText("button25");
 
             this.checkBox5.Text = lng.GetLangText("checkBox5");
             this.checkBox4.Text = lng.GetLangText("checkBox4");
@@ -272,7 +282,6 @@ namespace CTW_loader
             this.label55.Text = lng.GetLangText("label55");
             this.label54.Text = lng.GetLangText("label54");
             this.label53.Text = lng.GetLangText("label53");
-            this.label42.Text = lng.GetLangText("label42");
             this.label41.Text = lng.GetLangText("label41");
             this.label52.Text = lng.GetLangText("label52");
             this.label51.Text = lng.GetLangText("label51");
@@ -284,6 +293,10 @@ namespace CTW_loader
             this.label45.Text = lng.GetLangText("label45");
             this.label44.Text = lng.GetLangText("label44");
             this.label43.Text = lng.GetLangText("label43");
+            this.label42.Text = lng.GetLangText("Value");
+            this.label90.Text = lng.GetLangText("Value");
+            this.label74.Text = lng.GetLangText("Value");
+            this.label75.Text = lng.GetLangText("Value");
 
             this.button14.Text = lng.GetLangText("button14");
             this.button5.Text = lng.GetLangText("button5");
@@ -302,6 +315,13 @@ namespace CTW_loader
             this.button3.Text = lng.GetLangText("button3");
             this.button2.Text = lng.GetLangText("button2");
             this.button6.Text = lng.GetLangText("button6");
+            this.Craft.Text = lng.GetLangText("SaveCraft");
+            this.button24.Text = lng.GetLangText("button24");
+            this.button15.Text = lng.GetLangText("button15");
+            this.button16.Text = lng.GetLangText("button16");
+            this.button12.Text = lng.GetLangText("button12");
+            this.button23.Text = lng.GetLangText("button23");
+            this.button25.Text = lng.GetLangText("button25");
 
             this.checkBox5.Text = lng.GetLangText("checkBox5");
             this.checkBox4.Text = lng.GetLangText("checkBox4");
@@ -1751,15 +1771,28 @@ line1 = read1.ReadLine();
                     }
 
                     var node1 = xml.SelectSingleNode("/root/creature[@name='yak']/params");
-                    node1.AppendChild(xml.CreateElement("can_catch"));
-                    node1.SelectSingleNode("can_catch").Attributes.Append(xml.CreateAttribute("value")).Value = "true";
-                    node1.AppendChild(xml.CreateWhitespace("\r\n "));
-                    node1.AppendChild(xml.CreateElement("farm_population_ratio"));
-                    node1.SelectSingleNode("farm_population_ratio").Attributes.Append(xml.CreateAttribute("value")).Value = "0.1";
-                    node1.AppendChild(xml.CreateWhitespace("\r\n "));            
-                    node1.AppendChild(xml.CreateElement("farm_resource"));
-                    node1.SelectSingleNode("farm_resource").Attributes.Append(xml.CreateAttribute("value")).Value = "sulfur";
-                    node1.AppendChild(xml.CreateWhitespace("\r\n "));
+                    if (node1["can_catch"] == null)
+                    {
+                        node1.AppendChild(xml.CreateElement("can_catch"));
+                        node1.SelectSingleNode("can_catch").Attributes.Append(xml.CreateAttribute("value")).Value = "true";
+                        node1.AppendChild(xml.CreateWhitespace("\r\n "));
+                    }
+                    if (node1["farm_population_ratio"] == null)
+                    {
+                        node1.AppendChild(xml.CreateElement("farm_population_ratio"));
+                        node1.SelectSingleNode("farm_population_ratio").Attributes.Append(xml.CreateAttribute("value")).Value = "0.1";
+                        node1.AppendChild(xml.CreateWhitespace("\r\n "));
+                    }
+                    if (node1["farm_resource"] == null)
+                    {
+                        node1.AppendChild(xml.CreateElement("farm_resource"));
+                        node1.SelectSingleNode("farm_resource").Attributes.Append(xml.CreateAttribute("value")).Value = "sulfur";
+                        node1.AppendChild(xml.CreateWhitespace("\r\n "));
+                    }
+                    else
+                    {
+                        node1.SelectSingleNode("farm_resource").Attributes["value"].Value = "sulfur";
+                    }
 
                     //throw new System.ArgumentException("Parameter cannot be null", "original");
                     //MessageBox.Show(node1.Attributes.ToString());
@@ -1825,7 +1858,42 @@ line1 = read1.ReadLine();
                         zipToOpen.Close();
                     }
                 }
+                else
+                {
+                    XmlDocument xml = new XmlDocument();
+                    xml.PreserveWhitespace = true;
+                    using (FileStream zipToOpen = new FileStream(@puttogame, FileMode.Open))
+                    {
+                        using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Read))
+                        {
+                            ZipArchiveEntry readmeEntry = archive.GetEntry("data/blocks.xml");
 
+                            using (StreamReader read = new StreamReader(readmeEntry.Open()))
+                            {
+                                xml.LoadXml(read.ReadToEnd().ToString());
+                                //Console.Write(read.ReadToEnd().ToString());
+                            }
+                        }
+                        zipToOpen.Close();
+                    }
+                    var node1 = xml.SelectSingleNode("/root/block[@name='dirt_stalactite']");
+                    node1.Attributes["properties"].Value = "drop_rain,apply_tool1,dirt,can_replace";
+                    //Console.Write(xml.OuterXml);
+
+                    using (FileStream zipToOpen = new FileStream(@puttogame, FileMode.Open))
+                    {
+                        using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
+                        {
+                            ZipArchiveEntry readmeEntry = archive.GetEntry("data/blocks.xml");
+                            using (StreamWriter writer = new StreamWriter(readmeEntry.Open()))
+                            {
+                                writer.WriteLine(xml.OuterXml);
+                                // MessageBox.Show(xml.OuterXml);
+                            }
+                        }
+                        zipToOpen.Close();
+                    }
+                }
             }
         }
 
@@ -3177,6 +3245,8 @@ line1 = read1.ReadLine();
                     {
                         textBox15.Text = "";
                         textBox16.Text = "";
+                        textBox18.Text = "";
+                        textBox19.Text = "";
                         //string dat = read.ReadToEnd().ToString();                      
                         //Console.Write(dat);
                         //System.Threading.Thread.Sleep(5000);
@@ -3191,16 +3261,23 @@ line1 = read1.ReadLine();
 
                         if(properties.Split(',').Length >= 2)
                         {
+                            textBox18.Text = properties.Split(',')[0].Split('=')[0];
+                            textBox19.Text = properties.Split(',')[1].Split('=')[0];
                             textBox15.Text = properties.Split(',')[0].Split('=')[1];
                             textBox16.Text = properties.Split(',')[1].Split('=')[1];
                             label83.Visible = true;
+                            label90.Visible = true;
                             textBox16.Visible = true;
+                            textBox19.Visible = true;
                         }
                         else
                         {
+                            textBox18.Text = properties.Split('=')[0];
                             textBox15.Text = properties.Split('=')[1];
+                            label90.Visible = false;
                             label83.Visible = false;
                             textBox16.Visible = false;
+                            textBox19.Visible = false;
                         }
                         // xml.Load(@"C:\world.xml");
                     }
@@ -3234,13 +3311,13 @@ line1 = read1.ReadLine();
                         nade1.Attributes["title"].Value = textBox1.Text;
                         string properties = nade1.Attributes["properties"].Value;
 
-                        if (properties.Split(',').Length >= 2)
+                        if (properties.Split(',').Length > 1)
                         {
-                            nade1.Attributes["properties"].Value = properties.Split(',')[0].Split('=')[0] + "=" + textBox15.Text + "," + properties.Split(',')[1].Split('=')[0] + "=" + textBox16.Text;
+                            nade1.Attributes["properties"].Value = textBox18.Text + "=" + textBox15.Text + "," + textBox19.Text + "=" + textBox16.Text;
                         }
                         else
                         {
-                            nade1.Attributes["properties"].Value = properties.Split('=')[0] + "=" + textBox15.Text;
+                            nade1.Attributes["properties"].Value = textBox18.Text + "=" + textBox15.Text;
                         }
                         // xml.Load(@"C:\world.xml");
                         //MessageBox.Show(nade1.Attributes["properties"].Value);
@@ -3470,6 +3547,120 @@ line1 = read1.ReadLine();
                 maskedTextBox30.Text = array.GetParams("6");
                 maskedTextBox31.Text = array.GetParams("7");
                 maskedTextBox32.Text = array.GetParams("8");
+            }
+        }
+        ToolTip tl = new ToolTip();
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if (File.Exists(puttogame))
+            {               
+                List<string> DefaulTechree = new List<string>();
+                SortedList<string, string> LocalTechree = new SortedList<string, string>();
+                using (FileStream zipToOpen1 = new FileStream(@puttogame, FileMode.Open))
+                {
+                    using (ZipArchive archive1 = new ZipArchive(zipToOpen1, ZipArchiveMode.Read))
+                    {
+                        ZipArchiveEntry readmeEntry1 = archive1.GetEntry("data/default_techtree.csv");
+
+                        using (StreamReader read1 = new StreamReader(readmeEntry1.Open(), Encoding.UTF8))
+                        {
+                            string devaulttechree = read1.ReadToEnd().Replace("<", "");
+                            foreach (var item in devaulttechree.Split(';'))
+                            {
+                                DefaulTechree.Add(item.Split(',')[0]);
+                            }
+                        }
+                    }
+                    zipToOpen1.Close();
+                }
+                using (FileStream zipToOpen1 = new FileStream(@puttogame, FileMode.Open))
+                {
+                    using (ZipArchive archive1 = new ZipArchive(zipToOpen1, ZipArchiveMode.Read))
+                    {
+                        ZipArchiveEntry readmeEntry1 = archive1.GetEntry("Lang/Russian/data/tech_locale.csv");
+
+                        using (StreamReader read1 = new StreamReader(readmeEntry1.Open(), Encoding.UTF8))
+                        {
+                            string devaulttechree = read1.ReadToEnd().Replace("\r", "");
+                            foreach (var item in devaulttechree.Split('\n'))
+                            {
+                                if(item != "")
+                                    LocalTechree.Add(item.Split(';')[0], item.Split(';')[1]);
+                            }
+                        }
+                    }
+                    zipToOpen1.Close();
+                }
+
+                tl.SetToolTip(numericUpDown1, null);
+                tl.SetToolTip(numericUpDown1, LocalTechree[DefaulTechree[(int)numericUpDown1.Value]]);
+            }
+        }
+
+        private void textBox18_DoubleClick(object sender, EventArgs e)
+        {
+            TextBox tx = (TextBox)sender;
+
+            if (tx.ReadOnly == true)
+            {
+                if (MessageBox.Show(lng.GetLangText("ShowBigValue"), lng.GetLangText("FormName"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    tx.ReadOnly = false;
+                }
+            }
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> Par = new SortedList<string, string>();
+            Par.Add("Name", comboBox23.Text);
+            Par.Add("LangName", textBox1.Text);
+            SortedList<string, string> Rec = new SortedList<string, string>();//24-32
+            Rec.Add(textBox18.Text, textBox15.Text);
+            Rec.Add(textBox19.Text, textBox16.Text);
+            CTWLoader_Array array = new CTWLoader_Array("Params", Rec);
+            Par.Add("Params", array.ToString(',', ':'));
+
+            CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.Skils, Par);
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+
+            if (CTWLoader_Formating.GetType(ttt["Type"]) == CTWLoader_Formating.TypeData.Skils)
+            {
+                comboBox23.Text = ttt["Name"];
+                textBox1.Text = ttt["LangName"];
+                CTWLoader_Array array = new CTWLoader_Array("Params", ttt["Params"], ',', ':');
+                int st = 0;
+                foreach (var item in ttt["Params"].Split(','))
+                {
+                    if (item.Split(':').Length > 1)
+                    {
+                        if(item.Split(':')[0] != "" & item.Split(':')[1] != "")
+                        {
+                            if(st == 0)
+                            {
+                                textBox18.Text = item.Split(':')[0];
+                                textBox15.Text = item.Split(':')[1];
+                                st++;
+                            }
+                            else
+                            {
+                                textBox19.Text = item.Split(':')[0];
+                                textBox16.Text = item.Split(':')[1];
+                            }
+                        }
+                        else
+                        {
+                            textBox18.Text = "";
+                            textBox15.Text = "";
+                            textBox19.Text = "";
+                            textBox16.Text = "";
+                        }
+                    }
+                }
             }
         }
     }

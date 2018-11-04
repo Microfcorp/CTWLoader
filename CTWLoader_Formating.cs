@@ -1,5 +1,6 @@
 ﻿using Ionic.Zip;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace CTW_loader
             Null=0,
             Bestyary=1,
             Craft=2,
+            Skils=3,
         }
         public static string DialogOpenPath()
         {
@@ -73,6 +75,9 @@ namespace CTW_loader
                 case "Craft":
                     tmp = TypeData.Craft;
                 break;
+                case "Skils":
+                    tmp = TypeData.Skils;
+                    break;
                 default:
                     tmp = TypeData.Null;
                     break;
