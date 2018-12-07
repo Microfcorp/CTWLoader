@@ -261,6 +261,12 @@ namespace CTW_loader
             this.comboBox21 = new System.Windows.Forms.ComboBox();
             this.label77 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.button19 = new System.Windows.Forms.Button();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -285,12 +291,12 @@ namespace CTW_loader
             this.panel18 = new System.Windows.Forms.Panel();
             this.button22 = new System.Windows.Forms.Button();
             this.label89 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label92 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox25 = new System.Windows.Forms.ComboBox();
+            this.button26 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -313,6 +319,8 @@ namespace CTW_loader
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -1011,6 +1019,7 @@ namespace CTW_loader
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panel19);
             this.panel3.Controls.Add(this.button24);
             this.panel3.Controls.Add(this.Craft);
             this.panel3.Controls.Add(this.numericUpDown1);
@@ -1146,6 +1155,7 @@ namespace CTW_loader
             this.maskedTextBox32.Name = "maskedTextBox32";
             this.maskedTextBox32.Size = new System.Drawing.Size(70, 20);
             this.maskedTextBox32.TabIndex = 12;
+            this.maskedTextBox32.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // maskedTextBox31
             // 
@@ -1153,6 +1163,7 @@ namespace CTW_loader
             this.maskedTextBox31.Name = "maskedTextBox31";
             this.maskedTextBox31.Size = new System.Drawing.Size(70, 20);
             this.maskedTextBox31.TabIndex = 11;
+            this.maskedTextBox31.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // maskedTextBox30
             // 
@@ -1160,6 +1171,7 @@ namespace CTW_loader
             this.maskedTextBox30.Name = "maskedTextBox30";
             this.maskedTextBox30.Size = new System.Drawing.Size(70, 20);
             this.maskedTextBox30.TabIndex = 10;
+            this.maskedTextBox30.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // maskedTextBox29
             // 
@@ -1167,6 +1179,7 @@ namespace CTW_loader
             this.maskedTextBox29.Name = "maskedTextBox29";
             this.maskedTextBox29.Size = new System.Drawing.Size(70, 20);
             this.maskedTextBox29.TabIndex = 9;
+            this.maskedTextBox29.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // maskedTextBox28
             // 
@@ -1174,6 +1187,7 @@ namespace CTW_loader
             this.maskedTextBox28.Name = "maskedTextBox28";
             this.maskedTextBox28.Size = new System.Drawing.Size(69, 20);
             this.maskedTextBox28.TabIndex = 8;
+            this.maskedTextBox28.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // maskedTextBox27
             // 
@@ -1181,6 +1195,7 @@ namespace CTW_loader
             this.maskedTextBox27.Name = "maskedTextBox27";
             this.maskedTextBox27.Size = new System.Drawing.Size(69, 20);
             this.maskedTextBox27.TabIndex = 7;
+            this.maskedTextBox27.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // maskedTextBox26
             // 
@@ -1188,6 +1203,7 @@ namespace CTW_loader
             this.maskedTextBox26.Name = "maskedTextBox26";
             this.maskedTextBox26.Size = new System.Drawing.Size(69, 20);
             this.maskedTextBox26.TabIndex = 6;
+            this.maskedTextBox26.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // maskedTextBox25
             // 
@@ -1195,6 +1211,7 @@ namespace CTW_loader
             this.maskedTextBox25.Name = "maskedTextBox25";
             this.maskedTextBox25.Size = new System.Drawing.Size(69, 20);
             this.maskedTextBox25.TabIndex = 5;
+            this.maskedTextBox25.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // maskedTextBox24
             // 
@@ -1202,6 +1219,7 @@ namespace CTW_loader
             this.maskedTextBox24.Name = "maskedTextBox24";
             this.maskedTextBox24.Size = new System.Drawing.Size(69, 20);
             this.maskedTextBox24.TabIndex = 4;
+            this.maskedTextBox24.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
             // pictureBox1
             // 
@@ -2674,6 +2692,68 @@ namespace CTW_loader
             this.panel16.TabIndex = 7;
             this.panel16.Visible = false;
             // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(303, 214);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(299, 52);
+            this.button25.TabIndex = 17;
+            this.button25.Text = "Загрузить скил";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
+            // button23
+            // 
+            this.button23.Location = new System.Drawing.Point(9, 214);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(286, 52);
+            this.button23.TabIndex = 16;
+            this.button23.Text = "Сохранить скил";
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(78, 117);
+            this.textBox19.MaxLength = 25;
+            this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
+            this.textBox19.Size = new System.Drawing.Size(115, 20);
+            this.textBox19.TabIndex = 15;
+            this.textBox19.Visible = false;
+            this.textBox19.DoubleClick += new System.EventHandler(this.textBox18_DoubleClick);
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(78, 89);
+            this.textBox18.MaxLength = 25;
+            this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
+            this.textBox18.Size = new System.Drawing.Size(115, 20);
+            this.textBox18.TabIndex = 14;
+            this.textBox18.Visible = false;
+            this.textBox18.DoubleClick += new System.EventHandler(this.textBox18_DoubleClick);
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(196, 120);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(55, 13);
+            this.label90.TabIndex = 13;
+            this.label90.Text = "Значение";
+            this.label90.Visible = false;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(196, 92);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(55, 13);
+            this.label42.TabIndex = 12;
+            this.label42.Text = "Значение";
+            this.label42.Visible = false;
+            // 
             // button19
             // 
             this.button19.Location = new System.Drawing.Point(3, 382);
@@ -2904,67 +2984,76 @@ namespace CTW_loader
             this.label89.TabIndex = 0;
             this.label89.Text = "Состояние:";
             // 
-            // label42
+            // panel19
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(196, 92);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(55, 13);
-            this.label42.TabIndex = 12;
-            this.label42.Text = "Значение";
-            this.label42.Visible = false;
+            this.panel19.Controls.Add(this.button26);
+            this.panel19.Controls.Add(this.comboBox25);
+            this.panel19.Controls.Add(this.numericUpDown2);
+            this.panel19.Controls.Add(this.label92);
+            this.panel19.Controls.Add(this.label91);
+            this.panel19.Location = new System.Drawing.Point(8, 119);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(200, 100);
+            this.panel19.TabIndex = 24;
+            this.panel19.Visible = false;
             // 
-            // label90
+            // label91
             // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(196, 120);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(55, 13);
-            this.label90.TabIndex = 13;
-            this.label90.Text = "Значение";
-            this.label90.Visible = false;
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(5, 16);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(52, 13);
+            this.label91.TabIndex = 25;
+            this.label91.Text = "Предмет";
             // 
-            // textBox18
+            // label92
             // 
-            this.textBox18.Location = new System.Drawing.Point(78, 89);
-            this.textBox18.MaxLength = 25;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ReadOnly = true;
-            this.textBox18.Size = new System.Drawing.Size(115, 20);
-            this.textBox18.TabIndex = 14;
-            this.textBox18.Visible = false;
-            this.textBox18.DoubleClick += new System.EventHandler(this.textBox18_DoubleClick);
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(5, 48);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(46, 13);
+            this.label92.TabIndex = 25;
+            this.label92.Text = "В слоте";
             // 
-            // textBox19
+            // numericUpDown2
             // 
-            this.textBox19.Location = new System.Drawing.Point(78, 117);
-            this.textBox19.MaxLength = 25;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(115, 20);
-            this.textBox19.TabIndex = 15;
-            this.textBox19.Visible = false;
-            this.textBox19.DoubleClick += new System.EventHandler(this.textBox18_DoubleClick);
+            this.numericUpDown2.Location = new System.Drawing.Point(53, 45);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(44, 20);
+            this.numericUpDown2.TabIndex = 25;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // button23
+            // comboBox25
             // 
-            this.button23.Location = new System.Drawing.Point(9, 214);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(286, 52);
-            this.button23.TabIndex = 16;
-            this.button23.Text = "Сохранить скил";
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.comboBox25.FormattingEnabled = true;
+            this.comboBox25.Location = new System.Drawing.Point(62, 13);
+            this.comboBox25.Name = "comboBox25";
+            this.comboBox25.Size = new System.Drawing.Size(121, 21);
+            this.comboBox25.TabIndex = 25;
             // 
-            // button25
+            // button26
             // 
-            this.button25.Location = new System.Drawing.Point(303, 214);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(299, 52);
-            this.button25.TabIndex = 17;
-            this.button25.Text = "Загрузить скил";
-            this.button25.UseVisualStyleBackColor = true;
-            this.button25.Click += new System.EventHandler(this.button25_Click);
+            this.button26.Location = new System.Drawing.Point(51, 69);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(75, 23);
+            this.button26.TabIndex = 25;
+            this.button26.Text = "------->";
+            this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // Form1
             // 
@@ -2974,9 +3063,6 @@ namespace CTW_loader
             this.Controls.Add(this.label40);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel16);
-            this.Controls.Add(this.panel15);
-            this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -2990,11 +3076,15 @@ namespace CTW_loader
             this.Controls.Add(this.panel18);
             this.Controls.Add(this.panel17);
             this.Controls.Add(this.panel12);
+            this.Controls.Add(this.panel16);
+            this.Controls.Add(this.panel15);
+            this.Controls.Add(this.panel11);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "CTW Loader";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -3035,6 +3125,9 @@ namespace CTW_loader
             this.panel17.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3301,6 +3394,12 @@ namespace CTW_loader
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.ComboBox comboBox25;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.Label label91;
     }
 }
 

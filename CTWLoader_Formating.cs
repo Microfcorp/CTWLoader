@@ -27,7 +27,7 @@ namespace CTW_loader
             opg.Title = "Открыть файл CTW сохранения";
 
             opg.Filter = "Файл данных CTWLoader (*.CTWLoader)|*.CTWLoader;";
-            if (opg.ShowDialog() != DialogResult.OK) { return ""; };
+            if (opg.ShowDialog() != DialogResult.OK) return "";
             return opg.FileName;
         }
 
@@ -44,6 +44,7 @@ namespace CTW_loader
 
         public static SortedList<string,string> Read(string path)
         {
+            if (path == "") return null;
             string ty = File.ReadAllText(path).Replace("\r", "");
             SortedList<string, string> tmp = new SortedList<string, string>();
             tmp.Add("Type", ty.Split(';')[0]);
@@ -57,6 +58,7 @@ namespace CTW_loader
         }
         public static void Save(string path, TypeData typedata, SortedList<string,string> data)
         {
+            if (path == "") return;
             string tmp = typedata.ToString() + ";";
             foreach (var item in data)
             {
@@ -66,6 +68,7 @@ namespace CTW_loader
         }
         public static TypeData GetType(string ReadData)
         {
+            if (ReadData == "") return TypeData.Null;
             TypeData tmp = new TypeData();
             switch (ReadData.Split(';')[0])
             {
@@ -87,6 +90,7 @@ namespace CTW_loader
         }
         public static string GetData(string ReadData, string name)
         {
+            if (ReadData == "") return "";
             string tmp = "";
             foreach (var item in ReadData.Split(';'))
             {
