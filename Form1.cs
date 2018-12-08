@@ -30,7 +30,7 @@ namespace CTW_loader
         public Form1()
         {
             InitializeComponent();
-            pn = new Panel[] { panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10, panel11, panel12, panel15, panel16, panel17, panel18 };
+            pn = new Panel[] { panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10, panel11, panel12, panel15, panel16, panel17 };
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,156 +39,7 @@ namespace CTW_loader
             open();
 
 
-            #region Код Локализации
-            this.Name = lng.GetLangText("FormName");
-
-            this.label2.Text = lng.GetLangText("SoftLogo");
-
-            this.label88.Text = lng.GetLangText("label88");
-            this.label87.Text = lng.GetLangText("label87");
-            this.label86.Text = lng.GetLangText("label86");
-            this.label85.Text = lng.GetLangText("label85");
-            this.label84.Text = lng.GetLangText("label84");
-            this.label83.Text = lng.GetLangText("label83");
-            this.label82.Text = lng.GetLangText("label82");
-            this.label81.Text = lng.GetLangText("label81");
-            this.label80.Text = lng.GetLangText("label80");
-            this.label79.Text = lng.GetLangText("label79");
-            this.label78.Text = lng.GetLangText("label78");
-            this.label77.Text = lng.GetLangText("label77");
-            this.label76.Text = lng.GetLangText("label76");
-            this.label62.Text = lng.GetLangText("label62");
-            this.label61.Text = lng.GetLangText("label61");
-            this.label60.Text = lng.GetLangText("label60");
-            this.label59.Text = lng.GetLangText("label59");
-            this.label73.Text = lng.GetLangText("label73");
-            this.label72.Text = lng.GetLangText("label72");
-            this.label71.Text = lng.GetLangText("label71");
-            this.label70.Text = lng.GetLangText("label70");
-            this.label69.Text = lng.GetLangText("label69");
-            this.label68.Text = lng.GetLangText("label68");
-            this.label67.Text = lng.GetLangText("label67");
-            this.label66.Text = lng.GetLangText("label66");
-            this.label65.Text = lng.GetLangText("label65");
-            this.label64.Text = lng.GetLangText("label64");
-            this.label63.Text = lng.GetLangText("label63");
-            this.label28.Text = lng.GetLangText("label28");
-            this.label27.Text = lng.GetLangText("label27");
-            this.label26.Text = lng.GetLangText("label26");
-            this.label25.Text = lng.GetLangText("label25");
-            this.label24.Text = lng.GetLangText("label24");
-            this.label23.Text = lng.GetLangText("label23");
-            this.label22.Text = lng.GetLangText("label22");
-            this.label21.Text = lng.GetLangText("label21");
-            this.label20.Text = lng.GetLangText("label20");
-            this.label19.Text = lng.GetLangText("label19");
-            this.label18.Text = lng.GetLangText("label18");
-            this.label17.Text = lng.GetLangText("label17");
-            this.label1.Text = lng.GetLangText("label1");
-            this.label16.Text = lng.GetLangText("label16");
-            this.label3.Text = lng.GetLangText("label3");
-            this.label15.Text = lng.GetLangText("label15");
-            this.label4.Text = lng.GetLangText("label4");
-            this.label14.Text = lng.GetLangText("label14");
-            this.label5.Text = lng.GetLangText("label5");
-            this.label13.Text = lng.GetLangText("label13");
-            this.label6.Text = lng.GetLangText("label6");
-            this.label12.Text = lng.GetLangText("label12");
-            this.label7.Text = lng.GetLangText("label7");
-            this.label11.Text = lng.GetLangText("label11");
-            this.label8.Text = lng.GetLangText("label8");
-            this.label10.Text = lng.GetLangText("label10");
-            this.label9.Text = lng.GetLangText("label9");
-            this.label39.Text = lng.GetLangText("label39");
-            this.label38.Text = lng.GetLangText("label38");
-            this.label37.Text = lng.GetLangText("label37");
-            this.label36.Text = lng.GetLangText("label36");
-            this.label35.Text = lng.GetLangText("label35");
-            this.label34.Text = lng.GetLangText("label34");
-            this.label33.Text = lng.GetLangText("label33");
-            this.label32.Text = lng.GetLangText("label32");
-            this.label31.Text = lng.GetLangText("label31");
-            this.label30.Text = lng.GetLangText("label30");
-            this.label29.Text = lng.GetLangText("label29");
-            this.label56.Text = lng.GetLangText("label56");
-            this.label57.Text = lng.GetLangText("label57");
-            this.label58.Text = lng.GetLangText("label58");
-            this.label55.Text = lng.GetLangText("label55");
-            this.label54.Text = lng.GetLangText("label54");
-            this.label53.Text = lng.GetLangText("label53");
-            this.label41.Text = lng.GetLangText("label41");
-            this.label52.Text = lng.GetLangText("label52");
-            this.label51.Text = lng.GetLangText("label51");
-            this.label50.Text = lng.GetLangText("label50");
-            this.label49.Text = lng.GetLangText("label49");
-            this.label48.Text = lng.GetLangText("label48");
-            this.label47.Text = lng.GetLangText("label47");
-            this.label46.Text = lng.GetLangText("label46");
-            this.label45.Text = lng.GetLangText("label45");
-            this.label44.Text = lng.GetLangText("label44");
-            this.label43.Text = lng.GetLangText("label43");
-            this.label42.Text = lng.GetLangText("Value");
-            this.label90.Text = lng.GetLangText("Value");
-            this.label74.Text = lng.GetLangText("Value");
-            this.label75.Text = lng.GetLangText("Value");
-
-            this.button14.Text = lng.GetLangText("button14");
-            this.button5.Text = lng.GetLangText("button5");
-            this.button4.Text = lng.GetLangText("button4");
-            this.button10.Text = lng.GetLangText("button10");
-            this.button8.Text = lng.GetLangText("button8");
-            this.button7.Text = lng.GetLangText("button7");
-            this.button9.Text = lng.GetLangText("button9");
-            this.button21.Text = lng.GetLangText("button21");
-            this.Bestyary.Text = lng.GetLangText("Bestyary");
-            this.button20.Text = lng.GetLangText("button20");
-            this.button19.Text = lng.GetLangText("button19");
-            this.button18.Text = lng.GetLangText("button18");
-            this.button17.Text = lng.GetLangText("button17");
-            this.button11.Text = lng.GetLangText("button11");
-            this.button3.Text = lng.GetLangText("button3");
-            this.button2.Text = lng.GetLangText("button2");
-            this.button6.Text = lng.GetLangText("button6");
-            this.Craft.Text = lng.GetLangText("SaveCraft");
-            this.button24.Text = lng.GetLangText("button24");
-            this.button15.Text = lng.GetLangText("button15");
-            this.button16.Text = lng.GetLangText("button16");
-            this.button12.Text = lng.GetLangText("button12");
-            this.button23.Text = lng.GetLangText("button23");
-            this.button25.Text = lng.GetLangText("button25");
-
-            this.checkBox5.Text = lng.GetLangText("checkBox5");
-            this.checkBox4.Text = lng.GetLangText("checkBox4");
-            this.checkBox3.Text = lng.GetLangText("checkBox3");
-            this.checkBox2.Text = lng.GetLangText("checkBox2");
-            this.checkBox6.Text = lng.GetLangText("checkBox6");
-            this.checkBox7.Text = lng.GetLangText("checkBox7");
-            this.checkBox1.Text = lng.GetLangText("checkBox1");
-
-            this.мираToolStripMenuItem.Text = lng.GetLangText("worldToolStripMenuItem");
-            this.гномовToolStripMenuItem.Text = lng.GetLangText("gnomsToolStripMenuItem");
-            this.созданиеКрафтаToolStripMenuItem.Text = lng.GetLangText("createcraftsToolStripMenuItem");
-            this.уровниГномовToolStripMenuItem.Text = lng.GetLangText("levelgnomToolStripMenuItem");
-            this.музыкиToolStripMenuItem.Text = lng.GetLangText("musicToolStripMenuItem");
-            this.быстрыеДействияToolStripMenuItem.Text = lng.GetLangText("smartToolStripMenuItem");
-            this.монологаШаманаГоблиновToolStripMenuItem.Text = lng.GetLangText("monologToolStripMenuItem");
-            this.имёнГномовToolStripMenuItem.Text = lng.GetLangText("namegnomToolStripMenuItem");
-            this.логотипаЗагрузкиToolStripMenuItem.Text = lng.GetLangText("logoToolStripMenuItem");
-            this.предметовToolStripMenuItem.Text = lng.GetLangText("itemToolStripMenuItem");
-            this.дераваТехнологийToolStripMenuItem.Text = lng.GetLangText("technoToolStripMenuItem");
-            this.уровнейToolStripMenuItem.Text = lng.GetLangText("levelToolStripMenuItem");
-            this.сохраненийToolStripMenuItem.Text = lng.GetLangText("saveToolStripMenuItem");
-            this.скиловToolStripMenuItem.Text = lng.GetLangText("skilToolStripMenuItem");
-            this.названияСуществToolStripMenuItem.Text = lng.GetLangText("nameenemToolStripMenuItem");
-
-            this.редактированиеToolStripMenuItem.Text = lng.GetLangText("EditParam");
-            this.настройкиToolStripMenuItem.Text = lng.GetLangText("Sett");
-            this.путьКИгреToolStripMenuItem.Text = lng.GetLangText("PutToGame");
-            this.выходToolStripMenuItem.Text = lng.GetLangText("Exit");
-            this.запуститьИгруToolStripMenuItem.Text = lng.GetLangText("LoadGame");
-            this.оПрограммеToolStripMenuItem.Text = lng.GetLangText("About");
-            this.языкПрограммыToolStripMenuItem.Text = lng.GetLangText("Lang");
-            #endregion
+            NewLang();
 
             Language[] lngs = LocalizationSettings.GetFromFolder(Environment.CurrentDirectory + "\\Language\\");//Get an array of all localization files
             foreach (var item in lngs)
@@ -200,11 +51,8 @@ namespace CTW_loader
             }
         }
 
-        public void SmenaLang(object sender, EventArgs e)
+        private void NewLang()
         {
-            string lang = ((ToolStripMenuItem)sender).Text;
-            Language lg = LocalizationSettings.GetLangName(lang, Environment.CurrentDirectory + "\\Language\\");//Get a localized file name
-            LangParam lng = LocalizationSettings.LoadLangParamFromFile(lg, Environment.CurrentDirectory + "\\Language\\");
             #region Код Локализации
             this.Name = lng.GetLangText("FormName");
 
@@ -322,6 +170,18 @@ namespace CTW_loader
             this.button12.Text = lng.GetLangText("button12");
             this.button23.Text = lng.GetLangText("button23");
             this.button25.Text = lng.GetLangText("button25");
+            this.button27.Text = lng.GetLangText("button27");
+            this.button28.Text = lng.GetLangText("button28");
+            this.button29.Text = lng.GetLangText("button29");
+            this.button30.Text = lng.GetLangText("button30");
+            this.button31.Text = lng.GetLangText("button31");
+            this.button32.Text = lng.GetLangText("button32");
+            this.button33.Text = lng.GetLangText("button31");
+            this.button34.Text = lng.GetLangText("button32");
+            this.button35.Text = lng.GetLangText("button35");
+            this.button36.Text = lng.GetLangText("button36");
+            this.button22.Text = lng.GetLangText("button22");
+            this.button37.Text = lng.GetLangText("button37");
 
             this.checkBox5.Text = lng.GetLangText("checkBox5");
             this.checkBox4.Text = lng.GetLangText("checkBox4");
@@ -346,6 +206,8 @@ namespace CTW_loader
             this.сохраненийToolStripMenuItem.Text = lng.GetLangText("saveToolStripMenuItem");
             this.скиловToolStripMenuItem.Text = lng.GetLangText("skilToolStripMenuItem");
             this.названияСуществToolStripMenuItem.Text = lng.GetLangText("nameenemToolStripMenuItem");
+            this.загрузкийФайловToolStripMenuItem.Text = lng.GetLangText("загрузкийФайловToolStripMenuItem");
+            this.типИгровыхФайловToolStripMenuItem.Text = lng.GetLangText("типИгровыхФайловToolStripMenuItem");
 
             this.редактированиеToolStripMenuItem.Text = lng.GetLangText("EditParam");
             this.настройкиToolStripMenuItem.Text = lng.GetLangText("Sett");
@@ -355,6 +217,14 @@ namespace CTW_loader
             this.оПрограммеToolStripMenuItem.Text = lng.GetLangText("About");
             this.языкПрограммыToolStripMenuItem.Text = lng.GetLangText("Lang");
             #endregion
+        }
+
+        public void SmenaLang(object sender, EventArgs e)
+        {
+            string lang = ((ToolStripMenuItem)sender).Text;
+            Language lg = LocalizationSettings.GetLangName(lang, Environment.CurrentDirectory + "\\Language\\");//Get a localized file name
+            lng = LocalizationSettings.LoadLangParamFromFile(lg, Environment.CurrentDirectory + "\\Language\\");
+            NewLang();
         }
 
         private void open()
@@ -2486,6 +2356,12 @@ namespace CTW_loader
             Label lb4 = new Label();
             Label lb5 = new Label();
 
+            lb1.Text = "Имя" + Environment.NewLine;
+            lb2.Text = "Кол" + Environment.NewLine;
+            lb3.Text = "Раз" + Environment.NewLine;
+            lb4.Text = "Выс" + Environment.NewLine;
+            //lb5.Text = "Название" + Environment.NewLine;
+
             for (int i = 0; i < xml6.SelectSingleNode("root/level/blocks").ChildNodes.Count; i++)
             {
                 if (xml6.SelectSingleNode("root/level/blocks").ChildNodes[i].Name == "block")
@@ -2911,30 +2787,7 @@ namespace CTW_loader
                 textBox17.Text = ttt["Name1"];
                 richTextBox2.Text = ttt["Desc"];
             }
-        }
-
-        private void упаковкаФайловToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            closopen(false, pn, panel18);
-        }
-
-        private void button22_Click(object sender, EventArgs e)
-        {
-            using (ZipFile zip = new ZipFile()) // Создаем объект для работы с архивом
-            {
-                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression; // MAX степень сжатия
-                FolderBrowserDialog frb = new FolderBrowserDialog();
-                if (frb.ShowDialog() == DialogResult.OK)
-                {
-                    string p = frb.SelectedPath;
-
-                    foreach (var item in Directory.GetDirectories(p))
-                    {
-                        zip.AddDirectory(item); // Кладем в архив папку вместе с содежимым
-                    }
-                }
-                zip.Save(Environment.CurrentDirectory + "\\" + "main.pak");  // Создаем архив  
-            }
+            else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -2977,6 +2830,7 @@ namespace CTW_loader
                 maskedTextBox31.Text = array.GetParams("7");
                 maskedTextBox32.Text = array.GetParams("8");
             }
+            else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
         ToolTip tl = new ToolTip();
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -3081,6 +2935,7 @@ namespace CTW_loader
                     }
                 }
             }
+            else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -3102,9 +2957,341 @@ namespace CTW_loader
         MaskedTextBox mk = null;
         private void button26_Click(object sender, EventArgs e)
         {
-            if(comboBox25.Text != "")
+            if (comboBox25.Text != "")
                 mk.Text = comboBox25.Text + "-" + numericUpDown2.Value.ToString();
             panel19.Visible = false;
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> Par = new SortedList<string, string>();
+            Par.Add("Health", maskedTextBox16.Text);
+            Par.Add("Golod", maskedTextBox17.Text);
+            Par.Add("SpeedX", maskedTextBox18.Text);
+            Par.Add("NotDamegeY", maskedTextBox19.Text);
+            Par.Add("ColItems", maskedTextBox20.Text);
+            Par.Add("DamageNotWeapon", textBox7.Text);
+            Par.Add("Utonut", maskedTextBox22.Text);
+            Par.Add("SpeedY", maskedTextBox23.Text);
+
+            CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.Gnoms, Par);
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+
+            if (CTWLoader_Formating.GetType(ttt) == CTWLoader_Formating.TypeData.Gnoms)
+            {
+                maskedTextBox16.Text = ttt["Health"];
+                maskedTextBox17.Text = ttt["Golod"];
+                maskedTextBox18.Text = ttt["SpeedX"];
+                maskedTextBox19.Text = ttt["NotDamegeY"];
+                maskedTextBox20.Text = ttt["ColItems"];
+                textBox7.Text = ttt["DamageNotWeapon"];
+                maskedTextBox22.Text = ttt["Utonut"];
+                maskedTextBox23.Text = ttt["SpeedY"];
+            }
+            else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> Par = new SortedList<string, string>();
+            Par.Add("SorvSoSten", maskedTextBox1.Text);
+            Par.Add("TimeDay", maskedTextBox9.Text);
+            Par.Add("TimeNight", maskedTextBox8.Text);
+            Par.Add("MaxQusts", maskedTextBox7.Text);
+            Par.Add("TimeDeletMiss", maskedTextBox6.Text);
+            Par.Add("TimeRegenHealt", maskedTextBox5.Text);
+            Par.Add("KoeffSpeed", textBox8.Text);
+            Par.Add("RTotem", maskedTextBox3.Text);
+            Par.Add("NewGnoms", maskedTextBox10.Text);
+            Par.Add("MinSHome", maskedTextBox11.Text);
+            Par.Add("TimeregenMana", maskedTextBox12.Text);
+            Par.Add("TimeDayandNight", maskedTextBox2.Text);
+            Par.Add("NewTree", maskedTextBox13.Text);
+            Par.Add("Autosave", maskedTextBox14.Text);
+            Par.Add("EatingFood", maskedTextBox15.Text);
+
+            CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.Worlds, Par);
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+
+            if (CTWLoader_Formating.GetType(ttt) == CTWLoader_Formating.TypeData.Worlds)
+            {
+                maskedTextBox1.Text = ttt["SorvSoSten"];
+                maskedTextBox9.Text = ttt["TimeDay"];
+                maskedTextBox8.Text = ttt["TimeNight"];
+                maskedTextBox7.Text = ttt["MaxQusts"];
+                maskedTextBox6.Text = ttt["TimeDeletMiss"];
+                maskedTextBox5.Text = ttt["TimeRegenHealt"];
+                textBox8.Text = ttt["KoeffSpeed"];
+                maskedTextBox3.Text = ttt["RTotem"];
+                maskedTextBox10.Text = ttt["NewGnoms"];
+                maskedTextBox11.Text = ttt["MinSHome"];
+                maskedTextBox12.Text = ttt["TimeregenMana"];
+                maskedTextBox2.Text = ttt["TimeDayandNight"];
+                maskedTextBox13.Text = ttt["NewTree"];
+                maskedTextBox14.Text = ttt["Autosave"];
+                maskedTextBox15.Text = ttt["EatingFood"];
+            }
+            else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            if ((sender as Button).Name == "button31")
+            {
+                SortedList<string, string> Par = new SortedList<string, string>();
+                Par.Add("Name", textBox13.Text);
+                CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.GnomsName, Par);
+            }
+            else if ((sender as Button).Name == "button32")
+            {
+                SortedList<string, string> Par = new SortedList<string, string>();
+                Par.Add("Name", textBox14.Text);
+                CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.GnomsName, Par);
+            }
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            if ((sender as Button).Name == "button31")
+            {
+                SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+                if (CTWLoader_Formating.GetType(ttt) == CTWLoader_Formating.TypeData.GnomsName)
+                {
+                    textBox13.Text = ttt["Name"];
+                }
+                else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+            else if ((sender as Button).Name == "button32")
+            {
+                SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+                if (CTWLoader_Formating.GetType(ttt) == CTWLoader_Formating.TypeData.GnomsName)
+                {
+                    textBox14.Text = ttt["Name"];
+                }
+                else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> Par = new SortedList<string, string>();
+            Par.Add("Name", comboBox2.Text);
+            Par.Add("IsShop", checkBox6.Checked.ToString());
+            Par.Add("Params", textBox11.Text);
+            Par.Add("CostBuy", maskedTextBox21.Text);
+            Par.Add("ColBuy", maskedTextBox35.Text);
+            Par.Add("Speed", maskedTextBox36.Text);
+            Par.Add("Damage", maskedTextBox37.Text);
+            Par.Add("RegenHealt", maskedTextBox38.Text);
+            Par.Add("Sitost", maskedTextBox39.Text);
+            Par.Add("Zasit", maskedTextBox40.Text);
+            Par.Add("Stoping", textBox12.Text);
+
+            CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.Item, Par);
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+
+            if (CTWLoader_Formating.GetType(ttt) == CTWLoader_Formating.TypeData.Item)
+            {
+                comboBox2.Text = ttt["Name"];
+                checkBox6.Checked = Convert.ToBoolean(ttt["IsShop"]);
+                textBox11.Text = ttt["Params"];
+                maskedTextBox21.Text = ttt["CostBuy"];
+                maskedTextBox35.Text = ttt["ColBuy"];
+                maskedTextBox36.Text = ttt["Speed"];
+                maskedTextBox37.Text = ttt["Damage"];
+                maskedTextBox38.Text = ttt["RegenHealt"];
+                maskedTextBox39.Text = ttt["Sitost"];
+                maskedTextBox40.Text = ttt["Zasit"];
+                textBox12.Text = ttt["Stoping"];
+            }
+            else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> Par = new SortedList<string, string>();
+            Par.Add("ID", comboBox9.SelectedIndex.ToString());
+            Par.Add("Def", comboBox10.Text);
+            Par.Add("Size", comboBox11.Text);
+            Par.Add("Tipog", comboBox12.Text);
+            Par.Add("Temper", comboBox13.Text);
+            Par.Add("Nadgr", comboBox14.Text);
+            Par.Add("Kladb", comboBox15.Text);
+            Par.Add("DayVoln", comboBox16.Text);
+            Par.Add("LevelNewVoln", comboBox17.Text);
+            Par.Add("GSToPortal", comboBox18.Text);
+            Par.Add("Monstr", comboBox19.Text);
+
+            CTWLoader_Formating.Save(CTWLoader_Formating.DialogSavePath(), CTWLoader_Formating.TypeData.World, Par);
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            SortedList<string, string> ttt = CTWLoader_Formating.Read(CTWLoader_Formating.DialogOpenPath());
+
+            if (CTWLoader_Formating.GetType(ttt) == CTWLoader_Formating.TypeData.World)
+            {
+                comboBox9.SelectedIndex = int.Parse(ttt["ID"]);
+                comboBox10.Text = ttt["Def"];
+                comboBox11.Text = ttt["Size"];
+                comboBox12.Text = ttt["Tipog"];
+                comboBox13.Text = ttt["Temper"];
+                comboBox14.Text = ttt["Nadgr"];
+                comboBox15.Text = ttt["Kladb"];
+                comboBox16.Text = ttt["DayVoln"];
+                comboBox17.Text = ttt["LevelNewVoln"];
+                comboBox18.Text = ttt["GSToPortal"];
+                comboBox19.Text = ttt["Monstr"];
+            }
+            else { MessageBox.Show(lng.GetLangText("NotCorrectingTypeFile"), lng.GetLangText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void типИгровыхФайловToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fr = new Form();
+            Label lb = new Label();
+            Button bt = new Button();
+
+            fr.Size = new Size(280, 100);
+            lb.Location = new Point(5, 5);
+            bt.Location = new Point(40, 30);
+            lb.Size = new Size(250, 15);
+            bt.Text = lng.GetLangText("Exit");
+            lb.Text = lng.GetLangText(GameFile.GameFile.TypeFileToString(GameFile.GameFile.GetTypeFile(@puttogame)));
+            bt.Click += Closes;
+            fr.Controls.Add(lb);
+            fr.Controls.Add(bt);
+            fr.ShowDialog();
+        }
+        private void Closes(object sender, EventArgs e)
+        {
+            ((Form)((Button)sender).TopLevelControl).Close();
+        }
+
+        private void загрузкийФайловToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EthernetPath et = new EthernetPath(lng);
+            et.Show();
+        }
+
+        private void Colors(Color cl)
+        {
+            #region Цвета
+            this.BackColor = cl;
+
+            this.button14.BackColor = cl;
+            this.button5.BackColor = cl;
+            this.button4.BackColor = cl;
+            this.button10.BackColor = cl;
+            this.button8.BackColor = cl;
+            this.button7.BackColor = cl;
+            this.button9.BackColor = cl;
+            this.button21.BackColor = cl;
+            this.Bestyary.BackColor = cl;
+            this.button20.BackColor = cl;
+            this.button19.BackColor = cl;
+            this.button18.BackColor = cl;
+            this.button17.BackColor = cl;
+            this.button11.BackColor = cl;
+            this.button3.BackColor = cl;
+            this.button2.BackColor = cl;
+            this.button6.BackColor = cl;
+            this.Craft.BackColor = cl;
+            this.button24.BackColor = cl;
+            this.button15.BackColor = cl;
+            this.button16.BackColor = cl;
+            this.button12.BackColor = cl;
+            this.button23.BackColor = cl;
+            this.button25.BackColor = cl;
+            this.button27.BackColor = cl;
+            this.button28.BackColor = cl;
+            this.button29.BackColor = cl;
+            this.button30.BackColor = cl;
+            this.button31.BackColor = cl;
+            this.button32.BackColor = cl;
+            this.button33.BackColor = cl;
+            this.button34.BackColor = cl;
+            this.button35.BackColor = cl;
+            this.button36.BackColor = cl;
+            this.button22.BackColor = cl;
+            this.button37.BackColor = cl;
+
+            this.checkBox5.BackColor = cl;
+            this.checkBox4.BackColor = cl;
+            this.checkBox3.BackColor = cl;
+            this.checkBox2.BackColor = cl;
+            this.checkBox6.BackColor = cl;
+            this.checkBox7.BackColor = cl;
+            this.checkBox1.BackColor = cl;
+
+            this.мираToolStripMenuItem.BackColor = cl;
+            this.гномовToolStripMenuItem.BackColor = cl;
+            this.созданиеКрафтаToolStripMenuItem.BackColor = cl;
+            this.уровниГномовToolStripMenuItem.BackColor = cl;
+            this.музыкиToolStripMenuItem.BackColor = cl;
+            this.быстрыеДействияToolStripMenuItem.BackColor = cl;
+            this.монологаШаманаГоблиновToolStripMenuItem.BackColor = cl;
+            this.имёнГномовToolStripMenuItem.BackColor = cl;
+            this.логотипаЗагрузкиToolStripMenuItem.BackColor = cl;
+            this.предметовToolStripMenuItem.BackColor = cl;
+            this.дераваТехнологийToolStripMenuItem.BackColor = cl;
+            this.уровнейToolStripMenuItem.BackColor = cl;
+            this.сохраненийToolStripMenuItem.BackColor = cl;
+            this.скиловToolStripMenuItem.BackColor = cl;
+            this.названияСуществToolStripMenuItem.BackColor = cl;
+            this.загрузкийФайловToolStripMenuItem.BackColor = cl;
+            this.типИгровыхФайловToolStripMenuItem.BackColor = cl;
+            this.menuStrip1.BackColor = cl;
+
+            this.редактированиеToolStripMenuItem.BackColor = cl;
+            this.настройкиToolStripMenuItem.BackColor = cl;
+            this.путьКИгреToolStripMenuItem.BackColor = cl;
+            this.выходToolStripMenuItem.BackColor = cl;
+            this.запуститьИгруToolStripMenuItem.BackColor = cl;
+            this.оПрограммеToolStripMenuItem.BackColor = cl;
+            this.языкПрограммыToolStripMenuItem.BackColor = cl;
+            this.toolStripSeparator1.BackColor = cl;
+            this.toolStripSeparator2.BackColor = cl;
+
+            foreach (var item in this.Controls)
+            {
+                if (item is MaskedTextBox || item is TextBox)
+                {
+                    (item as Control).BackColor = cl;
+                    //(item as Control).ForeColor = cl;
+                    (item as MaskedTextBox).BorderStyle = BorderStyle.None;
+                }
+                if (item is Panel)
+                {
+                    foreach (var item1 in ((Panel)item).Controls)
+                    {
+                        if (item1 is MaskedTextBox || item is TextBox)
+                        {
+                            //(item1 as Control).ForeColor = cl;
+                            (item1 as Control).BackColor = cl;
+                            (item1 as MaskedTextBox).BorderStyle = BorderStyle.None;
+                        }
+                    }
+                }
+            }
+            #endregion
+        }
+
+        private void темнаяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Colors(Color.Gray);
         }
     }
 }

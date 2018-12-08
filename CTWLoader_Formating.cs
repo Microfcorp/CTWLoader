@@ -12,12 +12,22 @@ namespace CTW_loader
 {
     class CTWLoader_Formating
     {
+        [Flags]
         public enum TypeData
         {
-            Null=0,
-            Bestyary=1,
-            Craft=2,
-            Skils=3,
+            Null = 0,
+            Bestyary = 1,
+            Craft = 2,
+            Skils = 3,
+            Gnoms = 4,
+            Worlds = 5,
+            CharLevel = 6,
+            Monolog = 7,
+            GnomsName = 8,
+            Logo = 9,
+            Item = 10,
+            Multy = 11,
+            World = 12,
         }
         public static string DialogOpenPath()
         {
@@ -25,7 +35,8 @@ namespace CTW_loader
             opg.SupportMultiDottedExtensions = false;
             opg.Multiselect = false;
             opg.Title = "Открыть файл CTW сохранения";
-
+            if(Directory.Exists(Environment.CurrentDirectory + "\\DownloadingPath"))
+                opg.InitialDirectory = Environment.CurrentDirectory + "\\DownloadingPath";
             opg.Filter = "Файл данных CTWLoader (*.CTWLoader)|*.CTWLoader;";
             if (opg.ShowDialog() != DialogResult.OK) return "";
             return opg.FileName;
@@ -36,13 +47,13 @@ namespace CTW_loader
             SaveFileDialog opg = new SaveFileDialog();
             opg.SupportMultiDottedExtensions = false;
             opg.Title = "Сохранить файл CTW сохранения";
-
+            opg.FileName = "CTWLDS_"+DateTime.Now.ToString().Replace(':','_').Replace('.', '_').Replace(' ', '_');
             opg.Filter = "Файл данных CTWLoader (*.CTWLoader)|*.CTWLoader;";
             if (opg.ShowDialog() != DialogResult.OK) { return ""; };
             return opg.FileName;
         }
 
-        public static SortedList<string,string> Read(string path)
+        public static SortedList<string, string> Read(string path)
         {
             if (path == "") return null;
             string ty = File.ReadAllText(path).Replace("\r", "");
@@ -50,13 +61,13 @@ namespace CTW_loader
             tmp.Add("Type", ty.Split(';')[0]);
             foreach (var item in ty.Split(';')[1].Split('\n'))
             {
-                if(item.Split('=')[0] != "")
-                 tmp.Add(item.Split('=')[0], item.Split('=')[1]);
+                if (item.Split('=')[0] != "")
+                    tmp.Add(item.Split('=')[0], item.Split('=')[1]);
             }
-            
+
             return tmp;
         }
-        public static void Save(string path, TypeData typedata, SortedList<string,string> data)
+        public static void Save(string path, TypeData typedata, SortedList<string, string> data)
         {
             if (path == "") return;
             string tmp = typedata.ToString() + ";";
@@ -69,24 +80,13 @@ namespace CTW_loader
         public static TypeData GetType(string ReadData)
         {
             if (ReadData == "") return TypeData.Null;
-            TypeData tmp = new TypeData();
-            switch (ReadData.Split(';')[0])
-            {
-                case "Bestyary":
-                    tmp = TypeData.Bestyary;
-                break;
-                case "Craft":
-                    tmp = TypeData.Craft;
-                break;
-                case "Skils":
-                    tmp = TypeData.Skils;
-                    break;
-                default:
-                    tmp = TypeData.Null;
-                    break;
-
-            }
-            return tmp;
+            return (TypeData)Enum.Parse(typeof(TypeData), ReadData);
+        }
+        public static TypeData GetType(SortedList<string, string> ReadData)
+        {
+            if(ReadData == null) return TypeData.Null;
+            if (ReadData["Type"] == "") return TypeData.Null;
+            return (TypeData)Enum.Parse(typeof(TypeData), ReadData["Type"]);
         }
         public static string GetData(string ReadData, string name)
         {
@@ -94,7 +94,7 @@ namespace CTW_loader
             string tmp = "";
             foreach (var item in ReadData.Split(';'))
             {
-                if(item.Split('=')[0] == name)
+                if (item.Split('=')[0] == name)
                 {
                     tmp = item.Split('=')[1];
                 }
@@ -115,7 +115,7 @@ namespace CTW_loader
 
             public static CTWLoader_ArrayParam ComboboxParsing(ComboBox ComboBox)
             {
-                CTWLoader_ArrayParam tmp = new CTWLoader_ArrayParam();               
+                CTWLoader_ArrayParam tmp = new CTWLoader_ArrayParam();
 
                 for (int i = 0; i < ComboBox.Items.Count; i++)
                 {
@@ -124,7 +124,7 @@ namespace CTW_loader
 
                 return tmp;
             }
-        }       
+        }
     }
     public class CTWLoader_Array
     {
@@ -173,7 +173,7 @@ namespace CTW_loader
             this.Name = Name;
             foreach (var item in text.Split(separator))
             {
-                if(item.Split(separator1).Length > 1)
+                if (item.Split(separator1).Length > 1)
                     sr.Add(item.Split(separator1)[0], item.Split(separator1)[1]);
             }
         }

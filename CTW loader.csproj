@@ -81,20 +81,31 @@
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
     <Compile Include="CTWLoader_Formating.cs" />
+    <Compile Include="EthernetPath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EthernetPath.Designer.cs">
+      <DependentUpon>EthernetPath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameFile\GameFile.cs" />
     <Compile Include="GameFile\GameFileRead.cs" />
     <Compile Include="GameFile\GameFileUpdate.cs" />
     <Compile Include="GameFile\GameFileWrite.cs" />
     <Compile Include="GameFile\Helpers.cs" />
+    <Compile Include="Perioding\Period.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EthernetPath.resx">
+      <DependentUpon>EthernetPath.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
