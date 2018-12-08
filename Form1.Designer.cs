@@ -82,10 +82,15 @@ namespace CTW_loader
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.языкПрограммыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.путьКИгреToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.темаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.темнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cTWLoaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.запуститьИгруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузкийФайловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типИгровыхФайловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button30 = new System.Windows.Forms.Button();
@@ -138,7 +143,6 @@ namespace CTW_loader
             this.maskedTextBox26 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox25 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox24 = new System.Windows.Forms.MaskedTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label25 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -185,8 +189,6 @@ namespace CTW_loader
             this.panel8 = new System.Windows.Forms.Panel();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button8 = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -305,11 +307,11 @@ namespace CTW_loader
             this.label86 = new System.Windows.Forms.Label();
             this.comboBox24 = new System.Windows.Forms.ComboBox();
             this.label85 = new System.Windows.Forms.Label();
-            this.типИгровыхФайловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.загрузкийФайловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.темаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.темнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новогодняяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.жуткаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -317,15 +319,12 @@ namespace CTW_loader
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -333,6 +332,9 @@ namespace CTW_loader
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -737,8 +739,8 @@ namespace CTW_loader
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.языкПрограммыToolStripMenuItem,
-            this.путьКИгреToolStripMenuItem,
-            this.темаToolStripMenuItem});
+            this.темаToolStripMenuItem,
+            this.путьКИгреToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
@@ -755,6 +757,23 @@ namespace CTW_loader
             this.путьКИгреToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.путьКИгреToolStripMenuItem.Text = "Путь к игре";
             this.путьКИгреToolStripMenuItem.Click += new System.EventHandler(this.путьКИгреToolStripMenuItem_Click);
+            // 
+            // темаToolStripMenuItem
+            // 
+            this.темаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.темнаяToolStripMenuItem,
+            this.новогодняяToolStripMenuItem,
+            this.жуткаяToolStripMenuItem});
+            this.темаToolStripMenuItem.Name = "темаToolStripMenuItem";
+            this.темаToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.темаToolStripMenuItem.Text = "Тема";
+            // 
+            // темнаяToolStripMenuItem
+            // 
+            this.темнаяToolStripMenuItem.Name = "темнаяToolStripMenuItem";
+            this.темнаяToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.темнаяToolStripMenuItem.Text = "Темная";
+            this.темнаяToolStripMenuItem.Click += new System.EventHandler(this.темнаяToolStripMenuItem_Click);
             // 
             // cTWLoaderToolStripMenuItem
             // 
@@ -773,26 +792,48 @@ namespace CTW_loader
             // запуститьИгруToolStripMenuItem
             // 
             this.запуститьИгруToolStripMenuItem.Name = "запуститьИгруToolStripMenuItem";
-            this.запуститьИгруToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.запуститьИгруToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.запуститьИгруToolStripMenuItem.Text = "Запустить игру";
             this.запуститьИгруToolStripMenuItem.Click += new System.EventHandler(this.запуститьИгруToolStripMenuItem_Click);
             // 
-            // оПрограммеToolStripMenuItem
+            // загрузкийФайловToolStripMenuItem
             // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
-            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            this.загрузкийФайловToolStripMenuItem.Name = "загрузкийФайловToolStripMenuItem";
+            this.загрузкийФайловToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.загрузкийФайловToolStripMenuItem.Text = "Загрузчик файлов";
+            this.загрузкийФайловToolStripMenuItem.Click += new System.EventHandler(this.загрузкийФайловToolStripMenuItem_Click);
+            // 
+            // типИгровыхФайловToolStripMenuItem
+            // 
+            this.типИгровыхФайловToolStripMenuItem.Name = "типИгровыхФайловToolStripMenuItem";
+            this.типИгровыхФайловToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.типИгровыхФайловToolStripMenuItem.Text = "Тип игровых файлов";
+            this.типИгровыхФайловToolStripMenuItem.Click += new System.EventHandler(this.типИгровыхФайловToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator1.Paint += new System.Windows.Forms.PaintEventHandler(this.mnuToolStripSeparator_Custom_Paint);
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator2.Paint += new System.Windows.Forms.PaintEventHandler(this.mnuToolStripSeparator_Custom_Paint);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -1347,16 +1388,6 @@ namespace CTW_loader
             this.maskedTextBox24.TabIndex = 4;
             this.maskedTextBox24.Click += new System.EventHandler(this.maskedTextBox24_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 72);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 198);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -1838,24 +1869,6 @@ namespace CTW_loader
             this.textBox9.Size = new System.Drawing.Size(256, 20);
             this.textBox9.TabIndex = 3;
             this.textBox9.DoubleClick += new System.EventHandler(this.imgset1_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(19, 183);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(305, 154);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(18, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(306, 154);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // button8
             // 
@@ -3178,39 +3191,47 @@ namespace CTW_loader
             this.label85.TabIndex = 1;
             this.label85.Text = "Название";
             // 
-            // типИгровыхФайловToolStripMenuItem
+            // новогодняяToolStripMenuItem
             // 
-            this.типИгровыхФайловToolStripMenuItem.Name = "типИгровыхФайловToolStripMenuItem";
-            this.типИгровыхФайловToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.типИгровыхФайловToolStripMenuItem.Text = "Тип игровых файлов";
-            this.типИгровыхФайловToolStripMenuItem.Click += new System.EventHandler(this.типИгровыхФайловToolStripMenuItem_Click);
+            this.новогодняяToolStripMenuItem.Name = "новогодняяToolStripMenuItem";
+            this.новогодняяToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.новогодняяToolStripMenuItem.Text = "Новогодняя";
+            this.новогодняяToolStripMenuItem.Click += new System.EventHandler(this.новогодняяToolStripMenuItem_Click);
             // 
-            // загрузкийФайловToolStripMenuItem
+            // pictureBox3
             // 
-            this.загрузкийФайловToolStripMenuItem.Name = "загрузкийФайловToolStripMenuItem";
-            this.загрузкийФайловToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.загрузкийФайловToolStripMenuItem.Text = "Загрузчик файлов";
-            this.загрузкийФайловToolStripMenuItem.Click += new System.EventHandler(this.загрузкийФайловToolStripMenuItem_Click);
+            this.pictureBox3.Location = new System.Drawing.Point(19, 183);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(305, 154);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
-            // toolStripSeparator2
+            // pictureBox2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(186, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(306, 154);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
-            // темаToolStripMenuItem
+            // pictureBox1
             // 
-            this.темаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.темнаяToolStripMenuItem});
-            this.темаToolStripMenuItem.Name = "темаToolStripMenuItem";
-            this.темаToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.темаToolStripMenuItem.Text = "Тема";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(11, 72);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(198, 198);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
-            // темнаяToolStripMenuItem
+            // жуткаяToolStripMenuItem
             // 
-            this.темнаяToolStripMenuItem.Name = "темнаяToolStripMenuItem";
-            this.темнаяToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.темнаяToolStripMenuItem.Text = "Темная";
-            this.темнаяToolStripMenuItem.Click += new System.EventHandler(this.темнаяToolStripMenuItem_Click);
+            this.жуткаяToolStripMenuItem.Name = "жуткаяToolStripMenuItem";
+            this.жуткаяToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.жуткаяToolStripMenuItem.Text = "Жуткая";
+            this.жуткаяToolStripMenuItem.Click += new System.EventHandler(this.жуткаяToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -3255,7 +3276,6 @@ namespace CTW_loader
             this.panel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -3267,8 +3287,6 @@ namespace CTW_loader
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -3283,6 +3301,9 @@ namespace CTW_loader
             this.panel16.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3568,6 +3589,8 @@ namespace CTW_loader
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem темаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem темнаяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem новогодняяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem жуткаяToolStripMenuItem;
     }
 }
 

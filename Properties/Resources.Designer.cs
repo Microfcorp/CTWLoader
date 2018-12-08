@@ -59,5 +59,65 @@ namespace CTW_loader.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _0_a881a_eb8df1ca_orig {
+            get {
+                object obj = ResourceManager.GetObject("_0_a881a_eb8df1ca_orig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gif_salyut_6 {
+            get {
+                object obj = ResourceManager.GetObject("gif-salyut-6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap halloween_tree_02 {
+            get {
+                object obj = ResourceManager.GetObject("halloween_tree_02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap halloween_tree_03 {
+            get {
+                object obj = ResourceManager.GetObject("halloween_tree_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap khellouin_animatsionnaya_kartinka_0807 {
+            get {
+                object obj = ResourceManager.GetObject("khellouin_animatsionnaya_kartinka_0807", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap New_year_tree {
+            get {
+                object obj = ResourceManager.GetObject("New_year_tree", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

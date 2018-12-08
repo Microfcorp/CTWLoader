@@ -101,6 +101,14 @@
     <Compile Include="Perioding\Period.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theme\Modules.cs" />
+    <Compile Include="Theme\Musics.cs" />
+    <Compile Include="Theme\MusicsControls.cs" />
+    <Compile Include="Theme\Musics\Elize.cs" />
+    <Compile Include="Theme\Musics\JeengleBels.cs" />
+    <Compile Include="Theme\Musics\StarWars.cs" />
+    <Compile Include="Theme\Musics\Thanebaum.cs" />
+    <Compile Include="Theme\Theme.cs" />
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,7 +120,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -137,6 +144,12 @@
   <ItemGroup>
     <Content Include="ICON.ico" />
     <Content Include="Ionic.Zip.xml" />
+    <None Include="Resources\khellouin-animatsionnaya-kartinka-0807.gif" />
+    <None Include="Resources\New_year_tree.png" />
+    <None Include="Resources\halloween_tree_03.png" />
+    <None Include="Resources\halloween_tree_02.png" />
+    <None Include="Resources\gif-salyut-6.gif" />
+    <None Include="Resources\0_a881a_eb8df1ca_orig.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -14,6 +14,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using MicLocalizationSystem;
 using CTW_loader.GameFile;
+using CTW_loader.Theme;
 
 namespace CTW_loader
 {
@@ -26,7 +27,7 @@ namespace CTW_loader
 
         LangParam lng = LocalizationSettings.LoadLangParamFromFile(LocalizationSettings.GetLangSystem(), Environment.CurrentDirectory + "\\Language\\");
 
-
+        Color cl = Color.Transparent;
         public Form1()
         {
             InitializeComponent();
@@ -40,13 +41,19 @@ namespace CTW_loader
 
 
             NewLang();
+            ZapLang();
+        }
 
+        private void ZapLang()
+        {
             Language[] lngs = LocalizationSettings.GetFromFolder(Environment.CurrentDirectory + "\\Language\\");//Get an array of all localization files
+            языкПрограммыToolStripMenuItem.DropDownItems.Clear();
             foreach (var item in lngs)
             {
                 ToolStripMenuItem tmp = new ToolStripMenuItem();
                 tmp.Text = item.GetName();
                 tmp.Click += SmenaLang;
+                tmp.BackColor = cl;
                 языкПрограммыToolStripMenuItem.DropDownItems.Add(tmp);
             }
         }
@@ -3186,8 +3193,38 @@ namespace CTW_loader
             et.Show();
         }
 
+        private void RemoveTheme()
+        {
+            foreach (var item in CurTheme)
+            {
+                this.Controls.Remove(item);
+                foreach (var item1 in pn)
+                {
+                    item1.Controls.Remove(item);
+                }
+            }
+
+            foreach (var item in this.Controls)
+            {
+                if (item is Panel)
+                {
+                    foreach (var item1 in ((Panel)item).Controls)
+                    {
+                        if (item1 is MaskedTextBox || item1 is TextBox || item1 is ComboBox || item1 is NumericUpDown)
+                        {
+                            (item1 as Control).MouseLeave -= ML;
+                            (item1 as Control).MouseHover -= MH1;
+                            (item1 as Control).MouseHover -= MH;
+                        }
+                    }
+                }
+            }
+        }
+
         private void Colors(Color cl)
         {
+            RemoveTheme();
+            this.cl = cl;
             #region Цвета
             this.BackColor = cl;
 
@@ -3264,34 +3301,144 @@ namespace CTW_loader
             this.языкПрограммыToolStripMenuItem.BackColor = cl;
             this.toolStripSeparator1.BackColor = cl;
             this.toolStripSeparator2.BackColor = cl;
+            this.темаToolStripMenuItem.BackColor = cl;
+            this.темнаяToolStripMenuItem.BackColor = cl;
+            this.новогодняяToolStripMenuItem.BackColor = cl;
+            this.жуткаяToolStripMenuItem.BackColor = cl;
 
-            foreach (var item in this.Controls)
-            {
-                if (item is MaskedTextBox || item is TextBox)
-                {
-                    (item as Control).BackColor = cl;
-                    //(item as Control).ForeColor = cl;
-                    (item as MaskedTextBox).BorderStyle = BorderStyle.None;
-                }
-                if (item is Panel)
-                {
-                    foreach (var item1 in ((Panel)item).Controls)
-                    {
-                        if (item1 is MaskedTextBox || item is TextBox)
-                        {
-                            //(item1 as Control).ForeColor = cl;
-                            (item1 as Control).BackColor = cl;
-                            (item1 as MaskedTextBox).BorderStyle = BorderStyle.None;
-                        }
-                    }
-                }
-            }
+            ZapLang();
             #endregion
         }
 
         private void темнаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Colors(Color.Gray);
+        }
+
+        private void новогодняяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveTheme();
+            Color cl = Color.Aqua;
+
+            Colors(cl);
+
+            foreach (var item in pn)
+            {
+                PictureBox pb = new PictureBox();
+                pb.SizeMode = PictureBoxSizeMode.AutoSize;
+                pb.Image = Modules.RotateImg(Properties.Resources._0_a881a_eb8df1ca_orig, Modules.RandomAng(), cl);
+                pb.Location = new Point(480, 250);
+                pb.SendToBack();
+                item.Controls.Add(pb);
+                CurTheme.Add(pb);
+
+                PictureBox pb1 = new PictureBox();
+                pb1.SizeMode = PictureBoxSizeMode.AutoSize;
+                pb1.Image = Modules.RotateImg(Properties.Resources.New_year_tree, Modules.RandomAng(), cl);
+                pb1.Location = new Point(10, 20);
+                pb.SendToBack();
+                item.Controls.Add(pb1);
+                CurTheme.Add(pb1);
+            }
+            foreach (var item in this.Controls)
+            {
+                if (item is Panel)
+                {
+                    foreach (var item1 in ((Panel)item).Controls)
+                    {
+                        if (item1 is MaskedTextBox || item1 is TextBox || item1 is ComboBox || item1 is NumericUpDown)
+                        {
+                            (item1 as Control).MouseLeave += ML;
+                            (item1 as Control).MouseHover += MH;
+                        }
+                    }
+                }
+            }
+        }
+        private void MH(object sender, EventArgs e)
+        {
+            PictureBox pb = new PictureBox();
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.Image = Properties.Resources.gif_salyut_6;
+            pb.Location = new Point((sender as Control).Location.X + 10, (sender as Control).Location.Y + 10);
+            pb.Size = new Size(133, 97);
+            pb.BringToFront();
+            (sender as Control).Parent.Controls.Add(pb);
+            sl = pb;
+            MS.SetMusic(MusicsControls.RandomMusic(new Theme.Musics.JeengleBels(), new Theme.Musics.Thanebaum()));
+            MS.Play();
+        }
+        private void MH1(object sender, EventArgs e)
+        {
+            PictureBox pb = new PictureBox();
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.Image = Properties.Resources.khellouin_animatsionnaya_kartinka_0807;
+            pb.Location = new Point((sender as Control).Location.X + 10, (sender as Control).Location.Y + 10);
+            pb.Size = new Size(133, 97);
+            pb.BringToFront();
+            (sender as Control).Parent.Controls.Add(pb);
+            sl = pb;
+            MS.SetMusic(MusicsControls.RandomMusic(new Theme.Musics.StarWars(), new Theme.Musics.Elize()));
+            MS.Play();
+        }
+        private void ML(object sender, EventArgs e)
+        {
+            (sender as Control).Parent.Controls.Remove(sl);
+            MS.Stop();
+        }
+        private void mnuToolStripSeparator_Custom_Paint(Object sender, PaintEventArgs e)
+        {
+
+            ToolStripSeparator sep = (ToolStripSeparator)sender;
+
+            e.Graphics.FillRectangle(new SolidBrush(cl), 0, 0, sep.Width, sep.Height);
+
+            e.Graphics.DrawLine(new Pen(Color.DarkGray), 30, sep.Height / 2, sep.Width - 4, sep.Height / 2);
+
+        }
+        MusicsControls MS = new MusicsControls();
+        PictureBox sl = null;
+        List<Control> CurTheme = new List<Control>();
+
+        private void жуткаяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveTheme();
+            Color cl = Color.DimGray;
+
+            Colors(cl);
+
+            foreach (var item in pn)
+            {
+                PictureBox pb = new PictureBox();
+                pb.SizeMode = PictureBoxSizeMode.AutoSize;
+                pb.Image = Modules.RotateImg(Properties.Resources.halloween_tree_02, Modules.RandomAng(), cl);
+                pb.Location = new Point(400, 150);
+                item.Controls.Add(pb);
+                pb.SendToBack();
+                CurTheme.Add(pb);
+
+                PictureBox pb1 = new PictureBox();
+                pb1.SizeMode = PictureBoxSizeMode.AutoSize;
+                pb1.Image = Modules.RotateImg(Properties.Resources.halloween_tree_03, Modules.RandomAng(), cl);
+                pb1.Location = new Point(10, 20);
+                item.Controls.Add(pb1);
+                pb.SendToBack();
+                CurTheme.Add(pb1);
+            }
+            foreach (var item in this.Controls)
+            {
+                if (item is Panel)
+                {
+                    foreach (var item1 in ((Panel)item).Controls)
+                    {
+                        if (item1 is MaskedTextBox || item1 is TextBox || item1 is ComboBox || item1 is NumericUpDown)
+                        {
+                            (item1 as Control).MouseLeave += ML;
+                            (item1 as Control).MouseHover += MH1;
+                        }
+                    }
+                }
+            }
         }
     }
 }
