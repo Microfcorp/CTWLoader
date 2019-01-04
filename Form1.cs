@@ -13,8 +13,11 @@ using Ionic.Zip;
 using Microsoft.Win32;
 using System.Diagnostics;
 using MicLocalizationSystem;
+
 using CTW_loader.GameFile;
 using CTW_loader.Theme;
+using CTW_loader.CSV;
+using Microsoft.VisualBasic.FileIO;
 
 namespace CTW_loader
 {
@@ -313,25 +316,53 @@ namespace CTW_loader
             string line1 = "";
             string rrra = "";
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\
-            using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/tech_locale.csv"))
+            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv"))
             {
-                using (StreamReader read1 = r.Open())
+                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/tech_locale.csv"))
                 {
-                    foreach (var item in read1.ReadToEnd().Split('\n'))
+                    using (StreamReader read1 = r.Open())
                     {
-                        rrra += item.Split(';')[0] + ";";
-                        comboBox8.Items.Add(item.Split(';')[item.Split(';').Length - 1]);
-                        comboBox7.Items.Add(item.Split(';')[0]);
+                        string[] array = read1.ReadToEnd().Split('\n');
+                        for (int i = 1; i < array.Length; i++)
+                        {
+                            if (array[i].Split(';').Length > 1)
+                            {
+                                rrra += array[i].Split(';')[0] + ";";
+                                comboBox8.Items.Add(array[i].Split(';')[1]);
+                                comboBox7.Items.Add(array[i].Split(';')[0]);
+                            }
+                        }
                     }
                 }
             }
+            else
+            {
+                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/tech_locale.csv"))
+                {
+                    using (StreamReader read1 = r.Open())
+                    {
+                        string[] array = read1.ReadToEnd().Split('\n');
+                        for (int i = 1; i < array.Length; i++)
+                        {
+                            if (array[i].Split(';').Length > 1)
+                            {
+                                rrra += array[i].Split(';')[0] + ";";
+                                comboBox8.Items.Add(array[i].Split(';')[1]);
+                                comboBox7.Items.Add(array[i].Split(';')[0]);
+                            }
+                        }
+                    }
+                }
+            }
+
 
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\          
             using (GameFileRead r = new GameFileRead(@puttogame, "data/default_techtree.csv"))
             {
                 using (StreamReader read1 = r.Open())
                 {
-                    string rrr = read1.ReadToEnd().Replace("<", "");
+                    string rrr = read1.ReadToEnd().Replace("<", "").Replace("level:2|", "").Replace("level:3|", "").Replace("level:1|", "").Replace(">", "").Replace("|", "").Replace("!", "");
+                    //MessageBox.Show(rrr);
                     numericUpDown1.Maximum = Convert.ToDecimal(rrr.Split(';').Length - 2);
                     for (int i = 0; i < rrr.Split(';').Length; i++)
                     {
@@ -368,15 +399,58 @@ namespace CTW_loader
             xml4.PreserveWhitespace = true;
             ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
 
-            using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/local/craft_resources.xml"))
+            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/local/craft_resources.xml"))
             {
-                using (StreamReader read1 = r.Open())
+                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/local/craft_resources.xml"))
                 {
-                    //string dat = read.ReadToEnd().ToString();                      
-                    //Console.Write(dat);
-                    //System.Threading.Thread.Sleep(5000);
+                    using (StreamReader read1 = r.Open())
+                    {
+                        //string dat = read.ReadToEnd().ToString();                      
+                        //Console.Write(dat);
+                        //System.Threading.Thread.Sleep(5000);
 
-                    xml4.LoadXml(read1.ReadToEnd().ToString());
+                        xml4.LoadXml(read1.ReadToEnd().ToString());
+                    }
+                }
+            }
+            else
+            {
+                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/craft_resources.csv"))
+                {
+                    using (StreamReader read1 = r.Open())
+                    {
+                        //CSV.CSV csv = CSV.CSV.Parse(read1.ReadToEnd(), true);
+
+                        xml4.AppendChild(xml4.CreateElement("locals"));
+                        var nodeqq1 = xml4.SelectSingleNode("/locals");
+
+
+                        using (TextFieldParser parser = new TextFieldParser(@puttogame.Substring(0, @puttogame.Length - 8) + @"\lang\craft_resources.csv"))
+                        {
+                            parser.TextFieldType = FieldType.Delimited;
+                            parser.SetDelimiters("^");
+                            parser.HasFieldsEnclosedInQuotes = true;
+                            while (!parser.EndOfData)
+                            {
+                                //Processing row
+                                string[] fields = parser.ReadFields();
+                                foreach (string field in fields)
+                                {
+                                    //Console.WriteLine(field.Split(';')[0]);
+
+                                    if (field.Split(';').Length > 2 & field.Split(';')[0] != "key")
+                                    {
+                                        var tmps = xml4.CreateElement(field.Split(';')[0]);
+                                        tmps.InnerText = field.Split(';')[1];
+                                        nodeqq1.AppendChild(tmps);
+                                        //nodeqq1.AppendChild(xml4.CreateWhitespace("\r\n"));
+                                    }
+                                }
+                            }
+                        }
+
+                        //Console.WriteLine(xml4.OuterXml);
+                    }
                 }
             }
 
@@ -400,7 +474,9 @@ namespace CTW_loader
 
             for (int i = 1; i < node15.ChildNodes.Count; i++)
             {
-                //MessageBox.Show(node1.ChildNodes.Item(i).FirstChild.Value.ToString());
+                //MessageBox.Show(node15.ChildNodes.Item(i).Name);
+
+                //MessageBox.Show(node15.ChildNodes.Item(i).Name.ToString().Substring(node15.ChildNodes.Item(i).Name.Length - 1));
                 if (node15.ChildNodes.Item(i).Name.ToString().Substring(node15.ChildNodes.Item(i).Name.Length - 1) == "T")
                 {
                     var node2 = xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']");
@@ -415,7 +491,7 @@ namespace CTW_loader
                     }
                 }
                 //MessageBox.Show(node1.ChildNodes.Item(i).Name.ToString().Substring(node1.ChildNodes.Item(i).Name.Length - 1));
-                i++;
+                //i++;
             }
 
 
@@ -2190,21 +2266,42 @@ namespace CTW_loader
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv"))
+            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv") || Helpers.IsGameFile(@puttogame, "lang/tech_locale.csv"))
             {
                 string rrra = "";
                 string rrra1 = "";
                 string rrra2 = "";
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\
-                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/tech_locale.csv"))
+                if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv"))
                 {
-                    using (StreamReader read1 = r.Open())
+                    using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/tech_locale.csv"))
                     {
-                        foreach (var item in read1.ReadToEnd().Split('\n'))
+                        using (StreamReader read1 = r.Open())
                         {
-                            rrra += item.Split(';')[0] + ";";
-                            rrra1 += item.Split(';')[item.Split(';').Length - 1] + ";";
-                            rrra2 += item + "\n";
+                            foreach (var item in read1.ReadToEnd().Split('\n'))
+                            {
+                                rrra += item.Split(';')[0] + ";";
+                                rrra1 += item.Split(';')[item.Split(';').Length - 1] + ";";
+                                rrra2 += item + "\n";
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    using (GameFileRead r = new GameFileRead(@puttogame, "lang/tech_locale.csv"))
+                    {
+                        using (StreamReader read1 = r.Open())
+                        {
+                            foreach (var item in read1.ReadToEnd().Split('\n'))
+                            {
+                                if (item.Split(';')[0] != "key" & item.Split(';').Length > 1)
+                                {
+                                    rrra += item.Split(';')[0] + ";";
+                                    rrra1 += item.Split(';')[1] + ";";
+                                    rrra2 += item.Split(';')[0] + ";" + item.Split(';')[1] + "\n";
+                                }
+                            }
                         }
                     }
                 }
@@ -2215,7 +2312,7 @@ namespace CTW_loader
                 {
                     using (StreamReader read1 = r.Open())
                     {
-                        string rrr = read1.ReadToEnd().Replace("<", "");
+                        string rrr = read1.ReadToEnd().Replace("<", "").Replace("level:2|", "").Replace("level:3|", "").Replace("level:1|", "").Replace(">", "").Replace("|", "").Replace("!", "");
                         for (int i = 0; i < rrr.Split(';').Length; i++)
                         {
                             for (int ia = 0; ia < rrr.Split(';')[i].Split(',').Length; ia++)
@@ -2693,50 +2790,110 @@ namespace CTW_loader
             xml556.PreserveWhitespace = true;
             ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
 
-            using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/beastiary_locale.csv"))
+            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/beastiary_locale.csv"))
             {
-                using (StreamReader read1 = r.Open())
+                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/beastiary_locale.csv"))
                 {
-                    string dat = read1.ReadToEnd().ToString().Replace("\r", "");
-
-                    for (int i = 0; i < dat.Split('\n').Length; i++)
+                    using (StreamReader read1 = r.Open())
                     {
-                        if (dat.Split('\n')[i].Split(';')[0] == comboBox24.Text)
+                        string dat = read1.ReadToEnd().ToString().Replace("\r", "");
+
+                        for (int i = 0; i < dat.Split('\n').Length; i++)
                         {
-                            tmp += dat.Split('\n')[i].Split(';')[0] + ";" + textBox17.Text + ";" + richTextBox2.Text + Environment.NewLine;
-                        }
-                        else
-                        {
-                            if (dat.Split('\n')[i].Split(';').Length > 1)
+                            if (dat.Split('\n')[i].Split(';')[0] == comboBox24.Text)
                             {
-                                tmp += dat.Split('\n')[i].Split(';')[0] + ";" + dat.Split('\n')[i].Split(';')[1] + ";" + dat.Split('\n')[i].Split(';')[2] + Environment.NewLine;
+                                tmp += dat.Split('\n')[i].Split(';')[0] + ";" + textBox17.Text + ";" + richTextBox2.Text + Environment.NewLine;
+                            }
+                            else
+                            {
+                                if (dat.Split('\n')[i].Split(';').Length > 1)
+                                {
+                                    tmp += dat.Split('\n')[i].Split(';')[0] + ";" + dat.Split('\n')[i].Split(';')[1] + ";" + dat.Split('\n')[i].Split(';')[2] + Environment.NewLine;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                using (GameFileRead r = new GameFileRead(@puttogame, "lang/beastiary_locale.csv"))
+                {
+                    using (StreamReader read1 = r.Open())
+                    {
+                        string dat = read1.ReadToEnd().ToString().Replace("\r", "");
+
+                        for (int i = 0; i < dat.Split('\n').Length; i++)
+                        {
+                            if (dat.Split('\n')[i].Split(';')[0] == comboBox24.Text)
+                            {
+                                tmp += dat.Split('\n')[i].Split(';')[0] + ";" + textBox17.Text + ";" + String.Join(";", StringMaster.NotIntArray(dat.Split('\n')[i].Split(';'), 0, 1)) + Environment.NewLine;
+                                //MessageBox.Show(tmp);
+                            }
+                            else if (dat.Split('\n')[i].Split(';')[0] == comboBox24.Text + "_desc")
+                            {
+                                tmp += dat.Split('\n')[i].Split(';')[0] + ";" + richTextBox2.Text + ";" + String.Join(";", StringMaster.NotIntArray(dat.Split('\n')[i].Split(';'), 0, 1)) + Environment.NewLine;
+                                //MessageBox.Show(tmp);
+                            }
+                            else
+                            {
+                                if (dat.Split('\n')[i].Split(';').Length > 1)
+                                {
+                                    tmp += String.Join(";", dat.Split('\n')[i].Split(';')) + Environment.NewLine;
+                                }
                             }
                         }
                     }
                 }
             }
 
-            new GameFileWrite(@puttogame, "Lang/Russian/data/beastiary_locale.csv", tmp);
+            new GameFileWrite(@puttogame, "lang/beastiary_locale.csv", tmp);
         }
-
+        //5/////////
         private void comboBox24_SelectedIndexChanged(object sender, EventArgs e)
         {
             XmlDocument xml556 = new XmlDocument();
             xml556.PreserveWhitespace = true;
             ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
 
-            using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/beastiary_locale.csv"))
+            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/beastiary_locale.csv"))
             {
-                using (StreamReader read1 = r.Open())
+                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/beastiary_locale.csv"))
                 {
-                    string dat = read1.ReadToEnd().ToString();
-
-                    for (int i = 0; i < dat.Split('\n').Length; i++)
+                    using (StreamReader read1 = r.Open())
                     {
-                        if (dat.Split('\n')[i].Split(';')[0] == comboBox24.Text)
+                        string dat = read1.ReadToEnd().ToString();
+
+                        for (int i = 0; i < dat.Split('\n').Length; i++)
                         {
-                            textBox17.Text = dat.Split('\n')[i].Split(';')[1];
-                            richTextBox2.Text = (dat.Split('\n')[i].Split(';')[2]).Replace("\r", "").Replace("\n", "");
+                            if (dat.Split('\n')[i].Split(';')[0] == comboBox24.Text)
+                            {
+                                textBox17.Text = dat.Split('\n')[i].Split(';')[1];
+                                richTextBox2.Text = (dat.Split('\n')[i].Split(';')[2]).Replace("\r", "").Replace("\n", "");
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                using (GameFileRead r = new GameFileRead(@puttogame, "lang/beastiary_locale.csv"))
+                {
+                    using (StreamReader read1 = r.Open())
+                    {
+                        string dat = read1.ReadToEnd().ToString();
+
+                        for (int i = 0; i < dat.Split('\n').Length; i++)
+                        {
+                            if (dat.Split('\n')[i].Split(';')[0] == comboBox24.Text)
+                            {
+                                textBox17.Text = dat.Split('\n')[i].Split(';')[1];
+                                //richTextBox2.Text = (dat.Split('\n')[i].Split(';')[2]).Replace("\r", "").Replace("\n", "");
+                            }
+                            if (dat.Split('\n')[i].Split(';')[0] == comboBox24.Text + "_desc")
+                            {
+                                richTextBox2.Text = (dat.Split('\n')[i].Split(';')[1]).Replace("\r", "").Replace("\n", "");
+                            }
                         }
                     }
                 }
@@ -2842,7 +2999,7 @@ namespace CTW_loader
         ToolTip tl = new ToolTip();
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv"))
+            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv") || Helpers.IsGameFile(@puttogame, "lang/tech_locale.csv"))
             {
                 List<string> DefaulTechree = new List<string>();
                 SortedList<string, string> LocalTechree = new SortedList<string, string>();
@@ -2851,7 +3008,7 @@ namespace CTW_loader
                 {
                     using (StreamReader read1 = r.Open())
                     {
-                        string devaulttechree = read1.ReadToEnd().Replace("<", "");
+                        string devaulttechree = read1.ReadToEnd().Replace("<", "").Replace("level:2|", "").Replace("level:3|", "").Replace("level:1|", "").Replace(">", "").Replace("|", "").Replace("!", "");
                         foreach (var item in devaulttechree.Split(';'))
                         {
                             DefaulTechree.Add(item.Split(',')[0]);
@@ -2859,15 +3016,33 @@ namespace CTW_loader
                     }
                 }
 
-                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/tech_locale.csv"))
+                if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv"))
                 {
-                    using (StreamReader read1 = r.Open())
+                    using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/tech_locale.csv"))
                     {
-                        string devaulttechree = read1.ReadToEnd().Replace("\r", "");
-                        foreach (var item in devaulttechree.Split('\n'))
+                        using (StreamReader read1 = r.Open())
                         {
-                            if (item != "")
-                                LocalTechree.Add(item.Split(';')[0], item.Split(';')[1]);
+                            string devaulttechree = read1.ReadToEnd().Replace("\r", "");
+                            foreach (var item in devaulttechree.Split('\n'))
+                            {
+                                if (item != "")
+                                    LocalTechree.Add(item.Split(';')[0], item.Split(';')[1]);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    using (GameFileRead r = new GameFileRead(@puttogame, "lang/tech_locale.csv"))
+                    {
+                        using (StreamReader read1 = r.Open())
+                        {
+                            string devaulttechree = read1.ReadToEnd().Replace("\r", "");
+                            foreach (var item in devaulttechree.Split('\n'))
+                            {
+                                if (item != "" & item.Split(';').Length > 1 & item.Split(';')[0] != "key")
+                                    LocalTechree.Add(item.Split(';')[0], item.Split(';')[1]);
+                            }
                         }
                     }
                 }
@@ -3438,6 +3613,40 @@ namespace CTW_loader
                         }
                     }
                 }
+            }
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void перезапуститьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void panel16_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void winterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveTheme();
+            Color cl = Color.White;
+
+            Colors(cl);
+
+            foreach (var item in pn)
+            {
+                PictureBox pb = new PictureBox();
+                pb.SizeMode = PictureBoxSizeMode.AutoSize;
+                pb.Image = Modules.RotateImg(Properties.Resources._0_a881a_eb8df1ca_orig, Modules.RandomAng(), cl);
+                pb.Location = new Point(400, 150);
+                item.Controls.Add(pb);
+                pb.SendToBack();
+                CurTheme.Add(pb);
             }
         }
     }

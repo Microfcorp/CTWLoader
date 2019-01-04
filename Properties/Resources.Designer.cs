@@ -73,6 +73,16 @@ namespace CTW_loader.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _240_F_128327681_GrJ6sPphQsyOVjhTmZqRhXQ4iUNzXhPd {
+            get {
+                object obj = ResourceManager.GetObject("_240_F_128327681_GrJ6sPphQsyOVjhTmZqRhXQ4iUNzXhPd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gif_salyut_6 {
             get {
                 object obj = ResourceManager.GetObject("gif-salyut-6", resourceCulture);
