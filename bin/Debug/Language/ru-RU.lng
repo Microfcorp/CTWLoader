@@ -223,3 +223,6 @@ DownloadingFiles=Скачивание файлов;
 SelectFile=Выберите файл;
 загрузкийФайловToolStripMenuItem=Загрузчик игровых файлов;
 типИгровыхФайловToolStripMenuItem=Тип игровых файлов;
+пользовательскаяТемаToolStripMenuItem=Пользовательские темы;
+перезапуститьToolStripMenuItem=Перезапустить;
+автопоискИгрыToolStripMenuItem=Автописк игры;

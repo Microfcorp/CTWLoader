@@ -223,3 +223,6 @@ DownloadingFiles=download files;
 SelectFile=Select file;
 загрузкийФайловToolStripMenuItem=game file Downloader;
 типИгровыхФайловToolStripMenuItem=game files type;
+пользовательскаяТемаToolStripMenuItem=Users theme;
+перезапуститьToolStripMenuItem=Restart;
+автопоискИгрыToolStripMenuItem=AutoSearchGame;
