@@ -81,6 +81,7 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComandArgs\Parser.cs" />
     <Compile Include="CSV\CSV.cs" />
     <Compile Include="CSV\StringMaster.cs" />
     <Compile Include="CTWLoader_Formating.cs" />
@@ -101,17 +102,26 @@
     <Compile Include="GameFile\GameFileUpdate.cs" />
     <Compile Include="GameFile\GameFileWrite.cs" />
     <Compile Include="GameFile\Helpers.cs" />
+    <Compile Include="GameFile\ThemeFiles.cs" />
     <Compile Include="Perioding\Period.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SDK\Theme\ThemeSDK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SDK\Theme\ThemeSDK.Designer.cs">
+      <DependentUpon>ThemeSDK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Theme\Modules.cs" />
     <Compile Include="Theme\Musics.cs" />
     <Compile Include="Theme\MusicsControls.cs" />
     <Compile Include="Theme\Musics\Elize.cs" />
     <Compile Include="Theme\Musics\JeengleBels.cs" />
+    <Compile Include="Theme\Musics\Mario.cs" />
     <Compile Include="Theme\Musics\StarWars.cs" />
     <Compile Include="Theme\Musics\Thanebaum.cs" />
     <Compile Include="Theme\Theme.cs" />
+    <Compile Include="Theme\ThemeConfig.cs" />
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +134,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SDK\Theme\ThemeSDK.resx">
+      <DependentUpon>ThemeSDK.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

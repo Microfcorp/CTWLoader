@@ -30,6 +30,8 @@ namespace CTW_loader
 
         LangParam lng = LocalizationSettings.LoadLangParamFromFile(LocalizationSettings.GetLangSystem(), Environment.CurrentDirectory + "\\Language\\");
 
+        ThemeConfig thems = null;
+
         Color cl = Color.Transparent;
         public Form1()
         {
@@ -42,9 +44,10 @@ namespace CTW_loader
             closopen(false, pn, panel1);
             open();
 
-
+            Console.WriteLine(Color.Aqua.ToArgb());
             NewLang();
             ZapLang();
+            ZapTheme();
         }
 
         private void ZapLang()
@@ -58,6 +61,22 @@ namespace CTW_loader
                 tmp.Click += SmenaLang;
                 tmp.BackColor = cl;
                 языкПрограммыToolStripMenuItem.DropDownItems.Add(tmp);
+            }
+        }
+
+        private void ZapTheme()
+        {
+            if(Directory.Exists(Environment.CurrentDirectory + "\\Themes\\"))
+            {
+                пользовательскаяТемаToolStripMenuItem.DropDownItems.Clear();
+                foreach (var item in Directory.GetFiles(Environment.CurrentDirectory + "\\Themes\\"))
+                {
+                    ToolStripMenuItem tmp = new ToolStripMenuItem();
+                    tmp.Text = item.Split('\\')[item.Split('\\').Length - 1].Split('.')[0];
+                    tmp.Click += SmenaTheme;
+                    tmp.BackColor = cl;
+                    пользовательскаяТемаToolStripMenuItem.DropDownItems.Add(tmp);
+                }
             }
         }
 
@@ -218,6 +237,9 @@ namespace CTW_loader
             this.названияСуществToolStripMenuItem.Text = lng.GetLangText("nameenemToolStripMenuItem");
             this.загрузкийФайловToolStripMenuItem.Text = lng.GetLangText("загрузкийФайловToolStripMenuItem");
             this.типИгровыхФайловToolStripMenuItem.Text = lng.GetLangText("типИгровыхФайловToolStripMenuItem");
+            this.автопоискИгрыToolStripMenuItem.Text = lng.GetLangText("автопоискИгрыToolStripMenuItem");
+            this.перезапуститьToolStripMenuItem.Text = lng.GetLangText("перезапуститьToolStripMenuItem");
+            this.пользовательскаяТемаToolStripMenuItem.Text = lng.GetLangText("пользовательскаяТемаToolStripMenuItem");
 
             this.редактированиеToolStripMenuItem.Text = lng.GetLangText("EditParam");
             this.настройкиToolStripMenuItem.Text = lng.GetLangText("Sett");
@@ -229,24 +251,157 @@ namespace CTW_loader
             #endregion
         }
 
+        private void Colors(Color cl)
+        {
+            RemoveTheme();
+            this.cl = cl;
+            #region Цвета
+            this.BackColor = cl;
+
+            this.button14.BackColor = cl;
+            this.button5.BackColor = cl;
+            this.button4.BackColor = cl;
+            this.button10.BackColor = cl;
+            this.button8.BackColor = cl;
+            this.button7.BackColor = cl;
+            this.button9.BackColor = cl;
+            this.button21.BackColor = cl;
+            this.Bestyary.BackColor = cl;
+            this.button20.BackColor = cl;
+            this.button19.BackColor = cl;
+            this.button18.BackColor = cl;
+            this.button17.BackColor = cl;
+            this.button11.BackColor = cl;
+            this.button3.BackColor = cl;
+            this.button2.BackColor = cl;
+            this.button6.BackColor = cl;
+            this.Craft.BackColor = cl;
+            this.button24.BackColor = cl;
+            this.button15.BackColor = cl;
+            this.button16.BackColor = cl;
+            this.button12.BackColor = cl;
+            this.button23.BackColor = cl;
+            this.button25.BackColor = cl;
+            this.button27.BackColor = cl;
+            this.button28.BackColor = cl;
+            this.button29.BackColor = cl;
+            this.button30.BackColor = cl;
+            this.button31.BackColor = cl;
+            this.button32.BackColor = cl;
+            this.button33.BackColor = cl;
+            this.button34.BackColor = cl;
+            this.button35.BackColor = cl;
+            this.button36.BackColor = cl;
+            this.button22.BackColor = cl;
+            this.button37.BackColor = cl;
+
+            this.checkBox5.BackColor = cl;
+            this.checkBox4.BackColor = cl;
+            this.checkBox3.BackColor = cl;
+            this.checkBox2.BackColor = cl;
+            this.checkBox6.BackColor = cl;
+            this.checkBox7.BackColor = cl;
+            this.checkBox1.BackColor = cl;
+
+            this.мираToolStripMenuItem.BackColor = cl;
+            this.гномовToolStripMenuItem.BackColor = cl;
+            this.созданиеКрафтаToolStripMenuItem.BackColor = cl;
+            this.уровниГномовToolStripMenuItem.BackColor = cl;
+            this.музыкиToolStripMenuItem.BackColor = cl;
+            this.быстрыеДействияToolStripMenuItem.BackColor = cl;
+            this.монологаШаманаГоблиновToolStripMenuItem.BackColor = cl;
+            this.имёнГномовToolStripMenuItem.BackColor = cl;
+            this.логотипаЗагрузкиToolStripMenuItem.BackColor = cl;
+            this.предметовToolStripMenuItem.BackColor = cl;
+            this.дераваТехнологийToolStripMenuItem.BackColor = cl;
+            this.уровнейToolStripMenuItem.BackColor = cl;
+            this.сохраненийToolStripMenuItem.BackColor = cl;
+            this.скиловToolStripMenuItem.BackColor = cl;
+            this.названияСуществToolStripMenuItem.BackColor = cl;
+            this.загрузкийФайловToolStripMenuItem.BackColor = cl;
+            this.типИгровыхФайловToolStripMenuItem.BackColor = cl;
+            this.menuStrip1.BackColor = cl;
+
+            this.редактированиеToolStripMenuItem.BackColor = cl;
+            this.настройкиToolStripMenuItem.BackColor = cl;
+            this.путьКИгреToolStripMenuItem.BackColor = cl;
+            this.выходToolStripMenuItem.BackColor = cl;
+            this.запуститьИгруToolStripMenuItem.BackColor = cl;
+            this.оПрограммеToolStripMenuItem.BackColor = cl;
+            this.языкПрограммыToolStripMenuItem.BackColor = cl;
+            this.toolStripSeparator1.BackColor = cl;
+            this.toolStripSeparator2.BackColor = cl;
+            this.темаToolStripMenuItem.BackColor = cl;
+            this.темнаяToolStripMenuItem.BackColor = cl;
+            this.новогодняяToolStripMenuItem.BackColor = cl;
+            this.жуткаяToolStripMenuItem.BackColor = cl;
+            this.пользовательскаяТемаToolStripMenuItem.BackColor = cl;
+            this.автопоискИгрыToolStripMenuItem.BackColor = cl;
+            this.перезапуститьToolStripMenuItem.BackColor = cl;
+            this.winterToolStripMenuItem.BackColor = cl;
+
+            ZapLang();
+            ZapTheme();
+            #endregion
+        }
+
         public void SmenaLang(object sender, EventArgs e)
         {
             string lang = ((ToolStripMenuItem)sender).Text;
             Language lg = LocalizationSettings.GetLangName(lang, Environment.CurrentDirectory + "\\Language\\");//Get a localized file name
             lng = LocalizationSettings.LoadLangParamFromFile(lg, Environment.CurrentDirectory + "\\Language\\");
-            NewLang();
+            NewLang();            
+        }
+        public void SmenaTheme(object sender, EventArgs e)
+        {
+            string theme = ((ToolStripMenuItem)sender).Text;
+            thems = Theme.Theme.LoadFile(Environment.CurrentDirectory + "\\Themes\\" + theme + ".ctwtheme");
+
+            Colors(thems.MainColor);
+
+            foreach (var item in pn)
+            {
+                foreach (var item1 in thems.Backgrounds)
+                {
+                    PictureBox pb = new PictureBox();
+                    pb.SizeMode = PictureBoxSizeMode.AutoSize;
+                    pb.Image = Modules.RotateImg(item1.Image, item1.Angle, thems.MainColor);
+                    pb.Location = item1.Point;
+                    pb.SendToBack();
+                    item.Controls.Add(pb);
+                    CurTheme.Add(pb);
+                }
+            }
+            foreach (var item in this.Controls)
+            {
+                if (item is Panel)
+                {
+                    foreach (var item1 in ((Panel)item).Controls)
+                    {
+                        if (item1 is MaskedTextBox || item1 is TextBox || item1 is ComboBox || item1 is NumericUpDown)
+                        {
+                            (item1 as Control).MouseLeave += ML;
+                            (item1 as Control).MouseHover += MHU;
+                        }
+                    }
+                }
+            }
         }
 
         private void open()
         {
             RegistryKey currentUserKey = Registry.CurrentUser;
             RegistryKey helloKey = currentUserKey.OpenSubKey("CTWLoader");
-            if (helloKey != null)
+            if (helloKey != null & helloKey.GetValue("Game") != null)
             {
                 string login = helloKey.GetValue("Game").ToString();
                 helloKey.Close();
 
                 puttogame = login;
+            }
+            else
+            {
+                AutoSearch(null, null);
             }
 
             XmlDocument xml556 = new XmlDocument();
@@ -500,7 +655,7 @@ namespace CTW_loader
                 using (StreamReader read1 = r.Open())
                 {
                     line = read1.ReadLine();
-
+                    richTextBox1.Text = "";
                     //Continue to read until you reach end of file
                     while (line != null)
                     {
@@ -752,8 +907,7 @@ namespace CTW_loader
                     RegistryKey helloKey = currentUserKey.CreateSubKey("CTWLoader");
                     helloKey.SetValue("Game", puttogame);
                     helloKey.Close();
-
-                    open();
+                    Application.Restart();
                 }
                 else
                 {
@@ -3122,7 +3276,7 @@ namespace CTW_loader
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+                        
         }
 
         private void maskedTextBox24_Click(object sender, EventArgs e)
@@ -3396,94 +3550,6 @@ namespace CTW_loader
             }
         }
 
-        private void Colors(Color cl)
-        {
-            RemoveTheme();
-            this.cl = cl;
-            #region Цвета
-            this.BackColor = cl;
-
-            this.button14.BackColor = cl;
-            this.button5.BackColor = cl;
-            this.button4.BackColor = cl;
-            this.button10.BackColor = cl;
-            this.button8.BackColor = cl;
-            this.button7.BackColor = cl;
-            this.button9.BackColor = cl;
-            this.button21.BackColor = cl;
-            this.Bestyary.BackColor = cl;
-            this.button20.BackColor = cl;
-            this.button19.BackColor = cl;
-            this.button18.BackColor = cl;
-            this.button17.BackColor = cl;
-            this.button11.BackColor = cl;
-            this.button3.BackColor = cl;
-            this.button2.BackColor = cl;
-            this.button6.BackColor = cl;
-            this.Craft.BackColor = cl;
-            this.button24.BackColor = cl;
-            this.button15.BackColor = cl;
-            this.button16.BackColor = cl;
-            this.button12.BackColor = cl;
-            this.button23.BackColor = cl;
-            this.button25.BackColor = cl;
-            this.button27.BackColor = cl;
-            this.button28.BackColor = cl;
-            this.button29.BackColor = cl;
-            this.button30.BackColor = cl;
-            this.button31.BackColor = cl;
-            this.button32.BackColor = cl;
-            this.button33.BackColor = cl;
-            this.button34.BackColor = cl;
-            this.button35.BackColor = cl;
-            this.button36.BackColor = cl;
-            this.button22.BackColor = cl;
-            this.button37.BackColor = cl;
-
-            this.checkBox5.BackColor = cl;
-            this.checkBox4.BackColor = cl;
-            this.checkBox3.BackColor = cl;
-            this.checkBox2.BackColor = cl;
-            this.checkBox6.BackColor = cl;
-            this.checkBox7.BackColor = cl;
-            this.checkBox1.BackColor = cl;
-
-            this.мираToolStripMenuItem.BackColor = cl;
-            this.гномовToolStripMenuItem.BackColor = cl;
-            this.созданиеКрафтаToolStripMenuItem.BackColor = cl;
-            this.уровниГномовToolStripMenuItem.BackColor = cl;
-            this.музыкиToolStripMenuItem.BackColor = cl;
-            this.быстрыеДействияToolStripMenuItem.BackColor = cl;
-            this.монологаШаманаГоблиновToolStripMenuItem.BackColor = cl;
-            this.имёнГномовToolStripMenuItem.BackColor = cl;
-            this.логотипаЗагрузкиToolStripMenuItem.BackColor = cl;
-            this.предметовToolStripMenuItem.BackColor = cl;
-            this.дераваТехнологийToolStripMenuItem.BackColor = cl;
-            this.уровнейToolStripMenuItem.BackColor = cl;
-            this.сохраненийToolStripMenuItem.BackColor = cl;
-            this.скиловToolStripMenuItem.BackColor = cl;
-            this.названияСуществToolStripMenuItem.BackColor = cl;
-            this.загрузкийФайловToolStripMenuItem.BackColor = cl;
-            this.типИгровыхФайловToolStripMenuItem.BackColor = cl;
-            this.menuStrip1.BackColor = cl;
-
-            this.редактированиеToolStripMenuItem.BackColor = cl;
-            this.настройкиToolStripMenuItem.BackColor = cl;
-            this.путьКИгреToolStripMenuItem.BackColor = cl;
-            this.выходToolStripMenuItem.BackColor = cl;
-            this.запуститьИгруToolStripMenuItem.BackColor = cl;
-            this.оПрограммеToolStripMenuItem.BackColor = cl;
-            this.языкПрограммыToolStripMenuItem.BackColor = cl;
-            this.toolStripSeparator1.BackColor = cl;
-            this.toolStripSeparator2.BackColor = cl;
-            this.темаToolStripMenuItem.BackColor = cl;
-            this.темнаяToolStripMenuItem.BackColor = cl;
-            this.новогодняяToolStripMenuItem.BackColor = cl;
-            this.жуткаяToolStripMenuItem.BackColor = cl;
-
-            ZapLang();
-            #endregion
-        }
 
         private void темнаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -3554,6 +3620,19 @@ namespace CTW_loader
             (sender as Control).Parent.Controls.Add(pb);
             sl = pb;
             MS.SetMusic(MusicsControls.RandomMusic(new Theme.Musics.StarWars(), new Theme.Musics.Elize()));
+            MS.Play();
+        }
+        private void MHU(object sender, EventArgs e)
+        {
+            PictureBox pb = new PictureBox();
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.Image = thems.Anim;
+            pb.Location = new Point((sender as Control).Location.X + 10, (sender as Control).Location.Y + 10);
+            pb.Size = new Size(133, 97);
+            pb.BringToFront();
+            (sender as Control).Parent.Controls.Add(pb);
+            sl = pb;
+            MS.SetMusic(MusicsControls.RandomMusic(thems.MusicsConvert));
             MS.Play();
         }
         private void ML(object sender, EventArgs e)
@@ -3648,6 +3727,72 @@ namespace CTW_loader
                 pb.SendToBack();
                 CurTheme.Add(pb);
             }
+        }
+
+        private void AutoSearch(object sender, EventArgs e)
+        {
+            Form fr = new Form();
+            Label lb = new Label();
+            Button bt = new Button();
+            string[] Texts = { "Found Steam", "Found Not Steam", "Not Found"};
+            int status = 3;
+
+            fr.Size = new Size(300, 190);
+            lb.Location = new Point(5, 5);
+            bt.Location = new Point(40, 30);
+            lb.Size = new Size(250, 15);
+            bt.Text = lng.GetLangText("Exit");
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\Steam\\steamapps\\common\\CraftTheWorld\\CraftWorld.exe")) {
+                lb.Text = Texts[0];
+                status = 1;
+            }
+            else if (File.Exists("C:\\Games\\Craft The World\\CraftWorld.exe"))
+            {
+                lb.Text = Texts[1];
+                status = 2;
+            }
+            else
+            {
+                lb.Text = Texts[3];
+                status = 3;
+            }
+            if(status == 1 || status == 2)
+            {
+                Button bt1 = new Button();
+                bt1.Location = new Point(40, 70);
+                bt1.Text = "Inserting in path to game";
+                bt1.Name = (status == 1) ? (Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\Steam\\steamapps\\common\\CraftTheWorld\\") : "C:\\Games\\Craft The World\\";
+                bt1.Click += IIPTG;
+                fr.Controls.Add(bt1);
+            }
+            bt.Click += Closes;
+            fr.Controls.Add(lb);
+            fr.Controls.Add(bt);           
+            fr.ShowDialog();
+        }
+        private void IIPTG(object sender, EventArgs e)
+        {
+            string path = (sender as Button).Name;
+
+            puttogame = path + "\\main.pak";
+            if (Helpers.IsGameFile(@puttogame, "data/world.xml"))
+            {
+                RegistryKey currentUserKey = Registry.CurrentUser;
+                RegistryKey helloKey = currentUserKey.CreateSubKey("CTWLoader");
+                helloKey.SetValue("Game", puttogame);
+                helloKey.Close();
+                MessageBox.Show("OK");
+                Application.Restart();
+            }
+            else
+            {
+                MessageBox.Show(lng.GetLangText("GameNotFoundDesc"), lng.GetLangText("GameNotFound"));
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }
