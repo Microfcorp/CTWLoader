@@ -81,6 +81,9 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="AutoUpdate\CurrentVersion.cs" />
+    <Compile Include="AutoUpdate\Updater.cs" />
+    <Compile Include="AutoUpdate\VersionInfo.cs" />
     <Compile Include="ComandArgs\Parser.cs" />
     <Compile Include="CSV\CSV.cs" />
     <Compile Include="CSV\StringMaster.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="EthernetPath.Designer.cs">
       <DependentUpon>EthernetPath.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ethernet\Controller.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

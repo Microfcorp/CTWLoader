@@ -147,7 +147,16 @@ namespace CTW_loader.SDK.Theme
             GameFile.ThemeFiles.Writer.AddConfig(export);
             GameFile.ThemeFiles.Writer.AddFiles(Animationpath);
 
-            Console.WriteLine(writer.DoWork(true,true));
+            SaveFileDialog svf = new SaveFileDialog()
+            {
+                Filter = "CTWTheme|*.ctwtheme",
+                Title = "Export Theme",
+            };
+            if(svf.ShowDialog() == DialogResult.OK)
+            {
+                Console.WriteLine(writer.DoWork(true,true, svf.FileName));
+            }
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +178,47 @@ namespace CTW_loader.SDK.Theme
             numericUpDown3.Value = (decimal)back.rang;
             pictureBox1.ImageLocation = back.path;
             textBox1.Text = back.path;
+        }
+       // CTW_loader.Theme.ThemeConfig import = null;
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opg = new OpenFileDialog();
+            if(opg.ShowDialog() == DialogResult.OK)
+            {
+                GameFile.ThemeFiles.Reader.TMPCatalog import = GameFile.ThemeFiles.Reader.Read(opg.FileName, Environment.CurrentDirectory + "\\tmp");
+                Name = import.Config.Name;
+                toolStripStatusLabel1.Text = "Loaded " + import.Config.Name;
+                MainColor = import.Config.MainColor;
+                label2.Text = "Main Color: " + MainColor.ToArgb() + " (" + MainColor.Name + ")";
+                Animation = import.Config.Anim.Path;
+                Animationpath = import.Config.Anim.Path;
+
+                comboBox1.Items.Clear();
+                Backgrounds.Clear();
+                foreach (var item in import.Backgrounds)
+                {
+                    Backgrounds.Add(new Back());
+                    comboBox1.Items.Add(comboBox1.Items.Count + 1);
+                    comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
+                    int index = comboBox1.SelectedIndex;
+                    Back tmp = Backgrounds[index];
+                    numericUpDown1.Value = item.Point.X;
+                    numericUpDown2.Value = item.Point.Y;
+                    tmp.position = item.Point;
+                    tmp.rang = item.Angle;
+                    tmp.path = textBox1.Text = item.ImagePath;
+                    pictureBox1.Image = item.Image;
+                    Backgrounds[index] = tmp;
+                    label3.Text = "Background counts: " + Backgrounds.Count.ToString();
+                }
+                checkBox3.Checked = checkBox2.Checked = checkBox1.Checked = false;
+                foreach (var item in import.Config.Musics)
+                {
+                    if (item.Type == FileMelody.MelodyType.Mario) checkBox3.Checked = true;
+                    if (item.Type == FileMelody.MelodyType.StarWars) checkBox2.Checked = true;
+                    if (item.Type == FileMelody.MelodyType.Elize) checkBox1.Checked = true;
+                }
+            }
         }
     }
 }

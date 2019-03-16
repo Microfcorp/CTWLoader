@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CTW_loader.ComandArgs;
+using CTW_loader.AutoUpdate;
 
 namespace CTW_loader
 {
@@ -15,6 +16,9 @@ namespace CTW_loader
         [STAThread]
         static void Main(string[] args)
         {
+
+            Updater.Cheek();
+
             var parser = new Parser(args);
 
             Application.EnableVisualStyles();

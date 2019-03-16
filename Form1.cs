@@ -66,7 +66,7 @@ namespace CTW_loader
 
         private void ZapTheme()
         {
-            if(Directory.Exists(Environment.CurrentDirectory + "\\Themes\\"))
+            if (Directory.Exists(Environment.CurrentDirectory + "\\Themes\\"))
             {
                 пользовательскаяТемаToolStripMenuItem.DropDownItems.Clear();
                 foreach (var item in Directory.GetFiles(Environment.CurrentDirectory + "\\Themes\\"))
@@ -350,7 +350,7 @@ namespace CTW_loader
             string lang = ((ToolStripMenuItem)sender).Text;
             Language lg = LocalizationSettings.GetLangName(lang, Environment.CurrentDirectory + "\\Language\\");//Get a localized file name
             lng = LocalizationSettings.LoadLangParamFromFile(lg, Environment.CurrentDirectory + "\\Language\\");
-            NewLang();            
+            NewLang();
         }
         public void SmenaTheme(object sender, EventArgs e)
         {
@@ -391,172 +391,29 @@ namespace CTW_loader
         private void open()
         {
             RegistryKey currentUserKey = Registry.CurrentUser;
-            RegistryKey helloKey = currentUserKey.OpenSubKey("CTWLoader");
-            if (helloKey != null & helloKey.GetValue("Game") != null)
+            RegistryKey helloKey = currentUserKey.OpenSubKey("CTWLoader", true);
+            if (helloKey != null)
             {
-                string login = helloKey.GetValue("Game").ToString();
-                helloKey.Close();
+                if (helloKey.GetValue("Game") != null)
+                {
+                    string login = helloKey.GetValue("Game").ToString();
+                    helloKey.Close();
+                    puttogame = login;
 
-                puttogame = login;
+                }
             }
             else
             {
                 AutoSearch(null, null);
             }
 
-            XmlDocument xml556 = new XmlDocument();
-            xml556.PreserveWhitespace = true;
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\                         
-
-            using (GameFileRead r = new GameFileRead(@puttogame, "data\\beastiary.xml"))
+            if (puttogame != "")
             {
-                using (StreamReader read1 = r.Open())
-                {
-                    //string dat = read.ReadToEnd().ToString();                      
-                    //Console.Write(dat);
-                    //System.Threading.Thread.Sleep(5000);
+                XmlDocument xml556 = new XmlDocument();
+                xml556.PreserveWhitespace = true;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\                         
 
-                    xml556.LoadXml(read1.ReadToEnd().ToString());
-
-                    var nade1 = xml556.SelectSingleNode("/root");
-
-                    //MessageBox.Show(nade1.ChildNodes.Count.ToString());
-                    for (int i = 0; i < nade1.ChildNodes.Count; i++)
-                    {
-                        //MessageBox.Show(nade1.ChildNodes.Item(i).Name);
-                        if (nade1.ChildNodes.Item(i).Name == "beast")
-                        {
-                            comboBox24.Items.Add(nade1.ChildNodes.Item(i).Attributes["creature"].Value);
-                        }
-                    }
-                    // xml.Load(@"C:\world.xml");
-                }
-            }
-
-            /////////////////////////////////////////////////////////////////////////
-            XmlDocument xml55 = new XmlDocument();
-            xml55.PreserveWhitespace = true;
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
-
-            using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/skills.xml"))
-            {
-                using (StreamReader read1 = r.Open())
-                {
-                    //string dat = read.ReadToEnd().ToString();                      
-                    //Console.Write(dat);
-                    //System.Threading.Thread.Sleep(5000);
-
-                    xml55.LoadXml(read1.ReadToEnd().ToString());
-
-                    var nade1 = xml55.SelectSingleNode("/root/skills");
-                    for (int i = 0; i < nade1.ChildNodes.Count; i++)
-                    {
-                        if (nade1.ChildNodes.Item(i).Name == "skill")
-                        {
-                            comboBox23.Items.Add(nade1.ChildNodes.Item(i).Attributes["name"].Value);
-                        }
-                    }
-                    // xml.Load(@"C:\world.xml");
-                }
-            }
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\
-            string[] path = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\dekovir\\crafttheworld\\saves\\");
-            foreach (var item in path)
-            {
-                comboBox21.Items.Add(item.Split('\\')[item.Split('\\').Length - 1]);
-            }
-
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
-            string line = "";
-            string line1 = "";
-            string rrra = "";
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\
-            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv"))
-            {
-                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/tech_locale.csv"))
-                {
-                    using (StreamReader read1 = r.Open())
-                    {
-                        string[] array = read1.ReadToEnd().Split('\n');
-                        for (int i = 1; i < array.Length; i++)
-                        {
-                            if (array[i].Split(';').Length > 1)
-                            {
-                                rrra += array[i].Split(';')[0] + ";";
-                                comboBox8.Items.Add(array[i].Split(';')[1]);
-                                comboBox7.Items.Add(array[i].Split(';')[0]);
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/tech_locale.csv"))
-                {
-                    using (StreamReader read1 = r.Open())
-                    {
-                        string[] array = read1.ReadToEnd().Split('\n');
-                        for (int i = 1; i < array.Length; i++)
-                        {
-                            if (array[i].Split(';').Length > 1)
-                            {
-                                rrra += array[i].Split(';')[0] + ";";
-                                comboBox8.Items.Add(array[i].Split(';')[1]);
-                                comboBox7.Items.Add(array[i].Split(';')[0]);
-                            }
-                        }
-                    }
-                }
-            }
-
-
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\          
-            using (GameFileRead r = new GameFileRead(@puttogame, "data/default_techtree.csv"))
-            {
-                using (StreamReader read1 = r.Open())
-                {
-                    string rrr = read1.ReadToEnd().Replace("<", "").Replace("level:2|", "").Replace("level:3|", "").Replace("level:1|", "").Replace(">", "").Replace("|", "").Replace("!", "");
-                    //MessageBox.Show(rrr);
-                    numericUpDown1.Maximum = Convert.ToDecimal(rrr.Split(';').Length - 2);
-                    for (int i = 0; i < rrr.Split(';').Length; i++)
-                    {
-                        for (int ia = 0; ia < rrr.Split(';')[i].Split(',').Length; ia++)
-                        {
-
-                            ////
-                            foreach (var item in rrra.Split(';'))
-                            {
-                                if (rrr.Split(';')[i].Split(',')[ia] == item)
-                                {
-                                    // MessageBox.Show(rrr.Split(';')[i].Split(',')[ia]);
-                                    //comboBox7.Items.Add(rrr.Split(';')[i].Split(',')[ia]);
-                                }
-                                else
-                                {
-                                    //;
-                                }
-                            }
-                            if (!rrra.Contains(rrr.Split(';')[i].Split(',')[ia]))
-                            {
-                                comboBox6.Items.Add(rrr.Split(';')[i].Split(',')[ia]);
-                            }
-                            ////
-                            //comboBox6.Items.Add(rrr.Split(';')[i].Split(',')[ia]);
-                        }
-                    }
-
-                }
-            }
-
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\
-            XmlDocument xml4 = new XmlDocument();
-            xml4.PreserveWhitespace = true;
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
-
-            if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/local/craft_resources.xml"))
-            {
-                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/local/craft_resources.xml"))
+                using (GameFileRead r = new GameFileRead(@puttogame, "data\\beastiary.xml"))
                 {
                     using (StreamReader read1 = r.Open())
                     {
@@ -564,262 +421,203 @@ namespace CTW_loader
                         //Console.Write(dat);
                         //System.Threading.Thread.Sleep(5000);
 
-                        xml4.LoadXml(read1.ReadToEnd().ToString());
+                        xml556.LoadXml(read1.ReadToEnd().ToString());
+
+                        var nade1 = xml556.SelectSingleNode("/root");
+
+                        //MessageBox.Show(nade1.ChildNodes.Count.ToString());
+                        for (int i = 0; i < nade1.ChildNodes.Count; i++)
+                        {
+                            //MessageBox.Show(nade1.ChildNodes.Item(i).Name);
+                            if (nade1.ChildNodes.Item(i).Name == "beast")
+                            {
+                                comboBox24.Items.Add(nade1.ChildNodes.Item(i).Attributes["creature"].Value);
+                            }
+                        }
+                        // xml.Load(@"C:\world.xml");
                     }
                 }
-            }
-            else
-            {
-                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/craft_resources.csv"))
+
+                /////////////////////////////////////////////////////////////////////////
+                XmlDocument xml55 = new XmlDocument();
+                xml55.PreserveWhitespace = true;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
+
+                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/skills.xml"))
                 {
                     using (StreamReader read1 = r.Open())
                     {
-                        //CSV.CSV csv = CSV.CSV.Parse(read1.ReadToEnd(), true);
+                        //string dat = read.ReadToEnd().ToString();                      
+                        //Console.Write(dat);
+                        //System.Threading.Thread.Sleep(5000);
 
-                        xml4.AppendChild(xml4.CreateElement("locals"));
-                        var nodeqq1 = xml4.SelectSingleNode("/locals");
+                        xml55.LoadXml(read1.ReadToEnd().ToString());
 
-
-                        using (TextFieldParser parser = new TextFieldParser(@puttogame.Substring(0, @puttogame.Length - 8) + @"\lang\craft_resources.csv"))
+                        var nade1 = xml55.SelectSingleNode("/root/skills");
+                        for (int i = 0; i < nade1.ChildNodes.Count; i++)
                         {
-                            parser.TextFieldType = FieldType.Delimited;
-                            parser.SetDelimiters("^");
-                            parser.HasFieldsEnclosedInQuotes = true;
-                            while (!parser.EndOfData)
+                            if (nade1.ChildNodes.Item(i).Name == "skill")
                             {
-                                //Processing row
-                                string[] fields = parser.ReadFields();
-                                foreach (string field in fields)
-                                {
-                                    //Console.WriteLine(field.Split(';')[0]);
+                                comboBox23.Items.Add(nade1.ChildNodes.Item(i).Attributes["name"].Value);
+                            }
+                        }
+                        // xml.Load(@"C:\world.xml");
+                    }
+                }
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\
+                string[] path = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\dekovir\\crafttheworld\\saves\\");
+                foreach (var item in path)
+                {
+                    comboBox21.Items.Add(item.Split('\\')[item.Split('\\').Length - 1]);
+                }
 
-                                    if (field.Split(';').Length > 2 & field.Split(';')[0] != "key")
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
+                string line = "";
+                string line1 = "";
+                string rrra = "";
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\
+                if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/tech_locale.csv"))
+                {
+                    using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/tech_locale.csv"))
+                    {
+                        using (StreamReader read1 = r.Open())
+                        {
+                            string[] array = read1.ReadToEnd().Split('\n');
+                            for (int i = 1; i < array.Length; i++)
+                            {
+                                if (array[i].Split(';').Length > 1)
+                                {
+                                    rrra += array[i].Split(';')[0] + ";";
+                                    comboBox8.Items.Add(array[i].Split(';')[1]);
+                                    comboBox7.Items.Add(array[i].Split(';')[0]);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    using (GameFileRead r = new GameFileRead(@puttogame, "Lang/tech_locale.csv"))
+                    {
+                        using (StreamReader read1 = r.Open())
+                        {
+                            string[] array = read1.ReadToEnd().Split('\n');
+                            for (int i = 1; i < array.Length; i++)
+                            {
+                                if (array[i].Split(';').Length > 1)
+                                {
+                                    rrra += array[i].Split(';')[0] + ";";
+                                    comboBox8.Items.Add(array[i].Split(';')[1]);
+                                    comboBox7.Items.Add(array[i].Split(';')[0]);
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\          
+                using (GameFileRead r = new GameFileRead(@puttogame, "data/default_techtree.csv"))
+                {
+                    using (StreamReader read1 = r.Open())
+                    {
+                        string rrr = read1.ReadToEnd().Replace("<", "").Replace("level:2|", "").Replace("level:3|", "").Replace("level:1|", "").Replace(">", "").Replace("|", "").Replace("!", "");
+                        //MessageBox.Show(rrr);
+                        numericUpDown1.Maximum = Convert.ToDecimal(rrr.Split(';').Length - 2);
+                        for (int i = 0; i < rrr.Split(';').Length; i++)
+                        {
+                            for (int ia = 0; ia < rrr.Split(';')[i].Split(',').Length; ia++)
+                            {
+
+                                ////
+                                foreach (var item in rrra.Split(';'))
+                                {
+                                    if (rrr.Split(';')[i].Split(',')[ia] == item)
                                     {
-                                        var tmps = xml4.CreateElement(field.Split(';')[0]);
-                                        tmps.InnerText = field.Split(';')[1];
-                                        nodeqq1.AppendChild(tmps);
-                                        //nodeqq1.AppendChild(xml4.CreateWhitespace("\r\n"));
+                                        // MessageBox.Show(rrr.Split(';')[i].Split(',')[ia]);
+                                        //comboBox7.Items.Add(rrr.Split(';')[i].Split(',')[ia]);
+                                    }
+                                    else
+                                    {
+                                        //;
                                     }
                                 }
+                                if (!rrra.Contains(rrr.Split(';')[i].Split(',')[ia]))
+                                {
+                                    comboBox6.Items.Add(rrr.Split(';')[i].Split(',')[ia]);
+                                }
+                                ////
+                                //comboBox6.Items.Add(rrr.Split(';')[i].Split(',')[ia]);
                             }
                         }
 
-                        //Console.WriteLine(xml4.OuterXml);
-                    }
-                }
-            }
-
-            XmlDocument xml61 = new XmlDocument();
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
-
-            using (GameFileRead r = new GameFileRead(@puttogame, "data/craft_resources.xml"))
-            {
-                using (StreamReader read1 = r.Open())
-                {
-                    //string dat = read.ReadToEnd().ToString();                      
-                    //Console.Write(dat);
-                    //System.Threading.Thread.Sleep(5000);
-
-                    xml61.LoadXml(read1.ReadToEnd().ToString());
-                    // xml.Load(@"C:\world.xml");
-                }
-            }
-
-            var node15 = xml4.SelectSingleNode("/locals");
-
-            for (int i = 1; i < node15.ChildNodes.Count; i++)
-            {
-                //MessageBox.Show(node15.ChildNodes.Item(i).Name);
-
-                //MessageBox.Show(node15.ChildNodes.Item(i).Name.ToString().Substring(node15.ChildNodes.Item(i).Name.Length - 1));
-                if (node15.ChildNodes.Item(i).Name.ToString().Substring(node15.ChildNodes.Item(i).Name.Length - 1) == "T")
-                {
-                    var node2 = xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']");
-                    if (node2 != null)
-                    {
-                        comboBox2.Items.Add(node15.ChildNodes.Item(i).Name.ToString().Substring(0, node15.ChildNodes.Item(i).Name.Length - 1));
-                        /////////////////\\\\\\\\\\\\\\\\                           
-                        comboBox1.Items.Add(xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']").Attributes["name"].Value);
-                        comboBox5.Items.Add(xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']").Attributes["name"].Value);
-                        comboBox25.Items.Add(xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']").Attributes["name"].Value);
-
-                    }
-                }
-                //MessageBox.Show(node1.ChildNodes.Item(i).Name.ToString().Substring(node1.ChildNodes.Item(i).Name.Length - 1));
-                //i++;
-            }
-
-
-            using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/shaman_dialogs.txt"))
-            {
-                using (StreamReader read1 = r.Open())
-                {
-                    line = read1.ReadLine();
-                    richTextBox1.Text = "";
-                    //Continue to read until you reach end of file
-                    while (line != null)
-                    {
-                        //write the lie to console window
-                        //Console.WriteLine(line);
-                        richTextBox1.Text += line + Environment.NewLine;
-                        //Read the next line
-                        line = read1.ReadLine();
-                    }
-
-                    read1.Close();
-                }
-            }
-
-
-
-            using (GameFileRead r = new GameFileRead(@puttogame, "data/char_levels.txt"))
-            {
-                string tmp = "";
-                using (StreamReader read1 = r.Open())
-                {
-
-                    tmp = read1.ReadToEnd().Replace("\r", "");
-
-                }
-                comboBox20.Items.Clear();
-
-                charlvl = tmp + Environment.NewLine;
-
-                string[] temp1 = tmp.Split('\n');
-                foreach (var item in temp1)
-                {
-                    //MessageBox.Show(tmp);
-                    comboBox20.Items.Add(item.Split(' ')[0]);
-                    label35.Text = item.Split(' ')[0];
-                    label36.Text = item.Split(' ')[1];
-                }
-
-            }
-
-            XmlDocument xml1 = new XmlDocument();
-            //xml.PreserveWhitespace = false;
-
-
-            using (GameFileRead r = new GameFileRead(@puttogame, "data/world.xml"))
-            {
-                using (StreamReader read1 = r.Open())
-                {
-                    //string dat = read.ReadToEnd().ToString();                      
-                    //Console.Write(dat);
-                    //System.Threading.Thread.Sleep(5000);
-                    xml1.LoadXml(read1.ReadToEnd().ToString());
-                    // xml.Load(@"C:\world.xml");
-                    read1.Close();
-                }
-            }
-
-
-            var node = xml1.SelectSingleNode("/root/param[@name='ChanceOfBreak']");
-            maskedTextBox1.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='RiseFallTime']");
-            maskedTextBox2.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='HouseTotemRadius']");
-            maskedTextBox3.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='DirectControlSpeedRatio']");
-            textBox8.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='HealtRestoreTime']");
-            maskedTextBox5.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='InvalidTaskLifeTime']");
-            maskedTextBox6.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='DiaryMaxViewQuests']");
-            maskedTextBox7.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='DayTime']");
-            maskedTextBox8.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='NightTime']");
-            maskedTextBox9.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='RespawnWorkerTimeFreq']");
-            maskedTextBox10.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='HouseMinArea']");
-            maskedTextBox11.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='ManaRestoreTime']");
-            maskedTextBox12.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='ChanceNearTreeProcent']");
-            maskedTextBox13.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='AutoSaveTime']");
-            maskedTextBox14.Text = node.Attributes["value"].Value;
-            node = xml1.SelectSingleNode("/root/param[@name='MaxMonoResEat']");
-            maskedTextBox15.Text = node.Attributes["value"].Value;
-
-            //Console.WriteLine("Текущее значение ChanceOfBreak: {0}", node.Attributes["value"].Value);
-            //Console.Write("Введите новое значение: ");
-
-
-            xml1 = null;
-            //System.Threading.Thread.Sleep(5000);
-            XmlDocument xml = new XmlDocument();
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
-
-
-            using (GameFileRead r = new GameFileRead(@puttogame, "data/creatures.xml"))
-            {
-                using (StreamReader read1 = r.Open())
-                {
-                    //string dat = read.ReadToEnd().ToString();                      
-                    //Console.Write(dat);
-                    //System.Threading.Thread.Sleep(5000);
-
-                    xml.LoadXml(read1.ReadToEnd().ToString());
-                    // xml.Load(@"C:\world.xml");
-                }
-            }
-
-
-            var node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/healt");
-            maskedTextBox16.Text = node1.Attributes["value"].Value;
-            node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/satiety");
-            maskedTextBox17.Text = node1.Attributes["value"].Value;
-            node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/walk_speed");
-            maskedTextBox18.Text = node1.Attributes["value"].Value;
-            node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/fall_height");
-            maskedTextBox19.Text = node1.Attributes["value"].Value;
-            node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/capacity");
-            maskedTextBox20.Text = node1.Attributes["value"].Value;
-            node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/attack");
-            textBox7.Text = node1.Attributes["value"].Value;
-            node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/water_die_time");
-            maskedTextBox22.Text = node1.Attributes["value"].Value;
-            node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/climbs_speed");
-            maskedTextBox23.Text = node1.Attributes["value"].Value;
-
-            //Console.WriteLine("Текущее значение ChanceOfBreak: {0}", node.Attributes["value"].Value);
-            //Console.Write("Введите новое значение: ");
-
-            try
-            {
-
-                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/names_female.txt"))
-                {
-                    using (StreamReader read1 = r.Open())
-                    {
-                        //string dat = read.ReadToEnd().ToString();                      
-                        //Console.Write(dat);
-                        //System.Threading.Thread.Sleep(5000);
-                        line = read1.ReadLine();
-                        //Continue to read until you reach end of file
-                        while (line != null)
-                        {
-                            //Read the next line
-
-                            comboBox4.Items.Add(line);
-                            line = read1.ReadLine();
-                        }
-
-                        // xml.Load(@"C:\world.xml");
                     }
                 }
 
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\
-            }
-            finally
-            {
+                XmlDocument xml4 = new XmlDocument();
+                xml4.PreserveWhitespace = true;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
 
-                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/names.txt"))
+                if (Helpers.IsGameFile(@puttogame, "Lang/Russian/data/local/craft_resources.xml"))
+                {
+                    using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/local/craft_resources.xml"))
+                    {
+                        using (StreamReader read1 = r.Open())
+                        {
+                            //string dat = read.ReadToEnd().ToString();                      
+                            //Console.Write(dat);
+                            //System.Threading.Thread.Sleep(5000);
+
+                            xml4.LoadXml(read1.ReadToEnd().ToString());
+                        }
+                    }
+                }
+                else
+                {
+                    using (GameFileRead r = new GameFileRead(@puttogame, "Lang/craft_resources.csv"))
+                    {
+                        using (StreamReader read1 = r.Open())
+                        {
+                            //CSV.CSV csv = CSV.CSV.Parse(read1.ReadToEnd(), true);
+
+                            xml4.AppendChild(xml4.CreateElement("locals"));
+                            var nodeqq1 = xml4.SelectSingleNode("/locals");
+
+
+                            using (TextFieldParser parser = new TextFieldParser(@puttogame.Substring(0, @puttogame.Length - 8) + @"\lang\craft_resources.csv"))
+                            {
+                                parser.TextFieldType = FieldType.Delimited;
+                                parser.SetDelimiters("^");
+                                parser.HasFieldsEnclosedInQuotes = true;
+                                while (!parser.EndOfData)
+                                {
+                                    //Processing row
+                                    string[] fields = parser.ReadFields();
+                                    foreach (string field in fields)
+                                    {
+                                        //Console.WriteLine(field.Split(';')[0]);
+
+                                        if (field.Split(';').Length > 2 & field.Split(';')[0] != "key")
+                                        {
+                                            var tmps = xml4.CreateElement(field.Split(';')[0]);
+                                            tmps.InnerText = field.Split(';')[1];
+                                            nodeqq1.AppendChild(tmps);
+                                            //nodeqq1.AppendChild(xml4.CreateWhitespace("\r\n"));
+                                        }
+                                    }
+                                }
+                            }
+
+                            //Console.WriteLine(xml4.OuterXml);
+                        }
+                    }
+                }
+
+                XmlDocument xml61 = new XmlDocument();
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
+
+                using (GameFileRead r = new GameFileRead(@puttogame, "data/craft_resources.xml"))
                 {
                     using (StreamReader read1 = r.Open())
                     {
@@ -827,22 +625,229 @@ namespace CTW_loader
                         //Console.Write(dat);
                         //System.Threading.Thread.Sleep(5000);
 
-                        line1 = read1.ReadLine();
-
-                        //Continue to read until you reach end of file
-                        while (line1 != null)
-                        {
-                            //Read the next line
-
-                            comboBox3.Items.Add(line1);
-                            line1 = read1.ReadLine();
-                        }
+                        xml61.LoadXml(read1.ReadToEnd().ToString());
                         // xml.Load(@"C:\world.xml");
                     }
                 }
 
-            }
+                var node15 = xml4.SelectSingleNode("/locals");
 
+                for (int i = 1; i < node15.ChildNodes.Count; i++)
+                {
+                    //MessageBox.Show(node15.ChildNodes.Item(i).Name);
+
+                    //MessageBox.Show(node15.ChildNodes.Item(i).Name.ToString().Substring(node15.ChildNodes.Item(i).Name.Length - 1));
+                    if (node15.ChildNodes.Item(i).Name.ToString().Substring(node15.ChildNodes.Item(i).Name.Length - 1) == "T")
+                    {
+                        var node2 = xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']");
+                        if (node2 != null)
+                        {
+                            comboBox2.Items.Add(node15.ChildNodes.Item(i).Name.ToString().Substring(0, node15.ChildNodes.Item(i).Name.Length - 1));
+                            /////////////////\\\\\\\\\\\\\\\\                           
+                            comboBox1.Items.Add(xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']").Attributes["name"].Value);
+                            comboBox5.Items.Add(xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']").Attributes["name"].Value);
+                            comboBox25.Items.Add(xml61.SelectSingleNode("/root/resource[@title='" + "%" + ((node15.ChildNodes.Item(i).Name.ToString())) + "']").Attributes["name"].Value);
+
+                        }
+                    }
+                    //MessageBox.Show(node1.ChildNodes.Item(i).Name.ToString().Substring(node1.ChildNodes.Item(i).Name.Length - 1));
+                    //i++;
+                }
+
+
+                using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/shaman_dialogs.txt"))
+                {
+                    using (StreamReader read1 = r.Open())
+                    {
+                        line = read1.ReadLine();
+                        richTextBox1.Text = "";
+                        //Continue to read until you reach end of file
+                        while (line != null)
+                        {
+                            //write the lie to console window
+                            //Console.WriteLine(line);
+                            richTextBox1.Text += line + Environment.NewLine;
+                            //Read the next line
+                            line = read1.ReadLine();
+                        }
+
+                        read1.Close();
+                    }
+                }
+
+
+
+                using (GameFileRead r = new GameFileRead(@puttogame, "data/char_levels.txt"))
+                {
+                    string tmp = "";
+                    using (StreamReader read1 = r.Open())
+                    {
+
+                        tmp = read1.ReadToEnd().Replace("\r", "");
+
+                    }
+                    comboBox20.Items.Clear();
+
+                    charlvl = tmp + Environment.NewLine;
+
+                    string[] temp1 = tmp.Split('\n');
+                    foreach (var item in temp1)
+                    {
+                        //MessageBox.Show(tmp);
+                        comboBox20.Items.Add(item.Split(' ')[0]);
+                        label35.Text = item.Split(' ')[0];
+                        label36.Text = item.Split(' ')[1];
+                    }
+
+                }
+
+                XmlDocument xml1 = new XmlDocument();
+                //xml.PreserveWhitespace = false;
+
+
+                using (GameFileRead r = new GameFileRead(@puttogame, "data/world.xml"))
+                {
+                    using (StreamReader read1 = r.Open())
+                    {
+                        //string dat = read.ReadToEnd().ToString();                      
+                        //Console.Write(dat);
+                        //System.Threading.Thread.Sleep(5000);
+                        xml1.LoadXml(read1.ReadToEnd().ToString());
+                        // xml.Load(@"C:\world.xml");
+                        read1.Close();
+                    }
+                }
+
+
+                var node = xml1.SelectSingleNode("/root/param[@name='ChanceOfBreak']");
+                maskedTextBox1.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='RiseFallTime']");
+                maskedTextBox2.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='HouseTotemRadius']");
+                maskedTextBox3.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='DirectControlSpeedRatio']");
+                textBox8.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='HealtRestoreTime']");
+                maskedTextBox5.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='InvalidTaskLifeTime']");
+                maskedTextBox6.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='DiaryMaxViewQuests']");
+                maskedTextBox7.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='DayTime']");
+                maskedTextBox8.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='NightTime']");
+                maskedTextBox9.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='RespawnWorkerTimeFreq']");
+                maskedTextBox10.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='HouseMinArea']");
+                maskedTextBox11.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='ManaRestoreTime']");
+                maskedTextBox12.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='ChanceNearTreeProcent']");
+                maskedTextBox13.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='AutoSaveTime']");
+                maskedTextBox14.Text = node.Attributes["value"].Value;
+                node = xml1.SelectSingleNode("/root/param[@name='MaxMonoResEat']");
+                maskedTextBox15.Text = node.Attributes["value"].Value;
+
+                //Console.WriteLine("Текущее значение ChanceOfBreak: {0}", node.Attributes["value"].Value);
+                //Console.Write("Введите новое значение: ");
+
+
+                xml1 = null;
+                //System.Threading.Thread.Sleep(5000);
+                XmlDocument xml = new XmlDocument();
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
+
+
+                using (GameFileRead r = new GameFileRead(@puttogame, "data/creatures.xml"))
+                {
+                    using (StreamReader read1 = r.Open())
+                    {
+                        //string dat = read.ReadToEnd().ToString();                      
+                        //Console.Write(dat);
+                        //System.Threading.Thread.Sleep(5000);
+
+                        xml.LoadXml(read1.ReadToEnd().ToString());
+                        // xml.Load(@"C:\world.xml");
+                    }
+                }
+
+
+                var node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/healt");
+                maskedTextBox16.Text = node1.Attributes["value"].Value;
+                node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/satiety");
+                maskedTextBox17.Text = node1.Attributes["value"].Value;
+                node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/walk_speed");
+                maskedTextBox18.Text = node1.Attributes["value"].Value;
+                node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/fall_height");
+                maskedTextBox19.Text = node1.Attributes["value"].Value;
+                node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/capacity");
+                maskedTextBox20.Text = node1.Attributes["value"].Value;
+                node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/attack");
+                textBox7.Text = node1.Attributes["value"].Value;
+                node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/water_die_time");
+                maskedTextBox22.Text = node1.Attributes["value"].Value;
+                node1 = xml.SelectSingleNode("/root/creature[@name='worker']/params/climbs_speed");
+                maskedTextBox23.Text = node1.Attributes["value"].Value;
+
+                //Console.WriteLine("Текущее значение ChanceOfBreak: {0}", node.Attributes["value"].Value);
+                //Console.Write("Введите новое значение: ");
+
+                try
+                {
+
+                    using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/names_female.txt"))
+                    {
+                        using (StreamReader read1 = r.Open())
+                        {
+                            //string dat = read.ReadToEnd().ToString();                      
+                            //Console.Write(dat);
+                            //System.Threading.Thread.Sleep(5000);
+                            line = read1.ReadLine();
+                            //Continue to read until you reach end of file
+                            while (line != null)
+                            {
+                                //Read the next line
+
+                                comboBox4.Items.Add(line);
+                                line = read1.ReadLine();
+                            }
+
+                            // xml.Load(@"C:\world.xml");
+                        }
+                    }
+
+                    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\\
+                }
+                finally
+                {
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////////\\\\\\\\\
+
+                    using (GameFileRead r = new GameFileRead(@puttogame, "Lang/Russian/data/names.txt"))
+                    {
+                        using (StreamReader read1 = r.Open())
+                        {
+                            //string dat = read.ReadToEnd().ToString();                      
+                            //Console.Write(dat);
+                            //System.Threading.Thread.Sleep(5000);
+
+                            line1 = read1.ReadLine();
+
+                            //Continue to read until you reach end of file
+                            while (line1 != null)
+                            {
+                                //Read the next line
+
+                                comboBox3.Items.Add(line1);
+                                line1 = read1.ReadLine();
+                            }
+                            // xml.Load(@"C:\world.xml");
+                        }
+                    }
+
+                }
+            }
 
         }
 
@@ -3276,7 +3281,7 @@ namespace CTW_loader
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-                        
+
         }
 
         private void maskedTextBox24_Click(object sender, EventArgs e)
@@ -3626,7 +3631,7 @@ namespace CTW_loader
         {
             PictureBox pb = new PictureBox();
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
-            pb.Image = thems.Anim;
+            pb.Image = thems.Anim.Image;
             pb.Location = new Point((sender as Control).Location.X + 10, (sender as Control).Location.Y + 10);
             pb.Size = new Size(133, 97);
             pb.BringToFront();
@@ -3734,7 +3739,7 @@ namespace CTW_loader
             Form fr = new Form();
             Label lb = new Label();
             Button bt = new Button();
-            string[] Texts = { "Found Steam", "Found Not Steam", "Not Found"};
+            string[] Texts = { "Found Steam", "Found Not Steam", "Not Found" };
             int status = 3;
 
             fr.Size = new Size(300, 190);
@@ -3742,7 +3747,8 @@ namespace CTW_loader
             bt.Location = new Point(40, 30);
             lb.Size = new Size(250, 15);
             bt.Text = lng.GetLangText("Exit");
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\Steam\\steamapps\\common\\CraftTheWorld\\CraftWorld.exe")) {
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\Steam\\steamapps\\common\\CraftTheWorld\\CraftWorld.exe"))
+            {
                 lb.Text = Texts[0];
                 status = 1;
             }
@@ -3753,10 +3759,10 @@ namespace CTW_loader
             }
             else
             {
-                lb.Text = Texts[3];
+                lb.Text = Texts[2];
                 status = 3;
             }
-            if(status == 1 || status == 2)
+            if (status == 1 || status == 2)
             {
                 Button bt1 = new Button();
                 bt1.Location = new Point(40, 70);
@@ -3767,7 +3773,7 @@ namespace CTW_loader
             }
             bt.Click += Closes;
             fr.Controls.Add(lb);
-            fr.Controls.Add(bt);           
+            fr.Controls.Add(bt);
             fr.ShowDialog();
         }
         private void IIPTG(object sender, EventArgs e)
@@ -3793,6 +3799,39 @@ namespace CTW_loader
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void обновлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!AutoUpdate.Updater.Cheek())
+            {
+                MessageBox.Show("Новая версия не найдена");
+            }
+        }
+
+        private void списокИзмененийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fr = new Form();
+            RichTextBox lb = new RichTextBox();
+            Button bt = new Button();            
+
+            fr.Size = new Size(500, 300);
+            lb.Location = new Point(5, 5);
+            bt.Location = new Point(40, 220);
+            lb.Size = new Size(450, 200);
+            bt.Text = lng.GetLangText("Exit");
+
+            lb.Text = AutoUpdate.Updater.CurrentVersion.News;
+
+            bt.Click += Closes;
+            fr.Controls.Add(lb);
+            fr.Controls.Add(bt);
+            fr.ShowDialog();
         }
     }
 }

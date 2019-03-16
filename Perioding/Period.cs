@@ -14,12 +14,15 @@ namespace CTW_loader.Perioding
             {
                 RegistryKey currentUserKey = Registry.CurrentUser;
                 RegistryKey helloKey = currentUserKey.OpenSubKey("CTWLoader");
-                if (helloKey != null & helloKey.GetValue("CurMax") != null)
+                if (helloKey != null)
                 {
-                    string login = helloKey.GetValue("CurMax").ToString();
-                    helloKey.Close();
+                    if (helloKey.GetValue("CurMax") != null)
+                    {
+                        string login = helloKey.GetValue("CurMax").ToString();
+                        helloKey.Close();
 
-                    return Convert.ToInt32(login);
+                        return Convert.ToInt32(login);
+                    }
                 }
                 return 10;
             }
@@ -30,12 +33,14 @@ namespace CTW_loader.Perioding
             {
                 RegistryKey currentUserKey = Registry.CurrentUser;
                 RegistryKey helloKey = currentUserKey.OpenSubKey("CTWLoader");
-                if (helloKey != null & helloKey.GetValue("Dat") != null)
+                if (helloKey != null)
                 {
-                    string login = helloKey.GetValue("Dat").ToString();
-                    helloKey.Close();
+                    if (helloKey.GetValue("Dat") != null) {
+                        string login = helloKey.GetValue("Dat").ToString();
+                        helloKey.Close();
 
-                    return DateTime.Parse(login);
+                        return DateTime.Parse(login);
+                    }
                 }
                 return DateTime.Now;
             }

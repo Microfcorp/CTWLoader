@@ -316,6 +316,8 @@ namespace CTW_loader
             this.label86 = new System.Windows.Forms.Label();
             this.comboBox24 = new System.Windows.Forms.ComboBox();
             this.label85 = new System.Windows.Forms.Label();
+            this.обновлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокИзмененийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -610,6 +612,7 @@ namespace CTW_loader
             this.menuStrip1.Size = new System.Drawing.Size(614, 24);
             this.menuStrip1.TabIndex = 33;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // редактированиеToolStripMenuItem
             // 
@@ -824,6 +827,8 @@ namespace CTW_loader
             this.типИгровыхФайловToolStripMenuItem,
             this.toolStripSeparator1,
             this.оПрограммеToolStripMenuItem,
+            this.обновлениеToolStripMenuItem,
+            this.списокИзмененийToolStripMenuItem,
             this.toolStripSeparator2,
             this.перезапуститьToolStripMenuItem,
             this.выходToolStripMenuItem});
@@ -3266,6 +3271,20 @@ namespace CTW_loader
             this.label85.TabIndex = 1;
             this.label85.Text = "Название";
             // 
+            // обновлениеToolStripMenuItem
+            // 
+            this.обновлениеToolStripMenuItem.Name = "обновлениеToolStripMenuItem";
+            this.обновлениеToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.обновлениеToolStripMenuItem.Text = "Обновление";
+            this.обновлениеToolStripMenuItem.Click += new System.EventHandler(this.обновлениеToolStripMenuItem_Click);
+            // 
+            // списокИзмененийToolStripMenuItem
+            // 
+            this.списокИзмененийToolStripMenuItem.Name = "списокИзмененийToolStripMenuItem";
+            this.списокИзмененийToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.списокИзмененийToolStripMenuItem.Text = "Список изменений";
+            this.списокИзмененийToolStripMenuItem.Click += new System.EventHandler(this.списокИзмененийToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3275,8 +3294,6 @@ namespace CTW_loader
             this.Controls.Add(this.label40);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel6);
@@ -3290,6 +3307,8 @@ namespace CTW_loader
             this.Controls.Add(this.panel16);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel11);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -3629,6 +3648,8 @@ namespace CTW_loader
         private System.Windows.Forms.ToolStripMenuItem winterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem пользовательскаяТемаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem автопоискИгрыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem обновлениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокИзмененийToolStripMenuItem;
     }
 }
 

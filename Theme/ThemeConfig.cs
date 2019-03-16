@@ -9,7 +9,7 @@ using System.Text;
 
 namespace CTW_loader.Theme
 {
-    class ThemeConfig
+    public class ThemeConfig
     {
         public String Name
         {
@@ -26,7 +26,7 @@ namespace CTW_loader.Theme
             get;
             private set;
         }
-        public Image Anim
+        public Animations Anim
         {
             get;
             private set;
@@ -75,6 +75,7 @@ namespace CTW_loader.Theme
                     zip[item.Split('|')[3]].Extract(Environment.CurrentDirectory + "\\", ExtractExistingFileAction.OverwriteSilently);
                     StreamReader atr = new StreamReader(Environment.CurrentDirectory + "\\" + item.Split('|')[3]);
                     bg.Image = (Bitmap)Image.FromStream(atr.BaseStream);
+                    bg.ImagePath = item.Split('|')[3];
                     atr.Close();                  
                     zip.Save();
                 }
@@ -86,8 +87,11 @@ namespace CTW_loader.Theme
             {
                 zip[Config["Anim"]].Extract(Environment.CurrentDirectory + "\\Temp\\", ExtractExistingFileAction.OverwriteSilently);
                 Directory.CreateDirectory(Environment.CurrentDirectory + "\\Temp\\");
-                StreamReader atr = new StreamReader(Environment.CurrentDirectory + "\\Temp\\" + Config["Anim"]);            
-                rmp.Anim = Image.FromStream(atr.BaseStream);
+                StreamReader atr = new StreamReader(Environment.CurrentDirectory + "\\Temp\\" + Config["Anim"]);
+                Animations tt = new Animations();
+                tt.Image = Image.FromStream(atr.BaseStream);
+                tt.Path = Config["Anim"];
+                rmp.Anim = tt;
                 //atr.Close();
                 zip.Save();     
             }
@@ -104,37 +108,80 @@ namespace CTW_loader.Theme
         }
     }
 
-    class FileMelody
+    public class FileMelody
     {
         public Music music
         {
             get;
             private set;
         }
+        public string Name
+        {
+            get;
+            private set;
+        }
+        public MelodyType Type
+        {
+            get;
+            private set;
+        }
+        public enum MelodyType
+        {
+            JeengleBels,
+            Elize,
+            StarWars,
+            Thanebaum,
+            Mario,
+            Default = Mario,
+        }
         public void SetName(string name)
         {
+            Name = name;
             switch (name)
             {
                 case "JeengleBels:":
+                    Type = MelodyType.JeengleBels;
                     music = new Musics.JeengleBels();
                     break;
                 case "Elize:":
+                    Type = MelodyType.Elize;
                     music = new Musics.Elize();
                     break;
                 case "StarWars:":
+                    Type = MelodyType.StarWars;
                     music = new Musics.StarWars();
                     break;
                 case "Thanebaum:":
+                    Type = MelodyType.Thanebaum;
                     music = new Musics.Thanebaum();
                     break;
                 case "Mario:":
+                    Type = MelodyType.Mario;
                     music = new Musics.Mario();
+                    break;
+                default:
+                    Type = MelodyType.Default;
+                    music = new Musics.StarWars();
                     break;
             }
         }
     }
 
-    class Background
+    public class Animations
+    {
+        public Image Image
+        {
+            get;
+            internal set;
+        }
+        public string Path
+        {
+            get;
+            internal set;
+        }
+    }
+
+    public class Background
     {
         public Point Point
         {
@@ -147,6 +194,13 @@ namespace CTW_loader.Theme
             get;
             internal set;
         }
+
+        public string ImagePath
+        {
+            get;
+            internal set;
+        }
+
 
         private float ang = 0f;
 

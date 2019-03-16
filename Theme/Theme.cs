@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CTW_loader.Theme
 {
-    class Theme
+    public class Theme
     {
         private Theme(Color c, string N)
         {
