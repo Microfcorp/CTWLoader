@@ -1,15 +1,43 @@
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.exe.config
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.exe
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.pdb
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.csprojResolveAssemblyReference.cache
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.Form1.resources
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.Properties.Resources.resources
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.csproj.GenerateResource.Cache
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.exe
+c:\users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.pdb
+C:\Users\10 измерение\documents\visual studio 2015\Projects\CTW loader\CTW loader\bin\Debug\Ionic.Zip.dll
+C:\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.exe.config
+C:\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.exe
+C:\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.pdb
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.exe.config
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.exe
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.pdb
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.exe
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.pdb
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\Ionic.Zip.dll
-C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.dll
-C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.pdb
-C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.AboutBox1.resources
-C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.EthernetPath.resources
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.Form1.resources
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.Properties.Resources.resources
-C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.SDK.Theme.ThemeSDK.resources
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.csproj.GenerateResource.Cache
-C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.exe
-C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.pdb
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.AboutBox1.resources
 C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.csprojResolveAssemblyReference.cache
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.dll
+C:\Users\Лехап\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.pdb
+C:\Users\10 измерение\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.pdb
+C:\Users\10 измерение\Documents\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.AboutBox1.resources
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.exe.config
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.exe
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.pdb
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.exe
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\CTW loader.pdb
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\Ionic.Zip.dll
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.dll
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\bin\Debug\MicLocalizationSystem.pdb
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.csprojResolveAssemblyReference.cache
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.AboutBox1.resources
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.EthernetPath.resources
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.Form1.resources
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.Properties.Resources.resources
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW_loader.SDK.Theme.ThemeSDK.resources
+C:\Users\Лехап\OneDrive\Документы\Visual Studio 2015\Projects\CTW loader\CTW loader\obj\Debug\CTW loader.csproj.GenerateResource.Cache

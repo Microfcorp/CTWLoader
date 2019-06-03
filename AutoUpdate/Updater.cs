@@ -58,7 +58,10 @@ namespace CTW_loader.AutoUpdate
 
         public static void Update(VersionInfo VI)
         {
-            //Controller.DownloadFile(VI.Path, VI.SizeFile);
+            //Забыл это раскомментировать эту строку
+            Controller.DownloadFile(VI.Path, VI.SizeFile);
+            //А релиз уже выпустил
+
             //Directory.CreateDirectory(Environment.CurrentDirectory + "\\New Version\\");
             //File.Move(VI.Path, Environment.CurrentDirectory + "\\New Version\\CTWLoader.tar.gz");
             Decompress(new FileInfo(Environment.CurrentDirectory + "\\CTWLoader.tar.gz"));

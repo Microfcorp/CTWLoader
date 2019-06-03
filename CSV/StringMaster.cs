@@ -46,7 +46,7 @@ namespace CTW_loader.CSV
             return tmp.ToArray();
         }
         /// <summary>
-        /// Поиск в архиве
+        /// Поиск в массиве
         /// </summary>
         /// <param name="array"></param>
         /// <param name="path"></param>
