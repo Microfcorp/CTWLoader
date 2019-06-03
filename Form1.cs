@@ -598,11 +598,14 @@ namespace CTW_loader
                                     {
                                         //Console.WriteLine(field.Split(';')[0]);
 
-                                        if (field.Split(';').Length > 2 & field.Split(';')[0] != "key")
+                                        if (field.Split(';').Length > 3 & field.Split(';')[0] != "key" )
                                         {
-                                            var tmps = xml4.CreateElement(field.Split(';')[0]);
-                                            tmps.InnerText = field.Split(';')[1];
-                                            nodeqq1.AppendChild(tmps);
+                                            if (field.Split(';')[0] != "" & field.Split(';')[1] != "")
+                                            {
+                                                var tmps = xml4.CreateElement(field.Split(';')[0]);
+                                                tmps.InnerText = field.Split(';')[1];
+                                                nodeqq1.AppendChild(tmps);
+                                            }
                                             //nodeqq1.AppendChild(xml4.CreateWhitespace("\r\n"));
                                         }
                                     }
